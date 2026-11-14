@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>طب الطوارئ الاتصالي المرئي — الشؤون الصحية بوزارة الحرس الوطني | MNGHA Visual Tele-Emergency (25 Slides)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mngha-green: #0f5132;
+      --mngha-emerald: #047857;
+      --mngha-emerald-light: #ecfdf5;
+      --mngha-emerald-border: #6ee7b7;
+      --mngha-gold: #d4af37;
+      --mngha-amber: #f59e0b;
+      --mngha-amber-light: #fffbeb;
+      --mngha-red: #c8102e;
+      --mngha-red-light: #fef2f2;
+      --mngha-red-border: #fca5a5;
+      --mngha-blue: #0369a1;
+      --mngha-blue-light: #f0f9ff;
+      --mngha-navy: #0f172a;
+      --mngha-slate: #334155;
+      --mngha-muted: #64748b;
+      --mngha-border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at 50% 10%, #1e293b 0%, #0f172a 65%, #050811 100%);
+      color: var(--mngha-navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+
+    /* TOP PRESENTER BAR */
+    .topbar {
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(12px);
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0.55rem 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+    }
+
+    .brand-box { display: flex; align-items: center; gap: 0.75rem; }
+
+    .logo-slot-sm {
+      width: 46px; height: 46px; background: #ffffff; border-radius: 11px; padding: 2px;
+      border: 1.5px solid rgba(212, 175, 55, 0.75); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .brand-sub { font-size: 0.72rem; color: #fcd34d; font-weight: 800; }
+    .brand-title { font-size: 0.95rem; font-weight: 900; color: #ffffff; }
+
+    .controls-group { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+
+    .lang-switcher {
+      display: flex; align-items: center; background: rgba(2, 6, 23, 0.9);
+      padding: 0.2rem; border-radius: 9px; border: 1px solid rgba(251, 191, 36, 0.45); gap: 0.2rem;
+    }
+
+    .lang-btn {
+      border: none; background: transparent; color: #e2e8f0; font-size: 0.75rem; font-weight: 800;
+      padding: 0.28rem 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.15s; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.12); }
+    .lang-btn.active { background: #fbbf24; color: #0f172a; font-weight: 900; box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4); }
+
+    .ctrl-btn {
+      border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.1); color: #ffffff;
+      font-size: 0.75rem; font-weight: 800; padding: 0.36rem 0.68rem; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.35rem; transition: all 0.15s; font-family: inherit;
+    }
+    .ctrl-btn:hover { background: rgba(255, 255, 255, 0.2); }
+    .ctrl-btn.gold { background: #fbbf24; color: #0f172a; border-color: #f59e0b; font-weight: 900; }
+    .ctrl-btn.emerald { background: #047857; border-color: #10b981; }
+    .ctrl-btn.red { background: rgba(220, 38, 38, 0.85); border-color: #f87171; }
+
+    .progress-track { width: 100%; height: 5px; background: #020617; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #fbbf24 0%, #10b981 55%, #059669 100%); width: 4%; transition: width 0.28s ease; }
+
+    /* DRAWERS */
+    .drawer-notes { background: #fffbeb; border-bottom: 2px solid #f59e0b; padding: 0.65rem 1.2rem; display: none; }
+    .drawer-notes.open { display: block; }
+
+    .drawer-sorter {
+      background: rgba(15, 23, 42, 0.98); border-bottom: 2px solid #fbbf24; color: #ffffff;
+      padding: 1rem 1.2rem; display: none; max-height: 78vh; overflow-y: auto;
+    }
+    .drawer-sorter.open { display: block; }
+
+    .thumbs-grid {
+      max-width: 1380px; margin: 0.75rem auto 0;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.55rem;
+    }
+
+    .thumb-card {
+      background: rgba(30, 41, 59, 0.9); border: 1px solid #334155; border-radius: 10px;
+      padding: 0.55rem 0.7rem; text-align: inherit; color: #e2e8f0; cursor: pointer;
+      transition: all 0.15s; font-family: inherit; display: flex; flex-direction: column; gap: 0.28rem;
+    }
+    .thumb-card:hover { background: #334155; transform: translateY(-2px); }
+    .thumb-card.active { background: #065f46; border: 2px solid #fbbf24; color: #ffffff; }
+
+    /* MAIN STAGE */
+    .stage-wrap {
+      flex: 1; max-width: 1380px; width: 100%; margin: 0 auto; padding: 0.95rem 1.2rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .ppt-slide-frame {
+      background: #ffffff; border-radius: 22px;
+      box-shadow: 0 30px 85px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      position: relative; overflow: hidden; min-height: 670px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      animation: slideFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ppt-slide-frame::before {
+      content: ""; position: absolute; top: 0; right: 0; left: 0; height: 7px;
+      background: linear-gradient(90deg, #c8102e 0%, #d4af37 35%, #0f5132 75%, #064e3b 100%); z-index: 20;
+    }
+
+    @keyframes slideFadeIn {
+      from { opacity: 0.3; transform: translateY(8px) scale(0.995); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* HEADER */
+    .ppt-header {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border-bottom: 1px solid var(--mngha-border);
+      padding: 0.8rem 1.45rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+
+    .ppt-header-right { display: flex; align-items: center; gap: 0.85rem; }
+
+    .logo-slot-lg {
+      width: 62px; height: 62px; background: #ffffff; border-radius: 14px; padding: 3px;
+      border: 1.5px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .header-titles { border-inline-start: 3.5px solid var(--mngha-green); padding-inline-start: 0.85rem; }
+    .header-org { font-size: 0.75rem; font-weight: 800; color: var(--mngha-emerald); }
+    .header-slide-title { font-size: 1.2rem; font-weight: 900; color: var(--mngha-navy); line-height: 1.25; }
+    .header-slide-sub { font-size: 0.74rem; font-weight: 700; color: var(--mngha-muted); }
+
+    .ppt-header-left { display: flex; align-items: center; gap: 0.55rem; }
+
+    .section-pill {
+      font-size: 0.74rem; font-weight: 800; padding: 0.28rem 0.78rem; border-radius: 999px;
+      background: var(--mngha-emerald-light); color: var(--mngha-green); border: 1px solid var(--mngha-emerald-border);
+    }
+    .section-pill.red { background: var(--mngha-red-light); color: var(--mngha-red); border-color: var(--mngha-red-border); }
+
+    .slide-num-badge {
+      background: var(--mngha-navy); color: #fbbf24; font-weight: 900; font-size: 0.8rem;
+      padding: 0.36rem 0.82rem; border-radius: 11px;
+    }
+
+    /* HELPER BAR */
+    .helper-bar {
+      margin: 0.75rem 1.45rem 0; background: #f8fafc;
+      border-inline-start: 4px solid #f59e0b; border-top: 1px solid #e2e8f0;
+      border-inline-end: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;
+      padding: 0.58rem 0.95rem; border-radius: 12px;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;
+    }
+
+    .helper-text { font-size: 0.86rem; font-weight: 800; color: #1e293b; line-height: 1.5; }
+
+    .source-link-pill {
+      font-size: 0.74rem; font-weight: 800; color: var(--mngha-emerald); text-decoration: none;
+      background: #ecfdf5; border: 1px solid #a7f3d0; padding: 0.24rem 0.62rem; border-radius: 8px; white-space: nowrap;
+    }
+    .source-link-pill:hover { background: #d1fae5; text-decoration: underline; }
+
+    /* BODY */
+    .ppt-body { flex: 1; padding: 0.95rem 1.45rem; display: flex; flex-direction: column; justify-content: center; gap: 0.85rem; }
+
+    /* FOOTER */
+    .ppt-footer {
+      background: #f8fafc; border-top: 1px solid var(--mngha-border); padding: 0.55rem 1.45rem;
+      display: flex; align-items: center; justify-content: space-between; font-size: 0.74rem;
+      color: var(--mngha-muted); font-weight: 700; flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    /* GRIDS & CARDS */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem; }
+    .grid-2-asym { display: grid; grid-template-columns: 1.25fr 0.95fr; gap: 1.1rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+
+    @media (max-width: 980px) {
+      .grid-2, .grid-2-asym, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    .ppt-card {
+      background: #ffffff; border: 1px solid var(--mngha-border); border-radius: 15px;
+      padding: 0.9rem 1.05rem; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); transition: all 0.18s ease;
+    }
+    .ppt-card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(15, 81, 50, 0.1); }
+    .ppt-card.emerald { background: linear-gradient(180deg, #ecfdf5 0%, #ffffff 100%); border: 1.5px solid #34d399; }
+    .ppt-card.red { background: linear-gradient(180deg, #fef2f2 0%, #ffffff 100%); border: 1.5px solid #f87171; }
+    .ppt-card.amber { background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%); border: 1.5px solid #fbbf24; }
+    .ppt-card.sky { background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%); border: 1.5px solid #38bdf8; }
+    .ppt-card.dark { background: linear-gradient(145deg, #064e3b 0%, #0f172a 100%); color: #ffffff; border: 1px solid #047857; }
+
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 12px; display: inline-flex;
+      align-items: center; justify-content: center; font-size: 1.4rem; background: #f1f5f9; flex-shrink: 0;
+    }
+
+    .card-title { font-size: 0.95rem; font-weight: 900; color: var(--mngha-navy); margin-bottom: 0.2rem; }
+    .card-desc { font-size: 0.82rem; color: var(--mngha-slate); line-height: 1.55; }
+
+    .red-flag-note {
+      margin-top: 0.45rem; padding: 0.32rem 0.55rem; background: #fef2f2;
+      border-inline-start: 3px solid #dc2626; border-radius: 6px;
+      font-size: 0.73rem; color: #991b1b; font-weight: 700;
+    }
+
+    .visual-scene-box {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      border: 2px solid #cbd5e1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      position: relative;
+    }
+
+    /* TABLES */
+    .ppt-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--mngha-border); }
+    .ppt-table th { background: var(--mngha-navy); color: #ffffff; padding: 0.65rem 0.85rem; text-align: start; font-weight: 800; }
+    .ppt-table td { padding: 0.58rem 0.85rem; border-bottom: 1px solid var(--mngha-border); line-height: 1.45; text-align: start; }
+    .ppt-table tr:nth-child(even) td { background: #f8fafc; }
+
+    /* BUTTONS */
+    .btn-action {
+      border: none; background: var(--mngha-emerald); color: #ffffff; font-weight: 800; font-size: 0.8rem;
+      padding: 0.5rem 0.9rem; border-radius: 10px; cursor: pointer; transition: all 0.15s; font-family: inherit;
+      display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;
+    }
+    .btn-action:hover { background: var(--mngha-green); }
+    .btn-action.gold { background: #fbbf24; color: #0f172a; }
+    .btn-action.outline { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+
+    /* VIDEO PLAYER */
+    .video-box { background: #0f172a; border-radius: 16px; overflow: hidden; border: 1.5px solid #334155; }
+    .video-box-header {
+      background: #1e293b; padding: 0.6rem 0.95rem; display: flex; justify-content: space-between;
+      align-items: center; color: #ffffff; font-size: 0.78rem; font-weight: 800;
+    }
+    video { width: 100%; max-height: 320px; display: block; background: #000; }
+
+    /* BOTTOM BAR */
+    .bottombar {
+      background: rgba(15, 23, 42, 0.94); backdrop-filter: blur(12px); color: #ffffff;
+      border-top: 1px solid rgba(255, 255, 255, 0.12); position: sticky; bottom: 0; z-index: 90;
+    }
+    .bottombar-inner {
+      max-width: 1380px; margin: 0 auto; padding: 0.5rem 1.1rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+
+    .laser-dot {
+      position: fixed; width: 18px; height: 18px; border-radius: 50%; background: #ef4444;
+      box-shadow: 0 0 14px 5px rgba(239, 68, 68, 0.95), 0 0 28px 10px rgba(239, 68, 68, 0.45);
+      pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); display: none;
+    }
+
+    .toast-box {
+      position: fixed; bottom: 68px; left: 20px; background: #0f172a; color: #ffffff;
+      border: 1.5px solid #10b981; padding: 0.55rem 1rem; border-radius: 12px;
+      font-size: 0.8rem; font-weight: 800; z-index: 9000; display: none; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.65; }
+    }
+    .pulse-circle { animation: pulseDot 1.6s infinite ease-in-out; transform-origin: center; }
+
+    .real-photo-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      cursor: zoom-in;
+      background: #0f172a;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .real-photo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(4, 120, 87, 0.22);
+    }
+    .real-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-caption-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(0deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.55) 70%, transparent 100%);
+      color: #ffffff;
+      padding: 1.1rem 0.85rem 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .photo-lightbox.open { display: flex; }
+    .photo-lightbox img {
+      max-width: 92vw;
+      max-height: 78vh;
+      border-radius: 16px;
+      border: 2px solid #fbbf24;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    }
+
+    @media print {
+      body { background: #ffffff !important; }
+      .topbar, .bottombar, .drawer-notes, .drawer-sorter, .toast-box, .laser-dot { display: none !important; }
+      .ppt-slide-frame { box-shadow: none !important; border: 2px solid #94a3b8 !important; page-break-after: always; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="photoLightbox" class="photo-lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="" />
+    <div id="lightboxCap" style="color:#fde68a; font-size:1rem; font-weight:900; margin-top:0.85rem; text-align:center;"></div>
+    <button type="button" class="btn-action gold" style="margin-top:0.75rem;" onclick="closeLightbox()">✕ إغلاق / Close</button>
+  </div>
+
+  <div id="laserPointerDot" class="laser-dot"></div>
+  <div id="toastBanner" class="toast-box"></div>
+
+  <!-- TOP PRESENTER CONTROL BAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-box">
+        <div class="logo-slot-sm mngha-logo-slot"></div>
+        <div>
+          <div id="uiBrandSub" class="brand-sub">الشؤون الصحية بوزارة الحرس الوطني — مدينة الملك عبدالعزيز الطبية بجدة</div>
+          <div id="uiBrandTitle" class="brand-title">خدمة طب الطوارئ الاتصالي المرئي (25 شريحة)</div>
+        </div>
+      </div>
+
+      <div class="controls-group">
+        <!-- BILINGUAL SLIDE DECK SWITCHER (AR / EN) -->
+        <div class="lang-switcher">
+          <span id="uiLangLabel" style="font-size:0.72rem; padding:0 0.4rem; color:#fde68a; font-weight:800;">🌐 لغة العرض:</span>
+          <button type="button" id="deckLang-ar" class="lang-btn active" onclick="setPresentationLang('ar')">🇸🇦 العربية</button>
+          <button type="button" id="deckLang-en" class="lang-btn" onclick="setPresentationLang('en')">🇬🇧 English</button>
+        </div>
+
+        <button type="button" class="ctrl-btn emerald" onclick="speakCurrentSlide()">
+          <span>🔊</span><span id="uiBtnAudio">صوت</span>
+        </button>
+        <button type="button" class="ctrl-btn" onclick="togglePresenterNotes()">
+          <span>🎙️</span><span id="uiBtnNotes">ملاحظات الإلقاء</span>
+        </button>
+        <button type="button" id="laserToggleBtn" class="ctrl-btn red" onclick="toggleLaserPointer()">
+          <span>🔴</span><span id="uiBtnLaser">ليزر</span>
+        </button>
+        <button type="button" class="ctrl-btn gold" onclick="toggleSlideSorter()">
+          <span>⊞</span><span id="uiBtnSlides">الشرائح (25)</span>
+        </button>
+        <button type="button" class="ctrl-btn" onclick="window.print()">
+          <span>🖨️</span><span id="uiBtnPrint">طباعة</span>
+        </button>
+        <button type="button" class="ctrl-btn" onclick="togglePptFullscreen()" title="Fullscreen">
+          <span>⛶</span>
+        </button>
+      </div>
+    </div>
+    <div class="progress-track">
+      <div id="slideProgressBar" class="progress-fill"></div>
+    </div>
+  </header>
+
+  <!-- SPEAKER NOTES DRAWER -->
+  <div id="presenterNotesPanel" class="drawer-notes">
+    <div style="max-width:1380px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1rem;">
+      <div>
+        <div id="uiNotesHeader" style="font-size:0.74rem; font-weight:900; color:#92400e;">🎙️ ملاحظات المتحدث للشريحة الحالية:</div>
+        <div id="presenterNotesText" style="font-size:0.85rem; font-weight:700; color:#451a03; margin-top:0.15rem;"></div>
+      </div>
+      <button type="button" class="btn-action outline" onclick="togglePresenterNotes()">✕</button>
+    </div>
+  </div>
+
+  <!-- SLIDE SORTER DRAWER -->
+  <div id="slideSorterDrawer" class="drawer-sorter">
+    <div style="max-width:1380px; margin:0 auto; display:flex; align-items:center; justify-content:space-between;">
+      <div id="uiSorterTitle" style="font-size:0.95rem; font-weight:900; color:#fbbf24;">⊞ فهرس شرائح العرض التقديمي (25 شريحة)</div>
+      <button type="button" class="ctrl-btn" onclick="toggleSlideSorter()">✕</button>
+    </div>
+    <div id="pptThumbnailsGrid" class="thumbs-grid"></div>
+  </div>
+
+  <!-- MAIN 16:9 SLIDE STAGE -->
+  <main class="stage-wrap" id="mainStageWrap">
+    <div class="ppt-slide-frame" id="activeSlideFrame">
+      <!-- Master Header -->
+      <div class="ppt-header">
+        <div class="ppt-header-right">
+          <div class="logo-slot-lg mngha-logo-slot"></div>
+          <div class="header-titles">
+            <div id="masterHeaderOrg" class="header-org">وزارة الحرس الوطني - الشؤون الصحية • مدينة الملك عبدالعزيز الطبية بجدة</div>
+            <h2 id="masterSlideTitle" class="header-slide-title">خدمة طب الطوارئ الاتصالي المرئي</h2>
+            <div id="masterSlideSub" class="header-slide-sub">رعاية طبية عاجلة عبر تطبيق «ملفي»</div>
+          </div>
+        </div>
+        <div class="ppt-header-left">
+          <span id="masterSectionPill" class="section-pill">نظرة عامة</span>
+          <span id="masterSlideBadge" class="slide-num-badge">01 / 25</span>
+        </div>
+      </div>
+
+      <!-- Summary Helper Bar -->
+      <div class="helper-bar">
+        <div id="masterHelperText" class="helper-text"></div>
+        <a id="masterSourceLink" href="https://mngha.med.sa/arabic/eservices/pages/request-virtual-emergency.aspx" target="_blank" rel="noopener noreferrer" class="source-link-pill">🔗 المصدر الرسمي (MNGHA) ↗</a>
+      </div>
+
+      <!-- Dynamic Slide Body -->
+      <div id="masterSlideBody" class="ppt-body"></div>
+
+      <!-- Master Footer -->
+      <div class="ppt-footer">
+        <div id="masterFooterBrand">🟢 وزارة الحرس الوطني - الشؤون الصحية — مدينة الملك عبدالعزيز الطبية بجدة • تطبيق «ملفي»</div>
+        <div id="masterFooterCounter">شريحة 1 من 25</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <footer class="bottombar">
+    <div class="bottombar-inner">
+      <button type="button" id="prevSlideBtn" class="ctrl-btn" onclick="prevSlide()">
+        <span id="uiPrevArrow">→</span><span id="uiBtnPrev">الشريحة السابقة</span>
+      </button>
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <span id="bottomSlideCounter" style="font-size:0.88rem; font-weight:900; color:#fbbf24;">شريحة 1 من 25</span>
+        <span id="uiKeyboardHint" style="font-size:0.75rem; color:#94a3b8;">| استخدم الأسهم للتنقل أو زر اللغة بالأعلى للتبديل بين العربية و English</span>
+      </div>
+      <button type="button" id="nextSlideBtn" class="ctrl-btn emerald" onclick="nextSlide()">
+        <span id="uiBtnNext">الشريحة التالية</span><span id="uiNextArrow">←</span>
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    // High-Precision Official MNGHA Emblem SVG (وزارة الحرس الوطني - الشؤون الصحية)
+    var mnghaLogoSvgMarkup = '<svg viewBox="0 0 240 205" style="width:100%;height:100%;" role="img" aria-label="شعار وزارة الحرس الوطني - الشؤون الصحية">' +
+      '<defs><path id="mnghaBannerTextPath" d="M 30,152 Q 120,202 210,152" /></defs>' +
+      '<circle cx="120" cy="88" r="78" fill="#ffffff" stroke="#111111" stroke-width="5"/>' +
+      '<circle cx="120" cy="88" r="71.5" fill="#ffffff" stroke="#111111" stroke-width="2.2"/>' +
+      '<path d="M 136,20 C 82,16 49,50 49,88 C 49,126 82,160 136,156 C 102,148 82,121 82,88 C 82,55 102,28 136,20 Z" fill="#ce1126"/>' +
+      '<circle cx="133" cy="92" r="44" fill="#c7dcf2" stroke="#111111" stroke-width="1.5"/>' +
+      '<circle cx="133" cy="92" r="36" fill="#d4a853" stroke="#111111" stroke-width="1.4"/>' +
+      '<circle cx="133" cy="92" r="26.5" fill="#3b6db3" stroke="#111111" stroke-width="1.4"/>' +
+      '<path d="M 112,48 L 109,32 C 109,26 118,25 123,30 L 133,24 L 143,30 C 148,25 157,26 157,32 L 154,48 Z" fill="#f5de29" stroke="#111111" stroke-width="1.6"/>' +
+      '<path d="M 114,44 L 113,34 C 116,32 120,33 122,36 L 122,44 Z M 144,44 L 144,36 C 146,33 150,32 153,34 L 152,44 Z" fill="#6ea843" stroke="#111111" stroke-width="0.9"/>' +
+      '<rect x="112" y="45" width="42" height="5.5" rx="2" fill="#facc15" stroke="#111111" stroke-width="1.4"/>' +
+      '<circle cx="120" cy="47.7" r="1.4" fill="#ce1126"/><circle cx="133" cy="47.7" r="1.4" fill="#15803d"/><circle cx="146" cy="47.7" r="1.4" fill="#ce1126"/>' +
+      '<path d="M 133,16 L 133,24 M 129.5,19.5 H 136.5" stroke="#111111" stroke-width="1.8" stroke-linecap="round"/>' +
+      '<path d="M 108,49 C 82,65 80,108 106,134 C 115,142 125,145 133,145 C 141,145 151,142 160,134 C 186,108 184,65 158,49" fill="none" stroke="#4d8b31" stroke-width="5.2" stroke-dasharray="7 3" stroke-linecap="round"/>' +
+      '<path d="M 127,142 L 133,153 L 139,142 Z" fill="#ce1126" stroke="#111111" stroke-width="1.2"/>' +
+      '<line x1="101" y1="58" x2="162" y2="127" stroke="#1f2937" stroke-width="3.6" stroke-linecap="round"/>' +
+      '<polygon points="154,118 166,130 161,134 150,122" fill="#9e4716" stroke="#111111" stroke-width="1"/>' +
+      '<path d="M 104,125 C 122,107 144,83 163,58" fill="none" stroke="#ffffff" stroke-width="3.8" stroke-linecap="round"/>' +
+      '<polygon points="94,94 171,94 164,106 101,106" fill="#c89666" stroke="#111111" stroke-width="1.4"/>' +
+      '<rect x="116" y="84" width="30" height="10" rx="2" fill="#d9a773" stroke="#111111" stroke-width="1.3"/>' +
+      '<line x1="92" y1="87" x2="116" y2="88" stroke="#7f5539" stroke-width="2.8" stroke-linecap="round"/>' +
+      '<circle cx="109" cy="108" r="6" fill="#1f2937" stroke="#e5e7eb" stroke-width="1.3"/>' +
+      '<circle cx="125" cy="108" r="6" fill="#1f2937" stroke="#e5e7eb" stroke-width="1.3"/>' +
+      '<circle cx="141" cy="108" r="6" fill="#1f2937" stroke="#e5e7eb" stroke-width="1.3"/>' +
+      '<circle cx="157" cy="108" r="6" fill="#1f2937" stroke="#e5e7eb" stroke-width="1.3"/>' +
+      '<path d="M 105,94 L 122,90 L 122,98 Z M 161,94 L 144,90 L 144,98 Z" fill="#f5de29" stroke="#111111" stroke-width="1.1"/>' +
+      '<circle cx="133" cy="94" r="10.5" fill="#ffffff" stroke="#ca8a04" stroke-width="1.6"/>' +
+      '<path d="M 133,87 V 98 M 128,90 Q 133,85 138,90 M 128,99 L 138,95 M 138,99 L 128,95" stroke="#15803d" stroke-width="1.6" fill="none" stroke-linecap="round"/>' +
+      '<path d="M 14,126 L 32,116 L 40,138 C 84,174 156,174 200,138 L 208,116 L 226,126 L 212,160 C 158,198 82,198 28,160 Z" fill="#ffffff" stroke="#111111" stroke-width="4" stroke-linejoin="round"/>' +
+      '<text font-size="14.5" font-weight="900" fill="#111111" font-family="Tajawal, sans-serif"><textPath href="#mnghaBannerTextPath" startOffset="50%" text-anchor="middle">وزارة الحرس الوطني - الشؤون الصحية</textPath></text>' +
+    '</svg>';
+
+    var URL_REQ_ER = "https://mngha.med.sa/arabic/eservices/pages/request-virtual-emergency.aspx";
+    var URL_REQ_ER_EN = "https://mngha.med.sa/english/eservices/pages/request-virtual-emergency.aspx";
+    var URL_VIRT_BOOK = "https://mngha.med.sa/arabic/eservices/pages/virtual-appointments-booking.aspx";
+    var URL_MED_DELIV = "https://mngha.med.sa/arabic/eservices/pages/proactive-medication-delivery-details.aspx";
+    var URL_PREV_ER = "https://mngha.med.sa/arabic/eservices/pages/emergency-previous-visit-history-details.aspx";
+    var URL_ESERVICES = "https://mngha.med.sa/arabic/eservices/pages/default.aspx";
+    var URL_SLA = "https://mngha.med.sa/arabic/eservices/pages/sla.aspx";
+    var URL_CTAS = "https://mngha.med.sa/arabic/medicalcities/kasch/medicaldep/pedemergmedi/pages/pediatric-emergency-programs.aspx";
+    var URL_ER_DEPT = "https://mngha.med.sa/arabic/medicalcities/almadinah/medicaldepartments/pages/emergencymedicine.aspx";
+    var URL_FIND_LOC = "https://mngha.med.sa/arabic/pages/findlocation.aspx";
+    var URL_MAIN = "https://mngha.med.sa/arabic/pages/default.aspx";
+    var URL_MYGOV = "https://my.gov.sa/ar/services/2187405";
+    var URL_TWEET_1 = "https://x.com/sanggovsa/status/1845815276853485825";
+    var URL_TWEET_2 = "https://x.com/nghanews/status/1644459711939395590";
+    var VIDEO_MP4_1 = "https://video.twimg.com/ext_tw_video/1845815200726794250/pu/vid/avc1/1280x720/hiAqM-_B3IFDmqCc.mp4?tag=12";
+    var VIDEO_MP4_2 = "https://video.twimg.com/ext_tw_video/1644458903537696771/pu/vid/1280x720/nF7z845SHXk03I_r.mp4?tag=12";
+
+    // Preserved Embedded Photographs from User's Attached File
+    var IMG_HERO = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAYABgAAD/4QCARXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAABgAAAAAQAAAGAAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAA4SgAwAEAAAAAQAAAlgAAAAA/+0AOFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/AABEIAlgDhAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFcbHyMnK0tPU1dbX2Nna4+Tl5ufo6ery8/T19vf4+fr/2wBDAAICAgICAgMCAgMEAwMDBAUEBAQEBQcFBQUFBQcIBwcHBwcHCAgICAgICAgKCgoKCgoLCwsLCw0NDQ0NDQ0NDQ3/2wBDAQICAgMDAwYDAwYNCQcJDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ3/3QAEADn/2gAMAwEAAhEDEQA/APbo4wcE1cRFzisBL+P+9VxL1fWvEM3KNtTfjQVbRRWAl6B3q0l6O5pp6C51ub6Be1WUC1z63q5wWqdb3tup3B1Y9ToUK1YQqOa55L0DHNTC8FNSF7SJ0auo4qcSLiuaF7zyanS8B71XMiXUVtzqEkBq3Gw9ga5mO66c1qQTZ+taJ9iuZG4gzVtY81SgbOBWrFjFbRQ7oVIeKnWGp40BFXFiyBWyigbKIiFSiHNXRF1qQIBzVJGTZVWGplixU4UemakCjtVxiJyIVj6ZqZYh19KkAH1qTIA5rSKsLmI9nFHQU4sPWqzSc4qk9SkyUEing8VV8zilEg6VVykzQVh+dWUbIrJWbH41ajlHFaKbQ1NGqre9SbsHg1RWSpN49a25xOReEnFOEmKz/NpfMFHONSLxkIpPN7VR80VGZvSodWxSdy95vbPWozN1qgZqgeep9ugbsXJJ+Kz5rgAHmqc1zt6Vj3F2RWFTEKxm5ss3NyOaxpJwSaqz3RP41mG4ZjXjYnEXHGS2NgSbqeVyPas2F2NaqDcK85y5nqdEXdFZkBqJ481o7B6VG0fJxWsI2G7MyWjpEXB+tXmQc1Wxhq1TEXY8YwKtrz171Si9atrW9OV9CWTAd6cFz160ijJqcAVqkQyIr7Umyp9ooK+lNRBdyHaRSlamxjmlp8qKv0Ido70u0VL+FGKdhaEO0Uu3jNS0gGeKdhkYTNG0VKBSYFCVySEr7V6x4cYLZxH2ry/HpXbaHd+XbBScYrGuvdNqMkpnrNvOAoq19oHrXDx6mAo+elfV1H/LSvjczmo3Olpdzt/tHpVGa66iuPfW1XP7wfnVS41gFN4kr4XH5jTi7McrEPiy5CWrN6V84eJdTPlM3scV6v4n1aOa3MYfOePxrwbXR5mVzwa/EuLcyh9buvI4Ki99pHnVzqc4Ykda5u91C5dyV+Vu3NdHe2TR5dvrXB6nMImbBwfaqy+tUmk4y3JbViC48V6vANrEYU4JrU0nxnfThU4rgLnzri4aJQSp5rotD0lonQnODX2ccGpQUm9zKMk2e3aN4muHI3cCvZ/D+tMQuTzXgFlaGNVKjpXoWj3bIBGOCK83GYFcjudPKz6R07VN2AW4xXa2U+8ZBrwLR9Qk3bWbkV65pFxvjXnNfAUY1IYpwexKlc9FtGLda34l4HNc1p7AkV00PTmv1bh+F43NEOMeKqyRhhWgcdKidVx7199h6KJaOflix/Ssi5i2gmujuEwM+lYl39019HhHytHPVicjJIVkIPSm/atpx61XvG2Sms2S4A6mvqIVGkmjyMQ7Gu143GMCu28NzmUAmvJ3vV7V6L4Lm80A+9erg5N1Fc4sPVvWSuezW4yoq4BVS1HyCr4Feuz6mGkQxxiin4FIR6Vm2XZsryIMYrmr5ME11TDjmufv06moqfCK+pg4IqQCnbKkVK41F3LAdKWpAmDil21sBFUZHGKsbKbtpMCkwNQFTV9kqEpUMpMz3U4qs6Z5rUMec1A0XFZtDujIZMZH61VkjrWeKqkiVhKNjRMw5U61kzp1GK6KWPg1kXCHmuGqjeLOWuoz+tc3dx9a7C6jrmrpOtcM0bJnI3CYJHpWcY8mtu5Tk1mFOax5QK2zsaXbnirO0UbRWqQFIqc0YNWto70bV9KrQD//0ILfxHuIBJAPvXU2es7wPm4r5sstZlkIG6u50/VnUAFufSvlY1X0Plf7Qtoz3BNVX1qymq4Aw1eWQ6kzAc1bGpdMtz7Vp7ct5grbnqMeqAck1aj1IHndXmCake5q1/aoHRqUq/mRHHXdrnpw1Idmp39qd815ourgc54qwuqqwzupe28xPHW6noY1Yk7STWjDqXHWvLotSBbrnNbkGoqcDNU8RbUdHG8zvc9Mtr3eRzXUWc+4ivLtPutxHNd7pz5x3relV5merRm5JXO9tWyB3rbhHTPNc9Y54NdDDjivVou6OyLsjVhGa0EHFUYBWivStiZSFFFFJn3pmdx4p44qLcM9qXdQmJsmyKCeOtQbx601pMCnziTElkxVJpOvNPlPes6SQjOKlz6o0gWTKB3pBOCOtZTyY61F5hxmjnKcjaFxt6mp4rrHesAOT1PSpo5CDQqjuRzHWR3CkZPWpTP3rDikJxVkP61ftmTdml54xnNNa5A71mmTFR+ZUyqvoO7NJroYqo11zVRn4NVXcdq5Z1ZI0jI0TdZ71C9xx3rPyaRn+XmsHXkaJdx0k+azp3J4p7tjmqkrZ6VE6r7kvsVZfaoNvPIqaTNRKM1yzldEJW1LUOM/StqDpWRCpHWtu3x1qYo3TuicqPSq5XHarrcVXkIqy0yi69aqMOavydKouPelzO5eg+P0q6nSqUZwatqa6ICLCA5q0BVdMmrqrx711ogYFoxz0qUrijbiqJuQkDmkxU+32pm0npTW4r66EfPpTh05qTHajj0psd0M2+goCkCpOtLgjihBuRhc0u3npxUoXtS446UJgQhD2q1DefZgQRkfyqICqtwcA5pTjzKwItz6/DEv3iK5688XQR5y5+lYGqSFQRmvM9Zu9oYk4r5fMsvU02ZyqSPVP+E2tN3Lnr61WufHFqEK7/1r5vuNaSFzl+c+tZr67HPMAH9sZr8B41jPCS5oIKdSUna57vdeI31CT923yDpVWQG4Kljk1wekalGwC9c12FteIflHavwbMsc8TW1Z0RhpdiajpnnwEKO3FeD63YXEV2Y5ARg96+loriHblyMV5t4psor6ZzCMPivtuGn7OsoVNU/w8zmr+7qjzCwsQz7hzgCvRdH0tpgMjjtWTotj5chSQZ2nmvTNPt9gG0Yr9Qr+5G0RxSUbosWumMEC+grWtdMkV9w5FWbRCGw30rtNNtgwyV4FeHWrvqbX0KdnYSDDKCK9N0ASLEMk1jxQpjGK6fRYGLbQOM18vVpJ4jnsKyud/pe4YOa62LdgVzmmqEwK6mNhtFff5FhVyJ3NEh240Ek9aCc0xjxX3eFhZaMCtccqawLscE1uTNxXN30uAe1e1QvzHPVZwuqtiWudlJY89K3L7Ly5NZEi5OK+opaQVzxcRG5nPuznoK9Q8AMTke9eYzA5xn8a9O+HnJIP96u7LanNiFc8yirYiJ71aj92KvgVTtvuAe1XlGa+je59fHYMGjBp9FZGiZCw4rFv14NbrCse9AKUnsJswAKkVadjmpFU1ikirgE9adtqUKeuKeEq0kMrFcdKaUweKt7PSkKYHFLlQXKJTNMKGrbLTCnpScQKZT1qNoxVxlphWpcQMp4+apTR9+lbLpmqcqZBrGcS0zAlQAVk3CYziuilTg1k3CdTXn1o2RtF6nK3Kda5q7j612FyhNc3dx9favNqHTE465TGaymXmuguk6msdxg9KzKKwWl2Cp9tLt4zVKIFQoaNjVa20bfaq5AP//Q+VLDUGVlTPI967yyv9yjnBr5+sNQb5Mnt3r07RL4TKq7uR3718Yp2R8TiqErOUT1KLUGVcirCak5I9azLGISAdsa0Ps4QdOvp1qXI+erOqnqy4upSKcU8ahIDuNUNntUqRk88e9YynbYPaybNtbliM5qT7ROCMH61XijO0D1rSit2dRkcUl1MaverctWskxOT3rrIJZDisOFNgOOa1YZCMZqZS1sd+Anrc73SJG3A969S0pyAD6V5LpLncD2r1XSGDDGa9XBo+xwk9j0WxOQK6CEY5NYFgcAV0cXAzXu0VZHoJ6GrE1Wwc9KpRdatpx1rVsiT1FI560mDT8UZNRe4hmKMU7rSY5oC4hGRTDmnnpTDxSauNDGXiqUi8kVeP0qsy5OaSQ7lIrxTSD0qztxnIqPaSaGgepEBUwAxTRxTx9allokQDHNWF6dKrocVZByKEwBuyarN1qwx5NV2wTWc30GiLFRMKsYFMI5rmnoUmRjpjFSAVGBzUygGsW9TSnuQPnGKh5zirbL61BsHUVLG0Q4OcVPGOacEzUiLgVPUXUsrxUvtUajIqTnpW0SkOzzTGHpT8etIa0AruMCm7SasFcijy8c1fMBFGMHFXkqvGMVdQcVvBgx61YHSolGalAxW9yGhScU3dTsetG0CquIbRxTwKbRYL9BhGTSbTUu2jFAXIgpFOWNifapcUqg5ovcdxnlkVC8eTV49KhdTik4hexzGoR5B9q8v1yAEtxXr18hOQK851i2LBsCuSvDTQynqrHyf4x0ZZd7Y65r5d17wyJLhvk4zX3ZrmkNMzYXPNec3vgkXMpYpxntX5pxZhpSlzR6GdKlyvRnxtF4ScyBtmMeldnpng8qVPl/pX0inw7TcCUP5Vs23glYSCU/Svz6eHxVR8vKdScY7s8u0bwr5RUlOlepWOmSQoAFwAK6i00NLUgFMVrfYkwBjFexk3D9SMuedjnqV03ocb9mlc4xgetTW1hK8w44rsV05Qc4qf7OqHIHNfWzyiKVmR9YVrIox6SzRfd7V1Hh3TPLlBIqK3cD5T0rpNMZRICOBmvCxmW01NSRpTrSs0z0fTopI4ht4FbqzyAcmsmxuV8oAnpVtrhOua+xwtRRglFmiV3csSXBx1rHnnOTzSTXagHmsS4vkGcmuivibLUlx1KN/KGBz3rzfWrMSq2B2rtbu9RweelcxczpMDz1r5vF1Pay5Wc9bY8H1nQSWZwhrz1beazuSQpHNe+6pFCVbIHSuAvdMR5CyjrX0mRxdGPLc8mrTtLQqadrE0Sj5iMV6p4S8VyrfRCR+Mgc15Y2kMpOFx9K1dKtZbe7RuRgg19VQqO6szOcbxaZ97eFPEiXMKfPkn3r06K8Ei8Gvh7wp4ne0dI2boR3r6e8N68t5Ch3ZyBX1uBxXMrM9PLseqkeSW6O88zccVIvIzVONwwyDVpD2r10etcdbE7iK0R0rOiP7z8a0R0pPcEFFFFAwooooAKKKKAEPtTSPenUhoAZimkZp9FAiIrxUDCrZqBxzUyQ0UpRxWRcL1rZl6VlTiuOojWJzV2vBrk70YzXaXY4NchejrXmVkdMHoYxOKeCCKjPWpF4rFmiZJSHpS5pG6UwP//R/OpfGVwBhia0bbxZJIwG7rXlLXhU8Hmp7bUSrgbs1+L/AFqa6n56pxufR2k6m9yy5PBr0uwRSoJ6185eGdULyopPBxX0HpVwGiXnpivTwVdyWp105Kx1S2cbLkryaZ9ijzkDmp4Jtyjmpwc9TXtU0mtTqVnsZxtAvIHNPjtCxHFam1SOlTRIo6cVpGC6CcbLUpxWOPvDNacVooH3amQDtVlTxxW0aaEooiFsnbio3tsCrwb1pdwPWrUUUoo564swQciuUv9P3ZwK9KlUMpwa568tw2ciuSvRTWhnOn2PB9V0tpN3y1wN1okm8nFdataiNiMVzcqqT0xXyuMwqbPNrU22chDpJRuR3rejh2R4rR8kA9BSNGNuKxpYRR2Rh7CzucbqFqrqxIryzWLUb2wO9e16hENhrzTWYQCxrOvT0NaasVfhRpK3vjiwDjKrICD9K/Uq1tVtrOOBRgIgX8hX51fs/2H2nxi02M+Shb86/SeT5UCjoBXv8ADlO1HmfU+hyqNoN92c7qRKnZnp/WuRv3/wBSOp3j+ddTqhLSjB6A1yN0xLxgnhWB5+teZi9Wz16S2JLh1juwMcPGf1qnauVtXDHlG6fSpb6TdPG4PRSPyNVYSDHMh/iGR+Vcsn7zN4x0RmSN5WpRSKfvZBz7066QHU4WxgMpFVdSJjktp14w4z75rQuSDc2rjkb8H9KTvqjW3wtdUzE1Y7HBBxgnP06VlaVJt0C6UdIpmx+PNbGtxkSsAOGJrnNMfdpepwqcMGBH5UnvoONuS77o6ORg1nbSqOqlTWeH22cqnoGPPtxUsMnmafbgHlcjFVzlrScfTpSlvoOK90ltm3wwvnIaLHP0qzbNtsGXOSpP86z9McSWEGTkqpU1oWoBiuI+4ORmtYa2M6itf5mJryCSzjc9VkX9axLdNniZWHG6HP5V0GpAtpcpY8oQw+oNYCSBtZtpcY3w4P1qZK0jSGquddORtDYwdpB+uK5bUAF1i0mxgSIUP16iuplI8rkZwxrmdZXbJaXIH3Jhz7E4rWorq5nRfvcpoyki2lIGfLbIriL+UR6iksfSddp9iK7o8pPGehGfyrz3UVC20cpPzRzD8s1lNam1H4rPudXpUxltDGxy0Z/nXIeIrcrObiIfOpDg9+DzXSaK4F3cQ9dwDD8RTdStTJETjlSR+dNrQuEuWZl2F8JolmjYbWGaNSthcwC8twN6fMwHcetcZZTtpWpm0kP+jzt8p/un0r0CykCSNC/KSDIz057U4u5coW1R5r4mshNpcl7AMTW37z6jqR+VePeIL+O8W1miBCMoYE9eR3r6T1iwMbyRkbopQQR2weK+WvElo2kTz6XOC0akvA3qpP3c+1cWJhrc9DA1E9CxpWuSCQbmzjgg8gg16bpOqLGySRtmN+h/pXzzZzgShScE8Y78V3Giambd1t5mwhPyN2B9K4HJrU9mVFPY+kdOuxIoIOWTBGf5fjXSWk+8sD0PIz6V5XpGogbXDfK3De3oa7mwukfaGPXofWumE7q5hOlbQ1NTlRYnUjkjPH9a8y1i9VFdi2MV2eq3A2tk14b4u1MQo5DY4P6VvCpeVkcNWHKrniXjvxObdZCr4IBr5F1jxRdzakWMrEbs4z713vxJ8S7mljR8nmsP4XfCrxJ8UruS6iY2WlQNia7dc7m7pGD95vw4719xgsL7nM3ZLVvsv+HPiswzSNCo5zdkjHtfEFxcMo8w8kd6+ifhvq93JqlrG0hILqOtX9c/ZN1rTLCS/8I6n/aMsS7jBNGI3fHUKwOMnsc1434T1y68M67FFdb4JraYK8bDDKynBBFeLmGIoYmEvYSvbcjD5rh8ZTapSTsfsho92zWkZZucCugWdsA5rzPwRqcWraDaX0RBEsak49cV3ay8daVGo3FNnRGCaNdbn3qdbsDrWKH5607fz1rdVGZtJHQreiplvh3rAEnrTwoPSrjVZnZHSreAjpT/ALWMcVzq5AxmrCkjrWiqsXKrmq11UTXPtVITL3NMMqHqamVRlJJFtrjIqBpsjrVZpE7GmGVR3rFybLTSHPJz1qtJJx1phmT+9UDzpj71Q9S1JERl561C8wx1qCSdM/eFUpbhMcGsXE15kTyTD1rNuJhg802W5Ud6y57pMcGsZQaLUkVbyYYPNcpezAZ5rWu7lCDzXIX1wOea86smbRZSkuhk800XgHeufuLpdx5qut0vrXnyizpUkdT9tX1o+3L61y32pfX9aX7UvrUcrL5kf/9L8jLSyJOTWpMViTaOMDFWIYREuBVG7cAkd6+oqVbux8DCkopy6kFom6XcTgDn8atyyknaPyrP88QxsQeTxSWga4fnODzRKne8nsXTrqKUIbs14E2r5snGeSTUX7y9nwgwucKOwFS3TiKMRr/FwPpVrTYtqGdhyeB9BSpraK2M8RP7b3exJdyrawi3h+8RjP8AWudAJPzcn+daF43m3G0EnnrUNwscShF5bGWPr7VcnzO7HRpqCUVuyqzBFOOpGKqcnnoKncgjPrUJGTz+FZSO2CSL9nMIiR1LDFPubiNhsTqOp9azwCOhxS4GMDrU8zsV7Nc3MPVgPmNPVy5CgYycVFtOBxWhplp9puBu4jT5mPoBRCLbsgrVFCPOzpbeLyIQuBnr07mqNwxwTjnGOKuXN2iYAOeOBWFcXDSscHgdBW1aopvlR5mDoyj+8luRs/BP8AWtXTdLkugJpcxxds9W+gpNF01r6bzpBiGM5Ynv7CupurqKBNi4G0YAHYVlRpK3PPY6cbinaVGjq+/T+uhn3E1vp8OyMBRjGB1P1NcpPO9w5Zifam3Nw9xK0rnOTx9KhUEkAVVWq5abI2wWDjSjzPWT3f9dCWONYx5snA7D1rZ0sNcMWkP7tOT7nsKyoLZ7qYIvQcn6V1KRrCgiiGFXoP61FCk92ZY7EpLkiVNRuWVSinluPpXLSybiVB4rY1KQbwoPCisFVLHjp3rWo7s0wVJRgn3HRxs5wtb9naCMeZJ9egpkFsIk3MMk/pU3mkA47Vm3YdepzaLY6zQ9H1DxFfxabpsRllkONoGQo9SewHevpmPT9B8A6QGn2yXBXBcgbnbsqegz2/M1lfBzR4YNPuPEtyuGmYxRE9kX7xH1PFcR8QPEcmr6u8UbfuLclUHqR1P9K+BzjGSx2N/sujK0I6zf5R/V/cfq3DWTxynK3n2JjeU9KUXtrpzb9NbeSu9bGPreqzXsrXVycyPkKvoO5rhtzeZ5khOR0q9cTGRtx5A6DtWbIS2cDJr6elTjTioQVkj47FYmpiKsq1V3bNKOTIDd67rwnrkdndfZ7xA9tcDZIjDIw3GcV51A2OCMEVoLMUIYHBHII7UsRh1Vg4MMLipUakaifwnsmqaG2hXhhhfzbSQboJD1Knse2R0NY6ySqDtyQOCMZINdL4N12HxNph0PUmH2qFT9nkP8YHO36+lMuNPnsJWjlQo3OQy8cdvY18nTrSozdCtrbZ91/wD7vE4SGKpRxtDS+kl/K+vyez/AMjDSckrvHzKeCRwR/nvVuK63NuDbSDgqTweeefWqU6iNiy8KxJ25yVJ7e+O1UhIQSFOSDnrzivTjaSPnKjcJaHWRTrINzNuxgN0yPcVpwSwghCflJwCDgYPqDXDQTlHDBvl6EEenpW1BcxsCScbuRg5GR147ZrjrYdPY9bB5g42udbDqN1ZSb7W4eNlzgoxBHbpnFdhZ/EbxNbIiC8MiIAAsiK2Qo9cZya8mWbcRlsqTnPcHvn1FWlnZCNjZUcEE5B9xmvIr5bSqfHE+pwfEWJoW9nUaPoGy+MWpqUW9soJQvGUZoycDGc5IzXX2nxi8PSAfa7W6t85JwFkGfTgjivk37UwON3XofX61It86sCXOVORz39a8itwzg5/YsfUYXjrM6VuWrf1Sf6H2pB8TvBN4oR9SFuSSSs8bxnJ7ZIxWjHqnhTWCBDqdjcbhgATRnPXjGQa+HjqDkfM5JPcnPNPS9IOQSDwcjjkVwT4MoPWnNo9qhx9mUVapGMvnH/I+15/C2nThmSFSWycxkEE4wcYOK5K7+HNnIW8mSRGJzhgCMntkc1822viTWLNh9kvriDByNkrLj8jXWWfxQ8a2iqserzOinKrJtkA/76Brgq8J4yP8Oqn8rfqevh/ETAS/jYdp+TT/RHo9z8M70KfIkjlABIDZUnHbI4ya4298F6vZMWktJCoONyDeCfbHNXrf44eNIl2zSW1zkY3SQpnHqNuK6O1+P2tRhReaVZTbeCy74yfU9SK5pZRnVL4bP0a/RnbT4s4brfHzR9Yv8ANTPJ5NMuoC3mRSLgkEFSDwevTiqc0LKcMpGeef6V9JWnx50idSt/orxkkfNBOrcD1DqvX61tJ8WfhvqSqLyCeAnIJmtklBz2zGWxTeOzen/FwzfpeX5XLVDh3EfwsfGP+K0fzsfKPlOOVBODwcEfrUTQycF0YZGc4PNfYEXiT4R6mpLXemIWUDbIDbsAPZwp/Snv4W+GGrIzQ2unTqeN1tPGxAPqEbioli8wW+El9zRrTyjJ5u0cfT+9P8mfGmxlbIXn2HWpUklTAIPB7jNfWN18IvBV0S1tJc2rNkkRurqM9PvAmufuPgZasrfYNadSOMTwh8n1yjLj8qUMNmE9fq7X3f5m1XIsqi7fXov05v0R85C7kjG5SR7fWnretzuHB6Y4xXr958FPEsGfsV1ZXYA4w7RMfoGBH61x998OfGWnKTc6Pcso6tCBMPw2ZNdPscTH4qMvuZ5ssny6btTxUfvX62OYS+IAxnjPfg59zVqPUBgbieec9s1mXGnXtoSt1bTQkHB8yNl5/ECqRBHBGMVrGrJaNHHVymD+Cd/mdPHqMeQWcAeoPf096nTUI3fAcYPqcfnXIgkfSnh2BGOPpW8a7OKpltup2aXSOpAcNnHHX9asLOrYGRz1B4Ix/SuKW4kXGWJx05qyl7Ipzk8ccnPFbRredjilgWtmdeZImO75ecggn37VDIIGBwVweoPcViJfB1+c4Pr34qaO6ifgnGPat44iL3OSpg5rZXLskEDplAAehx/WqT2TD5l+YD0q2sisAytkeo6VMHIO4Hj+dbKSezOWVOUd0YxtpB2xUXlODtIOPpXSh1fggGk8iNgcqOa0TMXfoYaFl45q1HI6kYbjsKvvZRt04NUpLSZPmT5gKLjs0XYr2RcBiSPetSO8Rx8wHPt0rl97ocMCKnjnKnOelJo0jUtsdSGik+6QDTGiB5A6d6yIrtT161pRXSkA5zWbi0dcZxlsMaEjlR1ppDL1H41fEsch4IBpTGDzUmiM4E54bH0p3myLzk8VZNuDyOKhe3fHHNMaY0XMgOW5H1qdbyM9Rg1RMTjpTCrA8jmmPlT3NYSxSDgjmkaNWGazFZlOatR3BGATxQ0TKNtUPNup5FQPanPy1eWVTjPFSgqehzSTaFyqS1MU28qngdKQrIv3h0reIBHSoWiyDxmquTyW2MRXYHg4qcXMi8ZNWnt8nIFQNbN1p3QWb3HC9boalW8B68VTNu45FRmNx1FFkHKjU+1RnrSiWJuOKx8MOKUMw70cocq7myI42PBApy2ik8GsdZ3U8Grsd6RjNKzDlRca0I6c1Cbdxzip0vUPU1YFxGw6ik7lKCKHluOoIpfm9TWl5kbdxR5cfqKXMx+zR/9P8W9V01om8+EZU9cdjWBnHBr0t0DKVYZB4INcPqenm0l3oP3bdPY+lfR1KdndbM+TwuK5lyS3RnRyyRNuQ4NaS3sU6bLpfmHRhWYBnrSEcYFZJtHTKnGW5rCztpxmB8H0NV5dNuo+du4e1UVdkO5SQfatSLVrmP7x3D3rTmi9zF0qsPhdyh5VxH821h74pwurgcFzXRRa3A42zpjPcdKlI0m6OdwUnv0NHsl0Zn9bmn78PmjnFvrgfxZ+oqT+1LvGMj8q2pNFifJglH481nTaTdRZwN4HcdankktmaRrUZbpIqnUboxmLcNp6jFVPMf1qw1pdL1jb8qhaGZfvxkfhU69Tdcq2sR72PBNJuI70hBB5ppB70ihaCSetJRQAUvTrSUdqANG01K5tCNjZUfwnpXTW2q2t4NspCP6GuKBxS5rSNRrRnLVwkKmr0fc7i5soZ1yV5xwRXLXFlPbn5hkepqK21C6tSNjkr6HmuotdUtbwbJQA57HrWvu1NOpy81bD76xOWtrqa2ffGcemehFdpaaxaXiCG7AVjwCeQfrWZe6OrgyW3B67f8ACuZIkicqflZaiSlTd0bR9liY2ejPoD4c6i2keK7N87Y528lvox4/UV0vxk8PtaasmpRLiO5XnHTcP8ACvGPDOrC2vbeecnbFIr5HoDzX1f8S9PXVvB0d/CNzQ7ZQR3Ujn8xXyOfN4fNMPi47S91/ifp/CajjeHMfgJatLnj8rfofGckZBOeKpsMHmtmZNwJxzWXIuK+kTPiHHoQBiOlPDsO9MI5pR1xTMrFiK6mgcSRMVYdCDg109l4w1i1I81xMo7Pya5Kjvms50oT+JXOihi61F3pSa9GezWfxD0iVQt5A0bd2XkfrzW3F4o8LXQJS6CE9m4x+deB4FLiuCplGHl0se5R4tzenop39Un+h9GJLpFyN0N1C3sWAqX+z4nBMZDA9cHNfN2PetCz1bU9PbdZ3MsR/2WI/lXHLIIfYmelT8RMRHStST9G1+p9Avo8bA8YNUpPD6N90A15pB8QfFUIwbvzB6Oqn+lba/FDxIowRbt9Yz/AI1yzyHFL4ZJnrf8RNy6StVoSX3P9UdM/hpD1jBqB/C8JHKY+lZifFbX1+9b2rf8Ab/AOKq2vxZ1jHzWNofwdv/AIqspZLmK2X4o6Icf8N1NJ8y/wC3W/yZIfCkB/hP50w+Erc/wn86mX4uajj5tNtiT/tSD+tT/wDC3L5R82lW5P8A10kH9ah5RmX8v4r/ADNo8b8LP/l61/27P/5EoN4Qg7A/nUZ8IwY43fnWifjBdkfLpFtn0Msp/rSf8Lg1ED5dHtM/70p/rS/snM/5fxX+ZovrPCr2rv/AMBqdvkjJbwjD6tUP/CIwZ+8351tH4w6vjC6TaD3zIf61A3xf1zto9mPxdv61f8AZOaP7P4r/Mh8YcLLbEP/AMBqdvkZbeEbfszfnUZ8J2w/ib860W+LviTtpFjn3En/AMVULfFzxOfu6XYD6pIf/ZqP7IzT+X8V/mH+u3DP/P8A/wDJKn+Rnf8ACKWnrJ+dL/witt2eT8xV1vi34rI40zTx9Ipf/iqrP8WfGB+7Y2C/SGT/AOKqlk2aP7P4r/MX+vPDK/5fP/wCf+RD/wAIrbdpJPzFIfCtv2lkH4ioW+K/jU8La2I/7Yyf/F1E3xV8bkfLbWK/SGT/AOLqv7EzT+X8V/mT/r3w1/z+f/gFT/Isf8IrbD/lrJ+YpP8AhF7XtNKPxFUm+KXjk9IrIf8AbCT/AOLqM/FDx3/D9iX6W7//ABdP+w81/l/Ff5h/r5w3/wA/n/4BU/yNAeF7T/ntN/30KP8AhF7P/ntP/wB9isxvif49P3ZLRfpb5/8AZqjPxN8fHpeQr9Ldf65p/wBhZr/L+K/zF/r7w3/z+f8A4DP/ACNceGLIdZ5/++xS/wDCNWQ6zz/99isQ/Enx8f8Al/jX6W8f9QaT/hY/j0/8xID6QRD/ANlo/sLNf5fxX+Yf6/cOf8/X/wCAz/yN3/hG7H/ntcf99il/4Rux/wCe1x/32K5//hYnjw9dVf8A79xf/E0n/Cw/HXfVpP8Av3H/APE0f2Dmv8v4r/MP9f8Ah3/n7L/wGX+R0f8Awjdj/wA9rn/vsUf8I3Y/89rn/vsVzR8f+Oj11ef8Fj/+JpP+E98cHrrFx/45/wDE0/7AzX+X8V/mT/xEHh3/AJ+y/wDAZf5HS/8ACN2H/Pa5/wC+xSjwxp5/5bXP/fYrmD478bnrrN1+DL/8TTf+E58bHrrV3/32B/Sj/V/Nf5fxX+Yf8RB4e/5+y/8Bl/kdcPDGnf897r/AL+Cnf8ACLab/wA/F3/38WuP/wCE38aH/mN3n/f0f4Un/CbeND/zG7z/AL+n/Cj/AFfzX+X8V/mH/EQeHv8An7L/AMBl/kdkPCumf8/F3/38Wj/hFdL73F5/38WuM/4TXxmTn+27z8ZjR/wmXjI/8xu8/wC/pNH+r2bP7C+9f5i/4iFw9/z9l/4DL/I7UeFdK73F7/38Snf8IppeObm9/wC/iV5zL4p8USnfJrN4SeTmZsfkDiqsniDW5U8uTVLtl7qZ3wfzNH+r2ar7C+9f5kf8RC4f/wCfsn/27L/I9P8A+ET0nrdX3/f1P/iaX/hE9I/5+77/AL+p/wDE15A2qamxyb24P1lb/Gozf3x63Ux/7aN/jVrh3NP5fxX+ZnLxF4fX/L2X/gMv8j2MeE9H/wCfu+/7+p/8TS/8IlpB63l//wB/U/8AiK8Z+23n/PeX/vs/40ovb3/nvL/323+NP/VzNP5fxX+ZP/ERsgerqy/8Bl/kezf8Ijo+f+Py/wD+/qf/ABFIfCWjHre3/wD39j/+Irxlry8PW4lP/Az/AI0z7Xd/895f++2/xo/1czT+X8V/mP8A4iPkP/P2X/gMv8j2f/hEdF/5/r//AL+x/wDxFIfCOi9r7UP+/sf/AMRXjP2u77zy/wDfbf40fa7o9Z5f++2/xp/6t5p/L+K/zF/xEjIf+fsv/AZf5Hs3/CIaN/z/AN//AN/Y/wD4ij/hENG/5/8AUf8Av7H/APEV4z9puv8AnvL/AN9t/jR9ouf+e0n/AH2f8af+rea/y/iv8w/4iRkP/P2X/gL/AMj/1PyL0+zN3P5eflHLH2/+vXcxxxW8QRAFRR+lZmkWotbUOR88nJPoO1V9XvPKT7PGfncc/T/9dfTVG6s+RbI+CoU1haHtpbvf/Iz9VvfPl8mM/In6n1rEzk4FGSTSZrpirKx5lSq6knJkySyRnKMRV6PU7qPrhscZIrMB5qeORVOD09aTimEZyjszdj1sAYkTJ9R0q1HrNs3D5X8M1zpRW5U4PpUYjcngGs3RizpWMrLfU7GPU7RjgP19atC4gcbdwIPY1wuxgcdCOx4NSxyTIdysRjvWbw66M3jmU18SO2MMLj7oOfaqkmnWsgPy7SemOKxItWuYvvfOPftWpFrVu2BKCp/MVk6VSOqZ1U8ZhqmjVmUpdGkGTbyBvarui6I9/egXQKwx8vz19vrWrFeWsw+SRfwPNXra4SAlw2M/jWFTFVfZyi93selhMpwqxMJrWMWm+zsdXcX9nY24gtECIgwFHSuLurx5nLsfyqK91JDuKnLHoPSuba6kkbGcmscHgnFc0tzfNs4VaXs6Pwr8f8AgGv9sOcCp0vSOhrBRiTz19asBiOhr0nTPm1WaN5b5uATmrAuUcciuZ8wg8VMlwy8ZrN0jZYi+5tyKjAnHNUpIARkVFFdZ4Y1cVw4yDWdmjeMlLYx2iIOCKhKbeRW08QYcCqUluxPAqkxp22KIPPNPBxTpIXTpUOCDzV3Gncm3mlEpFV8mkyaVguy2Zie9RlyTzUOTS5pWC7JCaaW7U3dSZzTsO4ucGkJzSUUwCiiigBc0UlFAC5ozSUUAOzRmkooAXNLmm0UAOzRmkooAXNGaSigBc0ZoooAXNGaSigBc0UmaKAuLmjNJRQAuTS5ptFADs0ZptFADs0ZpKKAFzRmkooAXNGaSigBc0ZpKKAFzSZoooAXNGaSigBc0ZpKKAFzRmkooAXNGaSigBc0ZpKKAFzRmm80tAXP/1fytvpDHarCnGcKPoK5J3LsWbqTk1qand+dNsQ/InA9z3rH619JSjyxufB4yt7SpZbIUGlBwaZ0pRWhx3LCtg5FWdwYVSBqUNgYpMpMtpIVOD0q1kOMGs3d3p6ysvQ1DRopF54FbkcGoGtmHI5pUn7NVpJQR1pao0vGW5R2OvanqxXrWiGVuopjQhuRxTuS4W2K6zMDwavR3pHDc1SaJh0qI5XrRYSlKLOgS6jcYJwasK2eVORXMB8d6nS4dOhyKhwN41+50YbHWs28dQODzUAvTjkVSlmMnWiMLMc6ya0ISSTmlBwaZmlrY5SyrZFTK2OlUQxFSrJjrSaLUrl8SZGDTg4HSqW8Uu8d6mxpfsXPMzSGQiqvmAUhkosLmLJkJphkIqvvNG407Bcsb6N9V9xo3GpsO5Y3+9N3n1qDdRupsVybf70b6g3GjcaLBcm30b6h3GjcaLBcm30u/wB6g3GjcaLBcnbkZFRbqTdSbqdhNjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLjs0ZpuaM0WC47NGabmjNFguOzRmm5ozRYLn/9b8fSc0lFFfTn56FFFFABRRRQAU4MRTaKAJVlKnip1uCOtUqKTRSk0aa3IPBp/mI3esrOKcHIqXE0VS+5qmJD0qJrdT0qmtyw61YjuwSAwpcrtc0UovRkT27L05qAgjg1tKyuMg5pj26P2waSqdylSvsYYOKkEhFXHtGHK81TkhdOoq7pmbi1uPEpHSpVuCOtU844NGRSsLmZoi5B608SqfasrOKcrkUcorl/zB60hkHrVTeTSZJp2HzFvfRvFVc0ZNFh3LW8Ub6q5NGTRYLlrfR5lVc0ZNFguW99G8VVzRk0WC5a3ijfxVXNGTRYLlrfR5lVc0ZNFhXLW/3o31VzRk0WC5a3+9G/3qrmjJosFy1v96TfVXNGTRYLlrfR5lVc0ZNFguWt/vRv96q5oyaLBctb6N9Vc0ZNFguWt/vSb6q5oyaLBctb6N9Vc0ZNFguWt9G/3qrmjJosFy1v96TfVXNGTRYLlrfR5lVc0ZNFguWt/vRv96q5oyaLBctb6TfVXNGTRYLlrfR5lVc0ZNFguWt/vRv96q5oyaLBctb/AHpN9Vc0ZNFguWt9HmVVzRk0WC5a30b/AHqrmjJosFy1v96TfVXNGTRYLlrfR5lVc0ZNFguWt/vRvqrmjJosFy1vo8yquaMmiwXLW/3o3+9Vc0ZNFguWt9G+quaMmiwXP//Z";
+
+    function openLightbox(src, caption) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCap').textContent = caption;
+      document.getElementById('photoLightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('photoLightbox').classList.remove('open');
+    }
+
+    var currentSlide = 0;
+    var deckLang = 'ar';
+    var laserActive = false;
+    var selectedTriageIdx = 0;
+    var currentPdfStep = 0;
+    var currentVideoTab = 0;
+    var quizAnswers = {};
+
+    function tx(ar, en) {
+      return (deckLang === 'en') ? en : ar;
+    }
+
+    // INTERACTIVE SVG ILLUSTRATION 1: HERO TELE-EMERGENCY DOCTOR & PATIENT VIDEO CALL
+    function getHeroDoctorIllustrationSvg() {
+      var lblCenter = tx("مركز الطب الاتصالي المرئي (24/7)", "Visual Telemedicine Center (24/7)");
+      var lblPatient = tx("المريض في منزله (تطبيق ملفي)", "Patient at Home (Malffi App)");
+      var lblLive = tx("اتصال مرئي مباشر ومجاني", "Free Live Video Call");
+      var lblRx = tx("وصفة دواء + إجازة مرضية", "Prescription + Sick Leave");
+
+      return '<svg viewBox="0 0 520 320" style="width:100%; height:auto; display:block;">' +
+        '<defs>' +
+          '<linearGradient id="bgGradHero" x1="0" y1="0" x2="1" y2="1">' +
+            '<stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#0f172a"/>' +
+          '</linearGradient>' +
+          '<linearGradient id="screenGlow" x1="0" y1="0" x2="0" y2="1">' +
+            '<stop offset="0%" stop-color="#ecfdf5"/><stop offset="100%" stop-color="#d1fae5"/>' +
+          '</linearGradient>' +
+        '</defs>' +
+        '<rect width="520" height="320" rx="18" fill="url(#bgGradHero)"/>' +
+        '<circle cx="460" cy="60" r="85" fill="rgba(16,185,129,0.08)"/>' +
+        '<circle cx="60" cy="260" r="95" fill="rgba(251,191,36,0.06)"/>' +
+        '<rect x="150" y="12" width="220" height="28" rx="14" fill="rgba(6,95,70,0.9)" stroke="#34d399" stroke-width="1.5"/>' +
+        '<circle cx="170" cy="26" r="5" fill="#ef4444" class="pulse-circle"/>' +
+        '<text x="268" y="31" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff" font-family="Tajawal, sans-serif">' + lblLive + '</text>' +
+        '<rect x="22" y="50" width="225" height="215" rx="16" fill="url(#screenGlow)" stroke="#10b981" stroke-width="2.5"/>' +
+        '<rect x="34" y="60" width="201" height="24" rx="6" fill="#065f46"/>' +
+        '<text x="134" y="76" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fde68a" font-family="Tajawal, sans-serif">' + lblCenter + '</text>' +
+        '<circle cx="134" cy="138" r="34" fill="#fde68a" stroke="#047857" stroke-width="2"/>' +
+        '<path d="M 110,124 C 110,104 158,104 158,124" fill="#1e293b"/>' +
+        '<circle cx="124" cy="136" r="3" fill="#0f172a"/><circle cx="144" cy="136" r="3" fill="#0f172a"/>' +
+        '<path d="M 124,148 Q 134,156 144,148" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<path d="M 84,225 C 84,185 184,185 184,225 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>' +
+        '<polygon points="118,182 134,218 150,182" fill="#047857"/>' +
+        '<path d="M 112,182 C 112,206 156,206 156,182" fill="none" stroke="#0f172a" stroke-width="3.5"/>' +
+        '<circle cx="152" cy="206" r="6" fill="#fbbf24" stroke="#0f172a" stroke-width="1.5"/>' +
+        '<circle cx="110" cy="246" r="10" fill="#10b981"/><text x="110" y="250" text-anchor="middle" font-size="10" fill="#fff">📹</text>' +
+        '<circle cx="134" cy="246" r="10" fill="#0284c7"/><text x="134" y="250" text-anchor="middle" font-size="10" fill="#fff">🎙️</text>' +
+        '<circle cx="158" cy="246" r="10" fill="#ef4444"/><text x="158" y="250" text-anchor="middle" font-size="10" fill="#fff">📞</text>' +
+        '<path d="M 252,158 L 278,158" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5 4"/>' +
+        '<circle cx="265" cy="158" r="7" fill="#fbbf24" class="pulse-circle"/>' +
+        '<rect x="282" y="50" width="216" height="215" rx="16" fill="#ffffff" stroke="#fbbf24" stroke-width="2.5"/>' +
+        '<rect x="294" y="60" width="192" height="24" rx="6" fill="#1e293b"/>' +
+        '<text x="390" y="76" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fde68a" font-family="Tajawal, sans-serif">' + lblPatient + '</text>' +
+        '<rect x="315" y="92" width="82" height="136" rx="12" fill="#0f172a" stroke="#475569" stroke-width="3"/>' +
+        '<rect x="321" y="102" width="70" height="112" rx="6" fill="#ecfdf5"/>' +
+        '<circle cx="356" cy="140" r="15" fill="#fde68a" stroke="#047857" stroke-width="1.5"/>' +
+        '<path d="M 336,176 C 336,158 376,158 376,176 Z" fill="#047857"/>' +
+        '<rect x="331" y="188" width="50" height="16" rx="8" fill="#10b981"/>' +
+        '<text x="356" y="199" text-anchor="middle" font-size="8.5" font-weight="900" fill="#ffffff">Malffi</text>' +
+        '<rect x="410" y="100" width="74" height="36" rx="8" fill="#ecfdf5" stroke="#6ee7b7"/>' +
+        '<text x="447" y="117" text-anchor="middle" font-size="14">💊</text>' +
+        '<text x="447" y="131" text-anchor="middle" font-size="8.5" font-weight="800" fill="#065f46">Wasel</text>' +
+        '<rect x="410" y="144" width="74" height="36" rx="8" fill="#f0f9ff" stroke="#7dd3fc"/>' +
+        '<text x="447" y="161" text-anchor="middle" font-size="14">📄</text>' +
+        '<text x="447" y="175" text-anchor="middle" font-size="8.5" font-weight="800" fill="#0369a1">PDF Report</text>' +
+        '<rect x="410" y="188" width="74" height="36" rx="8" fill="#fffbeb" stroke="#fde68a"/>' +
+        '<text x="447" y="205" text-anchor="middle" font-size="14">🧭</text>' +
+        '<text x="447" y="219" text-anchor="middle" font-size="8.5" font-weight="800" fill="#92400e">ER Triage</text>' +
+        '<text x="390" y="252" text-anchor="middle" font-size="11" font-weight="900" fill="#047857" font-family="Tajawal, sans-serif">' + lblRx + '</text>' +
+        '<rect x="22" y="274" width="476" height="34" rx="10" fill="rgba(255,255,255,0.1)"/>' +
+        '<text x="260" y="295" text-anchor="middle" font-size="11.5" font-weight="800" fill="#fde68a" font-family="Tajawal, sans-serif">' +
+          tx("الشرط الوحيد: وجود ملف طبي ساري لدى الشؤون الصحية بوزارة الحرس الوطني", "Requirement: Active medical file at MNGHA hospitals or health centers") +
+        '</text>' +
+      '</svg>';
+    }
+
+    // INTERACTIVE SVG ILLUSTRATION 2: CROWDED ER WAITING ROOM VS COMFORTABLE HOME CARE
+    function getCrowdedErVsHomeSvg() {
+      var titleLeft = tx("❌ صالة انتظار الطوارئ (حالات باردة 4 و 5)", "❌ Crowded ER Waiting Room (Cold Cases 4 & 5)");
+      var subLeft1 = tx("• ساعات انتظار طويلة خلف الحالات الحرجة", "• Hours of waiting behind critical patients");
+      var titleRight = tx("✅ طب الطوارئ الاتصالي من منزلك (تطبيق ملفي)", "✅ Tele-Emergency from Home (Malffi App)");
+      var subRight1 = tx("• كشف مرئي فوري مع طبيب الطوارئ في دقائق", "• Instant video checkup with ER doctor in minutes");
+
+      return '<svg viewBox="0 0 820 195" style="width:100%; height:auto; display:block;">' +
+        '<rect x="8" y="6" width="392" height="182" rx="14" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>' +
+        '<rect x="20" y="14" width="368" height="26" rx="7" fill="#dc2626"/>' +
+        '<text x="204" y="31" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff" font-family="Tajawal, sans-serif">' + titleLeft + '</text>' +
+        '<circle cx="65" cy="82" r="22" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>' +
+        '<line x1="65" y1="82" x2="65" y2="68" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<line x1="65" y1="82" x2="78" y2="82" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<text x="65" y="118" text-anchor="middle" font-size="10.5" font-weight="900" fill="#991b1b">' + tx("انتظار 4+ ساعات", "4+ Hours Wait") + '</text>' +
+        '<g transform="translate(120, 50)">' +
+          '<rect x="0" y="46" width="245" height="7" rx="3.5" fill="#94a3b8"/>' +
+          '<circle cx="25" cy="18" r="10" fill="#64748b"/><path d="M 10,46 C 10,30 40,30 40,46 Z" fill="#475569"/>' +
+          '<circle cx="70" cy="18" r="10" fill="#64748b"/><path d="M 55,46 C 55,30 85,30 85,46 Z" fill="#334155"/>' +
+          '<circle cx="115" cy="18" r="10" fill="#dc2626"/><path d="M 100,46 C 100,30 130,30 130,46 Z" fill="#b91c1c"/>' +
+          '<circle cx="160" cy="18" r="10" fill="#64748b"/><path d="M 145,46 C 145,30 175,30 175,46 Z" fill="#475569"/>' +
+          '<circle cx="205" cy="18" r="10" fill="#64748b"/><path d="M 190,46 C 190,30 220,30 220,46 Z" fill="#334155"/>' +
+          '<circle cx="135" cy="12" r="3" fill="#ef4444" class="pulse-circle"/>' +
+          '<text x="122" y="68" text-anchor="middle" font-size="10.5" font-weight="800" fill="#b91c1c">' + tx("ازدحام صالة الانتظار بمرضى الزكام والحالات البسيطة", "Crowded lobby with cold & mild symptoms") + '</text>' +
+        '</g>' +
+        '<rect x="22" y="138" width="364" height="38" rx="8" fill="#ffffff" stroke="#fca5a5"/>' +
+        '<text x="204" y="162" text-anchor="middle" font-size="11.5" font-weight="800" fill="#7f1d1d" font-family="Tajawal, sans-serif">' + subLeft1 + '</text>' +
+        '<rect x="420" y="6" width="392" height="182" rx="14" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>' +
+        '<rect x="432" y="14" width="368" height="26" rx="7" fill="#047857"/>' +
+        '<text x="616" y="31" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff" font-family="Tajawal, sans-serif">' + titleRight + '</text>' +
+        '<circle cx="480" cy="82" r="22" fill="#ffffff" stroke="#10b981" stroke-width="2.5"/>' +
+        '<text x="480" y="89" text-anchor="middle" font-size="16">⚡</text>' +
+        '<text x="480" y="118" text-anchor="middle" font-size="10.5" font-weight="900" fill="#065f46">' + tx("فوري (دقائق)", "Instant (Minutes)") + '</text>' +
+        '<g transform="translate(540, 50)">' +
+          '<rect x="10" y="30" width="115" height="24" rx="7" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>' +
+          '<circle cx="52" cy="16" r="10" fill="#047857"/>' +
+          '<path d="M 36,46 C 36,30 68,30 68,46 Z" fill="#065f46"/>' +
+          '<rect x="82" y="8" width="26" height="38" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="2"/>' +
+          '<circle cx="95" cy="22" r="5" fill="#fde68a"/>' +
+          '<rect x="145" y="10" width="66" height="42" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>' +
+          '<text x="178" y="35" text-anchor="middle" font-size="16">🚚💊</text>' +
+          '<text x="115" y="68" text-anchor="middle" font-size="10.5" font-weight="800" fill="#065f46">' + tx("راحة تامة بالمنزل + توصيل الدواء عبر «واصل»", "Complete comfort at home + Wasel med delivery") + '</text>' +
+        '</g>' +
+        '<rect x="434" y="138" width="364" height="38" rx="8" fill="#ffffff" stroke="#6ee7b7"/>' +
+        '<text x="616" y="162" text-anchor="middle" font-size="11.5" font-weight="800" fill="#065f46" font-family="Tajawal, sans-serif">' + subRight1 + '</text>' +
+      '</svg>';
+    }
+
+    function cardGrid(items, variant) {
+      var h = '<div class="grid-2">';
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i];
+        var cls = variant === 'red' ? 'ppt-card red' : 'ppt-card emerald';
+        h += '<div class="' + cls + '">' +
+          '<div style="display:flex; align-items:flex-start; gap:0.8rem;">' +
+            '<div class="card-icon">' + it.icon + '</div>' +
+            '<div style="flex:1;">' +
+              '<div class="card-title">' + tx(it.titleAr, it.titleEn) + '</div>' +
+              '<div class="card-desc">' + tx(it.descAr, it.descEn) + '</div>' +
+              (it.noteAr ? '<div class="red-flag-note">⚠️ ' + tx(it.noteAr, it.noteEn) + '</div>' : '') +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }
+      h += '</div>';
+      return h;
+    }
+
+    var slidesData = [
+      // SLIDE 01: الواجهة الرئيسية مع الصورة الفوتوغرافية المدمجة IMG_HERO
+      {
+        sectionAr: "01 • الواجهة الرئيسية",
+        sectionEn: "01 • Cover & Overview",
+        titleAr: "خدمة طب الطوارئ الاتصالي المرئي والعيادات الافتراضية",
+        titleEn: "Visual Tele-Emergency Medicine & Virtual Clinics Service",
+        subAr: "رعاية طبية عاجلة عبر تطبيق «ملفي» — الشؤون الصحية بوزارة الحرس الوطني",
+        subEn: "Urgent Medical Care via the Malffi App — Ministry of National Guard Health Affairs",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تقدم هذه الشريحة الافتتاحية خدمة طب الطوارئ الاتصالي المرئي عبر تطبيق ملفي (MNGHA Care) مع صورة حقيقية للاستشارة المرئية المباشرة من المنزل.",
+        notesEn: "Introduces Visual Tele-Emergency Medicine via the Malffi App, featuring a real photograph of a live video consultation from home.",
+        helperAr: "تعب بسيط أو حالة غير خطيرة؟ افتح تطبيق «ملفي» في جوالك 👈 تحدث مع طبيب الطوارئ بالصوت والصورة فوراً ومجاناً 👈 يصلك العلاج وإجازتك المرضية دون الذهاب لزحام الطوارئ!",
+        helperEn: "Have a mild illness? Open the 'Malffi' App 👈 Speak with an ER doctor on video immediately for free 👈 Get your treatment and sick leave without waiting in a crowded ER!",
+        render: function() {
+          return '<div class="grid-2-asym" style="align-items:center;">' +
+            '<div style="display:flex; flex-direction:column; gap:0.8rem;">' +
+              '<div style="display:flex; flex-wrap:wrap; gap:0.45rem;">' +
+                '<span class="section-pill">🏥 ' + tx("تطبيق «ملفي» (MNGHA Care)", "Malffi App (MNGHA Care)") + '</span>' +
+                '<span class="section-pill" style="background:#fffbeb; color:#92400e; border-color:#fcd34d;">⏱️ ' + tx("متاحة 24 ساعة / 7 أيام • مجاناً", "Available 24/7 • 100% Free") + '</span>' +
+              '</div>' +
+              '<h3 style="font-size:1.68rem; font-weight:900; line-height:1.3; color:#0f172a;">' +
+                tx("رعاية طبية عاجلة من جوالك.. <span style='color:#047857;'>دون عناء الانتظار في قسم الطوارئ</span>",
+                   "Urgent Medical Care on Your Phone.. <span style='color:#047857;'>Without Waiting in the Emergency Room</span>") +
+              '</h3>' +
+              '<p style="font-size:0.88rem; color:#334155; line-height:1.65;">' +
+                tx("تتيح خدمة <strong>طب الطوارئ الاتصالي المرئي</strong> في الشؤون الصحية بوزارة الحرس الوطني للمراجعين الحصول على كشف طبي فوري ومجاني عبر الفيديو للحالات البسيطة (المستوى 4 و 5)، مع صرف الأدوية وشحنها عبر «واصل»، وإصدار الإجازة المرضية عند الحاجة، أو توجيه المريض لزيارة الطوارئ الفعلي إذا استدعت حالته ذلك.",
+                   "The <strong>Visual Tele-Emergency</strong> service by MNGHA allows patients to receive immediate, free video medical care for mild conditions (Levels 4 & 5)—including prescriptions, free Wasel delivery, official sick leave when needed, and direct guidance to visit the physical ER if required.") +
+              '</p>' +
+              '<div class="grid-4">' +
+                '<div class="ppt-card emerald" style="text-align:center; padding:0.7rem;"><div style="font-size:1.4rem;">⚡</div><div style="font-weight:900; font-size:0.8rem;">' + tx("تنفيذ فوري", "Immediate") + '</div><div style="font-size:0.68rem; color:#475569;">' + tx("فيديو مباشر", "Live Video") + '</div></div>' +
+                '<div class="ppt-card emerald" style="text-align:center; padding:0.7rem;"><div style="font-size:1.4rem;">🆓</div><div style="font-weight:900; font-size:0.8rem;">' + tx("مجاناً 100%", "100% Free") + '</div><div style="font-size:0.68rem; color:#475569;">' + tx("إطلاق 21/4/2024", "Launched 21/4/2024") + '</div></div>' +
+                '<div class="ppt-card emerald" style="text-align:center; padding:0.7rem;"><div style="font-size:1.4rem;">📄</div><div style="font-weight:900; font-size:0.8rem;">' + tx("إجازة مرضية", "Sick Leave") + '</div><div style="font-size:0.68rem; color:#475569;">' + tx("معتمدة وإلكترونية", "Official Digital") + '</div></div>' +
+                '<div class="ppt-card emerald" style="text-align:center; padding:0.7rem;"><div style="font-size:1.4rem;">🚚</div><div style="font-weight:900; font-size:0.8rem;">' + tx("توصيل الدواء", "Med Delivery") + '</div><div style="font-size:0.68rem; color:#475569;">' + tx("مجاناً عبر واصل", "Free via Wasel") + '</div></div>' +
+              '</div>' +
+              '<div style="display:flex; flex-wrap:wrap; gap:0.5rem;">' +
+                '<button class="btn-action" onclick="goToSlide(3)">🖼️ ' + tx("شاهد صورة مقارنة انتظار الطوارئ ←", "See ER Waiting Comparison →") + '</button>' +
+                '<button class="btn-action gold" onclick="goToSlide(16)">📱 ' + tx("خطوات طلب الخدمة المصورة", "5-Step Visual App Guide") + '</button>' +
+                '<button class="btn-action outline" onclick="goToSlide(19)">🎥 ' + tx("فيديوهات الخدمة", "Official Videos") + '</button>' +
+              '</div>' +
+            '</div>' +
+            '<div class="real-photo-card" style="height:335px;" onclick="openLightbox(IMG_HERO, tx(\'استشارة طبية مرئية مباشرة عبر الجوال من المنزل\', \'Live video medical consultation from home\'))">' +
+              '<img src="' + IMG_HERO + '" alt="Telemedicine Video Call" />' +
+              '<div class="photo-caption-bar">' +
+                '<span>📹 ' + tx("استشارة مرئية مباشرة من المنزل (اضغط للتكبير)", "Live Video Consultation from Home (Click to Zoom)") + '</span>' +
+                '<span style="background:#10b981; padding:0.2rem 0.55rem; border-radius:999px; font-size:0.72rem;">🔍</span>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 02: ما هو طب الطوارئ الاتصالي؟ + الرسم التفاعلي لمركز القيادة والمريض
+      {
+        sectionAr: "02 • المفهوم والأهمية والدور",
+        sectionEn: "02 • Concept, Importance & Role",
+        titleAr: "ما هو طب الطوارئ الاتصالي؟ وما أهميته ودوره؟",
+        titleEn: "What Is Tele-Emergency? Its Importance and Role",
+        subAr: "فهم واضح ومبسط للخدمة وفوائدها للمريض والمستشفى",
+        subEn: "A Clear Overview of the Service and Its Benefits for Patients and Hospitals",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تشرح هذه الشريحة بلغة سهلة ما هو طب الطوارئ الاتصالي، وأهميته في توفير الوقت ومنع العدوى، ودوره في تقليل الزحام، مع الرسم التفاعلي لآلية الربط المباشر.",
+        notesEn: "Explains in simple terms what Tele-Emergency is, why it is important for saving time and preventing infection, and its role in reducing ER crowding.",
+        helperAr: "الخدمة عبارة عن مقابلة طبيب طوارئ عبر كاميرا الجوال لعلاج الحالات البسيطة بسرعة وأمان، وترك غرف الطوارئ في المستشفى للحالات الخطيرة.",
+        helperEn: "This service lets you see an ER doctor on your phone camera for mild illnesses—saving your time and keeping hospital ER beds free for critical emergencies.",
+        render: function() {
+          return '<div class="grid-2-asym" style="align-items:center;">' +
+            '<div style="display:flex; flex-direction:column; gap:0.7rem;">' +
+              '<div class="ppt-card emerald">' +
+                '<div class="card-title">📱 ' + tx("ما هو طب الطوارئ الاتصالي المرئي؟", "What Is Visual Tele-Emergency?") + '</div>' +
+                '<div class="card-desc">' +
+                  tx("هو خدمة طبية عاجلة عبر الإنترنت، تتيح للمراجع التحدث مباشرة (بالصوت والصورة) مع طبيب طوارئ عبر تطبيق «ملفي» على الجوال، حيث يستمع الطبيب لشكواك، ويعاين الأعراض الظاهرة عبر الكاميرا، ويطلع على ملفك الطبي لتقديم التشخيص والعلاج المناسب فوراً.",
+                     "An urgent online medical service connecting you directly by video and voice with an ER doctor through the Malffi app to evaluate symptoms, review your file, and prescribe treatment immediately.") +
+                '</div>' +
+              '</div>' +
+              '<div class="ppt-card sky">' +
+                '<div class="card-title">⏱️ ' + tx("أهميتها: توفير وقتك وجهدك وحمايتك من العدوى", "Importance: Saving Time & Preventing Infection") + '</div>' +
+                '<div class="card-desc">' + tx("بدلاً من القيادة والزحام والانتظار لساعات طويلة في صالة الطوارئ، تتلقى الرعاية الطبية في دقائق وأنت في مكانك دون مخالطة مرضى آخرين.", "Instead of driving, parking, and waiting for hours in the ER lobby, you get medical care in minutes from home without catching infections from other patients.") + '</div>' +
+              '</div>' +
+              '<div class="ppt-card amber">' +
+                '<div class="card-title">🏥 ' + tx("دورها: تخفيف الزحام وإنقاذ الحالات الحرجة", "Role: Reducing Crowding & Saving Lives") + '</div>' +
+                '<div class="card-desc">' + tx("عندما تُعالج الحالات البسيطة عن بُعد، يتفرغ أطباء وأسرّة الطوارئ في المستشفى لإنقاذ الحالات الخطيرة مثل الجلطات والحوادث وضيق التنفس الشديد.", "When mild cases are treated remotely, hospital ER doctors and beds stay ready for life-threatening emergencies like heart attacks, strokes, and severe accidents.") + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="visual-scene-box">' + getHeroDoctorIllustrationSvg() + '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 03: بداية طب الطوارئ الاتصالي في الشؤون الصحية وتحديداً جدة
+      {
+        sectionAr: "03 • البداية في الشؤون الصحية وجدة",
+        sectionEn: "03 • Launch in MNGHA & Jeddah",
+        titleAr: "لمحة عن بداية طب الطوارئ الاتصالي في الشؤون الصحية بالحرس الوطني وجدة",
+        titleEn: "How Tele-Emergency Started at MNGHA and in Jeddah",
+        subAr: "ريادة وطنية في الرعاية الافتراضية لخدمة المراجعين في مدينة الملك عبدالعزيز الطبية بجدة",
+        subEn: "Pioneering Virtual Emergency Care Serving Patients at King Abdulaziz Medical City - Jeddah",
+        sourceUrlAr: URL_TWEET_2,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "توضح هذه الشريحة أن الشؤون الصحية بالحرس الوطني هي أول من أدخل الطب الاتصالي لأقسام الطوارئ في المملكة، مع التركيز على مدينة الملك عبدالعزيز الطبية بجدة.",
+        notesEn: "Highlights that MNGHA was the first in Saudi Arabia to include Emergency Departments in Visual Telemedicine, serving Jeddah and the Western Region.",
+        helperAr: "الشؤون الصحية بوزارة الحرس الوطني هي أول جهة في المملكة طبّقت الطب الاتصالي المرئي في أقسام الطوارئ، وتعمل مدينة الملك عبدالعزيز الطبية بجدة كمركز رئيسي لخدمة القطاع الغربي.",
+        helperEn: "MNGHA was the first in Saudi Arabia to launch Visual Telemedicine in Emergency Departments, with King Abdulaziz Medical City in Jeddah serving the Western Region.",
+        render: function() {
+          return '<div class="grid-2-asym" style="align-items:center;">' +
+            '<div style="display:flex; flex-direction:column; gap:0.8rem;">' +
+              '<div style="display:flex; gap:0.5rem; flex-wrap:wrap;">' +
+                '<span class="section-pill">🇸🇦 ' + tx("أول جهة في المملكة في طوارئ الطب الاتصالي", "First in Saudi Arabia for ER Telemedicine") + '</span>' +
+                '<span class="section-pill" style="background:#fffbeb; color:#92400e; border-color:#fcd34d;">📍 ' + tx("قطاع جدة", "Jeddah Sector") + '</span>' +
+              '</div>' +
+              '<div class="ppt-card emerald">' +
+                '<div class="card-title">' + tx("🏛️ محطات التطور في الشؤون الصحية بالحرس الوطني:", "🏛️ Key Milestones at MNGHA:") + '</div>' +
+                '<div class="card-desc" style="margin-top:0.4rem; line-height:1.7;">' +
+                  tx("• <strong>1982م (1402هـ):</strong> افتتاح مستشفى الملك خالد بجدة، والذي توسع ليصبح اليوم <strong>مدينة الملك عبدالعزيز الطبية بجدة</strong> ومستشفى الملك عبدالله التخصصي للأطفال.<br/>• <strong>2016م:</strong> تأسيس إدارة الأداء السريري والابتكار لتطوير خدمات الرعاية الصحية عن بُعد.<br/>• <strong>برنامج الطب الاتصالي المرئي:</strong> أطلقت الشؤون الصحية أول برنامج متكامل يشمل <strong>أقسام الطوارئ (لأول مرة في المملكة)</strong> إلى جانب العيادات الأولية والتخصصية.<br/>• <strong>21 أبريل 2024م:</strong> الإطلاق الرسمي لخدمة «طلب طب الطوارئ الاتصالي» عبر تطبيق «ملفي».<br/>• <strong>2026م:</strong> إطلاق التوصيل الاستباقي للأدوية (01-01-2026) وتكريم مؤتمر ليب 2026 لدمج الخدمات في تطبيق «توكلنا».",
+                     "• <strong>1982:</strong> Opening of King Khalid Hospital in Jeddah, now <strong>King Abdulaziz Medical City - Jeddah</strong> and the Specialized Children's Hospital.<br/>• <strong>2016:</strong> Establishing Clinical Performance & Innovation to advance telehealth.<br/>• <strong>Visual Telemedicine Program:</strong> MNGHA launched the Kingdom's first program covering <strong>Emergency Departments</strong>.<br/>• <strong>21 April 2024:</strong> Official launch of 'Request Virtual Emergency' on Malffi.<br/>• <strong>2026:</strong> Proactive Medication Delivery (01-01-2026) and LEAP 2026 recognition for Tawakkalna integration.") +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="ppt-card sky" style="display:flex; flex-direction:column; gap:0.6rem;">' +
+              '<div class="card-title">🏥 ' + tx("منشآت جدة المرتبطة بالخدمة:", "Jeddah Facilities Connected to the Service:") + '</div>' +
+              '<div style="font-size:0.82rem; line-height:1.6; color:#1e293b;">' +
+                '<div style="background:#ffffff; padding:0.55rem 0.75rem; border-radius:8px; border:1px solid #bae6fd; margin-bottom:0.45rem;"><strong>1. ' + tx("مدينة الملك عبدالعزيز الطبية بجدة:", "King Abdulaziz Medical City - Jeddah:") + '</strong><br/>' + tx("تعمل على مدار 24 ساعة لاستقبال الطوارئ وتقديم الرعاية الاتصالية (هاتف: 0122266666).", "Open 24/7 for emergency care and virtual emergency support (Tel: +966-12-2266666).") + '</div>' +
+                '<div style="background:#ffffff; padding:0.55rem 0.75rem; border-radius:8px; border:1px solid #bae6fd; margin-bottom:0.45rem;"><strong>2. ' + tx("مستشفى الملك عبدالله التخصصي للأطفال بجدة:", "King Abdullah Specialized Children's Hospital - Jeddah:") + '</strong><br/>' + tx("رعاية متخصصة لحالات وطوارئ الأطفال.", "Specialized medical and emergency care for children.") + '</div>' +
+                '<div style="background:#ffffff; padding:0.55rem 0.75rem; border-radius:8px; border:1px solid #bae6fd;"><strong>3. ' + tx("المراكز الصحية التابعة للحرس الوطني:", "Affiliated MNGHA Primary Health Centers:") + '</strong><br/>' + tx("مترابطة إلكترونياً في نفس الملف الطبي الموحد للمريض.", "Digitally connected through the same unified patient medical record.") + '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 04: مقارنة مصورة فوتوغرافياً (IMG_CROWDED مقابل IMG_HERO) + الرسم التفاعلي
+      {
+        sectionAr: "04 • مشكلة الزحام والحالات الباردة",
+        sectionEn: "04 • ER Crowding & Cold Cases",
+        titleAr: "لماذا يزدحم قسم الطوارئ؟ مقارنة مرئية بين صالة الانتظار والطب الاتصالي",
+        titleEn: "Why Is the ER Crowded? Visual Comparison: Waiting Room vs. Tele-Emergency",
+        subAr: "أكثر من 60% من زيارات الطوارئ هي حالات باردة (CTAS 4 & 5) يمكن علاجها من المنزل",
+        subEn: "Over 60% of Physical ER Visits Are Cold Cases (CTAS 4 & 5) Best Treated from Home",
+        sourceUrlAr: URL_CTAS,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تعرض هذه الشريحة الصورتين الفوتوغرافيتين المدمجتين مع الرسم التوضيحي للمقارنة بين معاناة الانتظار في الطوارئ والراحة عبر تطبيق ملفي.",
+        notesEn: "Displays both real photographs and the visual comparison diagram contrasting the crowded ER waiting room against comfortable home care via Malffi.",
+        helperAr: "انظر للفرق الواضح: الذهاب للطوارئ بحالة بسيطة (مستوى 4 أو 5) يعني ساعات انتظار طويلة، بينما تطبيق «ملفي» يعالجك فوراً وأنت في منزلك!",
+        helperEn: "See the difference: visiting the ER for a mild case (Level 4 or 5) means hours of waiting, while the Malffi app treats you right away at home!",
+        render: function() {
+          return '<div style="display:flex; flex-direction:column; gap:0.7rem;">' +
+            '<div class="grid-2">' +
+              '<div class="ppt-card red" style="padding:0.65rem; display:flex; flex-direction:column; gap:0.45rem;">' +
+                '<div class="real-photo-card" style="height:175px; border-color:#f87171;" onclick="openLightbox(IMG_CROWDED, tx(\'الازدحام والانتظار الطويل في قسم الطوارئ\', \'Crowding and long waits in the Hospital ER\'))">' +
+                  '<img src="' + IMG_CROWDED + '" alt="Crowded ER" />' +
+                  '<div class="photo-caption-bar">' +
+                    '<span>❌ ' + tx("الازدحام والانتظار في الطوارئ (اضغط للتكبير)", "Crowded ER Waiting (Click to Zoom)") + '</span>' +
+                    '<span>🔍</span>' +
+                  '</div>' +
+                '</div>' +
+                '<div style="font-size:0.79rem; font-weight:800; color:#991b1b;">' +
+                  tx("• انتظار لساعات طويلة للحالات الباردة (المستوى 4 و 5) لأن الأولوية للحالات الخطيرة + احتمالية انتقال العدوى.",
+                     "• Hours of waiting for Cold Cases (Levels 4 & 5) behind critical patients + higher risk of catching germs.") +
+                '</div>' +
+              '</div>' +
+              '<div class="ppt-card emerald" style="padding:0.65rem; display:flex; flex-direction:column; gap:0.45rem;">' +
+                '<div class="real-photo-card" style="height:175px; border-color:#34d399;" onclick="openLightbox(IMG_HERO, tx(\'كشف طبي فوري ومريح عبر تطبيق ملفي من المنزل\', \'Fast, comfortable video checkup via Malffi from home\'))">' +
+                  '<img src="' + IMG_HERO + '" alt="Home Tele-Emergency" />' +
+                  '<div class="photo-caption-bar">' +
+                    '<span>✅ ' + tx("طب الطوارئ الاتصالي من منزلك (اضغط للتكبير)", "Tele-Emergency from Home (Click to Zoom)") + '</span>' +
+                    '<span>🔍</span>' +
+                  '</div>' +
+                '</div>' +
+                '<div style="font-size:0.79rem; font-weight:800; color:#065f46;">' +
+                  tx("• كشف طبي فوري بالصوت والصورة خلال دقائق عبر تطبيق «ملفي» + وصفة دواء وإجازة مرضية وتوصيل مجاني.",
+                     "• Instant video medical checkup within minutes via Malffi + prescription, sick leave, and free delivery.") +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="visual-scene-box">' + getCrowdedErVsHomeSvg() + '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 05: الإحصائيات وتوزيع زيارات الطوارئ (+60% حالات باردة)
+      {
+        sectionAr: "05 • إحصائيات زيارات الطوارئ",
+        sectionEn: "05 • ER Visit Statistics",
+        titleAr: "تحليل واقع زيارات أقسام الطوارئ (+60% حالات بسيطة غير عاجلة)",
+        titleEn: "Emergency Department Visit Breakdown (+60% Non-Urgent Simple Cases)",
+        subAr: "بيانات برامج طوارئ الرعاية الحرجة والفرز الكندي (CTAS) في الشؤون الصحية",
+        subEn: "Data from MNGHA Emergency Care & Canadian Triage (CTAS) Programs",
+        sourceUrlAr: URL_CTAS,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "توضح الإحصائيات الرسمية أن أكثر من 60% من مراجعي الطوارئ هم من المستويين 4 و5.",
+        notesEn: "Official statistics show that over 60% of physical ER visits fall under CTAS Levels 4 and 5.",
+        helperAr: "أكثر من 60% من المراجعين الذين يحضرون لقسم الطوارئ لديهم أعراض بسيطة (المستوى 4 و5) يمكن علاجها بالكامل عبر العيادة الافتراضية!",
+        helperEn: "Over 60% of physical ER visits are simple Level 4 & 5 cases that can be treated faster and more comfortably via the Virtual Clinic!",
+        render: function() {
+          return '<div class="grid-2" style="align-items:center;">' +
+            '<div class="ppt-card" style="text-align:center;">' +
+              '<div class="card-title">📊 ' + tx("التوزيع الإحصائي لمراجعي أقسام الطوارئ حسب الحدة المرضية", "Statistical Breakdown of ER Visits by Acuity Level") + '</div>' +
+              '<svg viewBox="0 0 420 200" style="width:100%; max-width:420px; height:auto; margin-top:0.4rem;">' +
+                '<rect x="15" y="20" width="235" height="34" rx="8" fill="#047857"/>' +
+                '<text x="260" y="42" font-size="12.5" font-weight="900" fill="#047857">' + tx("+60% حالات بسيطة (المستوى 4 و 5)", "+60% Simple Cases (CTAS 4 & 5)") + '</text>' +
+                '<rect x="15" y="72" width="120" height="34" rx="8" fill="#f59e0b"/>' +
+                '<text x="145" y="94" font-size="12.5" font-weight="900" fill="#b45309">' + tx("~30% حالات حادة (المستوى 3)", "~30% Acute Cases (CTAS 3)") + '</text>' +
+                '<rect x="15" y="124" width="42" height="34" rx="8" fill="#dc2626"/>' +
+                '<text x="67" y="146" font-size="12.5" font-weight="900" fill="#dc2626">' + tx("5% - 10% حالات حرجة وإنعاش (1 و 2)", "5%–10% Critical / Resuscitation (1 & 2)") + '</text>' +
+                '<text x="210" y="185" text-anchor="middle" font-size="10.5" font-weight="700" fill="#64748b">' + tx("المصدر: برامج طوارئ الرعاية الحرجة والفرز الكندي (CTAS) — الشؤون الصحية بالحرس الوطني", "Source: MNGHA Critical Care & Canadian Triage (CTAS) Programs") + '</text>' +
+              '</svg>' +
+            '</div>' +
+            '<div style="display:flex; flex-direction:column; gap:0.7rem;">' +
+              '<div class="ppt-card emerald"><div class="card-title">🟢 ' + tx("المستوى 4 و 5 (+60% من الزيارات): حالات باردة غير عاجلة", "Levels 4 & 5 (+60% of Visits): Non-Urgent Cold Cases") + '</div><div class="card-desc">' + tx("تشمل الزكام، التهاب الحلق، الحرارة الخفيفة، الطفح الجلدي البسيط، وإعادة صرف الأدوية — المسار الأمثل لها هو طب الطوارئ الاتصالي المرئي.", "Includes colds, sore throat, mild fever, minor rashes, and refills—best treated via Visual Tele-Emergency.") + '</div></div>' +
+              '<div class="ppt-card amber"><div class="card-title">🟡 ' + tx("المستوى 3 (~30% من الزيارات): حالات الرعاية الحادة", "Level 3 (~30% of Visits): Acute Care Cases") + '</div><div class="card-desc">' + tx("حالات تتطلب تحاليل دم، أشعة، أو محاليل وريدية داخل منطقة التقييم والعناية الحادة بالمستشفى (هدف التقييم: خلال 25 دقيقة).", "Cases requiring blood tests, imaging, or IV fluids in the hospital acute care zone (target assessment: within 25 minutes).") + '</div></div>' +
+              '<div class="ppt-card red"><div class="card-title">🔴 ' + tx("المستوى 1 و 2 (5% إلى 10%): حالات الإنعاش والحالات الحرجة", "Levels 1 & 2 (5% to 10%): Resuscitation & Critical Cases") + '</div><div class="card-desc">' + tx("حالات مهددة للحياة (توقف القلب، ألم الصدر الحاد، ضيق التنفس الشديد، الحوادث البليغة) لها الأولوية القصوى والفورية في الطوارئ.", "Life-threatening emergencies (cardiac arrest, acute chest pain, severe dyspnea, major trauma) receive immediate priority in the ER.") + '</div></div>' +
+            '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 06: جدول الفرز الكندي (CTAS 1 - 5)
+      {
+        sectionAr: "06 • مستويات الفرز الكندي CTAS",
+        sectionEn: "06 • CTAS Triage Levels",
+        titleAr: "كيف يُرتب المرضى في الطوارئ؟ (مستويات الفرز الكندي من 1 إلى 5)",
+        titleEn: "How Patients Are Prioritized in the ER (CTAS Levels 1 to 5)",
+        subAr: "فهم الفرق بين الحالات الحرجة (1–3) والحالات الباردة (4–5)",
+        subEn: "Understanding Critical Cases (Levels 1–3) vs. Cold Cases (Levels 4–5)",
+        sourceUrlAr: URL_ER_DEPT,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "جدول واضح وسهل القراءة يوضح مستويات الفرز الخمسة في طوارئ الحرس الوطني.",
+        notesEn: "A clear, easy-to-read table explaining the 5 triage levels used in MNGHA Emergency Departments.",
+        helperAr: "المستوى 1 و 2 و 3 مكانها قسم الطوارئ في المستشفى، أما المستوى 4 و 5 (الحالات الباردة) فمكانها الأفضل هو طب الطوارئ الاتصالي.",
+        helperEn: "Levels 1, 2, and 3 belong in the Hospital ER. Levels 4 and 5 (Cold Cases) are best handled by Visual Tele-Emergency.",
+        render: function() {
+          return '<table class="ppt-table">' +
+            '<thead><tr>' +
+              '<th>' + tx("المستوى (CTAS)", "CTAS Level") + '</th>' +
+              '<th>' + tx("درجة الحالة", "Urgency") + '</th>' +
+              '<th>' + tx("أمثلة واضحة", "Clear Examples") + '</th>' +
+              '<th>' + tx("المكان الصحيح للعلاج", "Right Place for Care") + '</th>' +
+            '</tr></thead>' +
+            '<tbody>' +
+              '<tr><td><strong style="color:#b91c1c;">CTAS 1</strong></td><td>' + tx("إنعاش فوري (مهددة للحياة)", "Resuscitation (Life-Threatening)") + '</td><td>' + tx("توقف القلب أو التنفس، فقدان الوعي الكامل، صدمة شديدة", "Stopped heart or breathing, complete unconsciousness, severe shock") + '</td><td><strong>🔴 ' + tx("طوارئ المستشفى فوراً", "Hospital ER Immediately") + '</strong></td></tr>' +
+              '<tr><td><strong style="color:#c2410c;">CTAS 2</strong></td><td>' + tx("حالة حرجة جداً", "Very Urgent / Critical") + '</td><td>' + tx("ألم شديد بالصدر، ضيق تنفس حاد، جلطة، نزيف قوي", "Severe chest pain, severe trouble breathing, stroke signs, heavy bleeding") + '</td><td><strong>🔴 ' + tx("طوارئ المستشفى فوراً (تخطيط قلب خلال 10 دقائق)", "Hospital ER Immediately (ECG within 10 mins)") + '</strong></td></tr>' +
+              '<tr><td><strong style="color:#b45309;">CTAS 3</strong></td><td>' + tx("حالة عاجلة", "Urgent") + '</td><td>' + tx("ألم بطن شديد، حرارة عالية مع خمول، جفاف يحتاج محاليل", "Severe belly pain, high fever with weakness, dehydration needing IV fluids") + '</td><td><strong>🟡 ' + tx("قسم الطوارئ بالمستشفى", "Hospital Emergency Room") + '</strong></td></tr>' +
+              '<tr><td><strong style="color:#047857;">CTAS 4</strong></td><td>' + tx("أقل استعجالاً (حالة باردة)", "Less Urgent (Cold Case)") + '</td><td>' + tx("التهاب حلق، كحة بسيطة، ألم أذن خفيف، شد عضلي", "Sore throat, mild cough, mild ear pain, muscle strain") + '</td><td><strong style="color:#047857;">🟢 ' + tx("طب الطوارئ الاتصالي (تطبيق ملفي)", "Visual Tele-Emergency (Malffi App)") + '</strong></td></tr>' +
+              '<tr><td><strong style="color:#0f5132;">CTAS 5</strong></td><td>' + tx("غير عاجلة (حالة باردة)", "Non-Urgent (Cold Case)") + '</td><td>' + tx("زكام، حكة جلدية، تجديد دواء، طلب إجازة مرضية", "Common cold, skin itch, medicine refill, sick leave request") + '</td><td><strong style="color:#047857;">🟢 ' + tx("طب الطوارئ الاتصالي (تطبيق ملفي)", "Visual Tele-Emergency (Malffi App)") + '</strong></td></tr>' +
+            '</tbody>' +
+          '</table>';
+        }
+      },
+
+      // SLIDE 07: مؤشرات الأداء المعتمدة (KPIs) في أقسام طب الطوارئ
+      {
+        sectionAr: "07 • مؤشرات أداء الطوارئ",
+        sectionEn: "07 • Emergency Department KPIs",
+        titleAr: "مؤشرات الأداء المعتمدة (KPIs) في أقسام طب الطوارئ بالشؤون الصحية",
+        titleEn: "Official Emergency Medicine Key Performance Indicators (KPIs)",
+        subAr: "معايير سرعة الاستجابة للحالات الحرجة في المدن الطبية بالحرس الوطني",
+        subEn: "Response Time Standards for Critical Cases Across MNGHA Medical Cities",
+        sourceUrlAr: URL_ER_DEPT,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تلتزم أقسام طب الطوارئ في الشؤون الصحية بوزارة الحرس الوطني بمؤشرات أداء سريرية دقيقة لضمان سرعة الاستجابة للحالات الحرجة.",
+        notesEn: "MNGHA Emergency Departments adhere to strict clinical KPIs to ensure rapid response for life-threatening emergencies.",
+        helperAr: "عندما نترك قسم الطوارئ للحالات الحرجة، يتمكن الأطباء من إجراء تخطيط القلب خلال 10 دقائق والاستجابة لنداء الطوارئ خلال 8 دقائق!",
+        helperEn: "Keeping simple cases on the Virtual Clinic enables ER teams to perform ECGs within 10 minutes and respond to emergency calls in 8 minutes!",
+        render: function() {
+          return '<div class="grid-4">' +
+            '<div class="ppt-card emerald" style="text-align:center;"><div style="font-size:2rem; font-weight:900; color:#047857;">' + tx("8 دقائق", "8 Mins") + '</div><div class="card-title" style="margin-top:0.25rem;">' + tx("الاستجابة لنداء الطوارئ", "Emergency Call Response") + '</div><div class="card-desc">' + tx("الزمن المعياري لاستجابة فريق الطوارئ للنداءات الحرجة داخل المنشأة الطبية.", "Standard response time for the emergency team to critical calls.") + '</div></div>' +
+            '<div class="ppt-card emerald" style="text-align:center;"><div style="font-size:2rem; font-weight:900; color:#047857;">' + tx("10 دقائق", "10 Mins") + '</div><div class="card-title" style="margin-top:0.25rem;">' + tx("إجراء تخطيط القلب (ECG)", "Door-to-ECG Time") + '</div><div class="card-desc">' + tx("إجراء تخطيط القلب الكهربائي خلال 10 دقائق من وصول مريض ألم الصدر لغرفة الفرز.", "Performing an ECG within 10 minutes of triage for chest pain patients.") + '</div></div>' +
+            '<div class="ppt-card emerald" style="text-align:center;"><div style="font-size:2rem; font-weight:900; color:#047857;">' + tx("4 ساعات", "4 Hours") + '</div><div class="card-title" style="margin-top:0.25rem;">' + tx("قرار الترحيل الطبي (75%)", "Disposition within 4h (75%)") + '</div><div class="card-desc">' + tx("اتخاذ قرار التنويم أو الخروج لـ 75% من مرضى قسم الطوارئ خلال 4 ساعات.", "Admission or discharge decision within 4 hours for 75% of ER patients.") + '</div></div>' +
+            '<div class="ppt-card emerald" style="text-align:center;"><div style="font-size:2rem; font-weight:900; color:#047857;">&lt; 5%</div><div class="card-title" style="margin-top:0.25rem;">' + tx("معاودة الزيارة خلال 72 ساعة", "72-Hour Return Rate") + '</div><div class="card-desc">' + tx("الحفاظ على نسبة معاودة زيارة الطوارئ غير المخطط لها خلال 72 ساعة أقل من 5%.", "Keeping unplanned ER return visits within 72 hours below 5%.") + '</div></div>' +
+          '</div>' +
+          '<div class="ppt-card sky"><div class="card-title">🏥 ' + tx("تجهيزات أقسام طب الطوارئ في المدن الطبية (تعمل 24 ساعة / 7 أيام)", "24/7 Emergency Department Readiness Across Medical Cities") + '</div><div class="card-desc">' + tx("تضم أقسام الطوارئ في الشؤون الصحية غرف فرز مجهزة لقياس العلامات الحيوية، ووحدات إنعاش متقدمة، وغرف عزل قياسية، ومنطقة تقييم الحالات الحادة، وتكامل مباشر مع المختبر والأشعة المقطعية والصيدلية.", "MNGHA ERs feature vital-sign triage rooms, advanced resuscitation bays, isolation rooms, acute assessment zones, and direct integration with lab, CT imaging, and pharmacy.") + '</div></div>';
+        }
+      },
+
+      // SLIDE 08: الخدمات الست التي يقدمها طب الطوارئ الاتصالي
+      {
+        sectionAr: "08 • خدمات الطوارئ الاتصالي",
+        sectionEn: "08 • Services Provided",
+        titleAr: "ما هي الخدمات التي يقدمها طب الطوارئ الاتصالي؟",
+        titleEn: "What Services Does Tele-Emergency Provide?",
+        subAr: "التشخيص، صرف العلاج، الإجازة المرضية، والتوجيه للطوارئ عند الحاجة",
+        subEn: "Diagnosis, Treatment, Official Sick Leave, and ER Guidance When Needed",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "توضح هذه الشريحة الخدمات الأساسية التي يحصل عليها المريض عند استخدام طب الطوارئ الاتصالي.",
+        notesEn: "Outlines the core services patients receive: diagnosis, medication prescriptions, sick leave when needed, and ER guidance.",
+        helperAr: "في مكالمة واحدة تحصل على: (1) التشخيص الطبي، (2) صرف العلاج، (3) الإجازة المرضية إذا كانت الحالة تستدعي، (4) توجيهك للطوارئ إذا احتجت ذلك.",
+        helperEn: "In one call you get: (1) Medical diagnosis, (2) Medication prescription, (3) Sick leave if needed, (4) Guidance to visit the ER if required.",
+        render: function() {
+          return '<div class="grid-3">' +
+            '<div class="ppt-card emerald"><div style="font-size:1.5rem;">🩺</div><div class="card-title" style="margin-top:0.3rem;">' + tx("1. الكشف والتشخيص الطبي", "1. Medical Exam & Diagnosis") + '</div><div class="card-desc">' + tx("يتحدث معك طبيب الطوارئ بالصوت والصورة، يرى الأعراض الظاهرة، ويراجع ملفك الطبي لتحديد سبب التعب بدقة.", "An ER doctor speaks with you on video, checks visible symptoms, and reviews your medical file to find the cause.") + '</div></div>' +
+            '<div class="ppt-card emerald"><div style="font-size:1.5rem;">💊</div><div class="card-title" style="margin-top:0.3rem;">' + tx("2. صرف العلاجات والوصفات", "2. Prescribing Medications") + '</div><div class="card-desc">' + tx("يكتب لك الطبيب الدواء المناسب لحالتك إلكترونياً، ويمكن استلامه من الصيدلية أو شحنه مجاناً لعنوانك الوطني عبر «واصل».", "The doctor sends your prescription electronically; you can pick it up or get free home delivery via Wasel.") + '</div></div>' +
+            '<div class="ppt-card emerald"><div style="font-size:1.5rem;">📄</div><div class="card-title" style="margin-top:0.3rem;">' + tx("3. الإجازة المرضية المعتمدة", "3. Official Sick Leave") + '</div><div class="card-desc">' + tx("إذا كانت حالتك الطبية تستدعي الراحة، يصدر لك الطبيب إجازة مرضية رسمية ومعتمدة تظهر مباشرة في تطبيق «ملفي».", "If your condition requires rest, the doctor issues an official electronic sick leave directly in the Malffi app.") + '</div></div>' +
+            '<div class="ppt-card sky"><div style="font-size:1.5rem;">🧭</div><div class="card-title" style="margin-top:0.3rem;">' + tx("4. التوجيه لزيارة الطوارئ الفعلي", "4. Guidance to Visit the Physical ER") + '</div><div class="card-desc">' + tx("إذا رأى الطبيب أن حالتك تحتاج فحصاً يدوياً أو أشعة أو تحاليل عاجلة، يوجهك فوراً للتوجه إلى قسم الطوارئ بالمستشفى.", "If the doctor sees you need a physical exam, X-ray, or urgent blood tests, they immediately direct you to the hospital ER.") + '</div></div>' +
+            '<div class="ppt-card sky"><div style="font-size:1.5rem;">🧪</div><div class="card-title" style="margin-top:0.3rem;">' + tx("5. طلب التحاليل ومراجعتها", "5. Lab Tests & Results") + '</div><div class="card-desc">' + tx("إمكانية طلب التحاليل اللازمة ومراجعة نتائج الفحوصات السابقة المسجلة في ملفك الطبي.", "Ordering needed lab tests and reviewing your previous test results saved in your medical file.") + '</div></div>' +
+            '<div class="ppt-card sky"><div style="font-size:1.5rem;">👨‍👩‍👧‍👦</div><div class="card-title" style="margin-top:0.3rem;">' + tx("6. خدمة المريض وأسرته", "6. Service for You & Your Family") + '</div><div class="card-desc">' + tx("تستطيع طلب الخدمة لنفسك أو لأفراد أسرتك المسجلين معك في الملف الطبي من نفس الجوال.", "You can request the service for yourself or your family members linked to your medical file from the same phone.") + '</div></div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 09: الحالات البسيطة (1/4) مع الصورة الفوتوغرافية IMG_HOME_COLD
+      {
+        sectionAr: "09 • حالات يعالجها الطب الاتصالي (1/4)",
+        sectionEn: "09 • Cases Treated Virtually (1/4)",
+        titleAr: "الحالات البسيطة (1/4): نزلات البرد، التهاب الحلق، الحرارة الخفيفة، والعيون",
+        titleEn: "Cases Treated via Tele-Emergency (1/4): Colds, Throat, Fever & Eyes",
+        subAr: "حالات شائعة وبسيطة لا تحتاج زيارة قسم الطوارئ — مع صورة الراحة المنزلية",
+        subEn: "Common Mild Conditions Treated from Home Comfort Without Visiting the ER",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "أمثلة واضحة وسهلة للحالات التنفسية البسيطة والحمى الخفيفة واحمرار العين مع الصورة المدمجة للراحة بالمنزل.",
+        notesEn: "Simple, clear examples of mild respiratory symptoms, low fever, pink eye, and mild earache with the home care photo.",
+        helperAr: "الزكام، ألم الحلق، الكحة الخفيفة، الحرارة البسيطة، واحمرار العين بدون ضيق تنفس تُعالج بالكامل عبر تطبيق «ملفي».",
+        helperEn: "Common colds, sore throat, mild cough, low fever, and red eyes without trouble breathing are fully treated on the Malffi app.",
+        render: function() {
+          return '<div class="grid-2-asym" style="align-items:center;">' +
+            cardGrid([
+              {
+                icon: "🤧",
+                titleAr: "الزكام، سيلان الأنف، وحساسية الجيوب",
+                titleEn: "Common Cold, Runny Nose & Sinus Allergy",
+                descAr: "يصف الطبيب لك بخاخات الأنف، أدوية الحساسية، ومسكنات الصداع والاحتقان.",
+                descEn: "The doctor prescribes nasal sprays, allergy medicine, and symptom relief.",
+                noteAr: "اذهب للطوارئ فقط إذا صاحبها ضيق شديد في التنفس أو ألم بالصدر.",
+                noteEn: "Go to the ER only if you have severe trouble breathing or chest pain."
+              },
+              {
+                icon: "🗣️",
+                titleAr: "التهاب الحلق واللوزتين والكحة الخفيفة",
+                titleEn: "Mild Sore Throat & Mild Cough",
+                descAr: "يفحص الطبيب الحلق عبر الكاميرا ويصف لك شراب الكحة والمسكنات أو العلاج المناسب.",
+                descEn: "The doctor checks your throat on camera and prescribes cough medicine and pain relief.",
+                noteAr: "اذهب للطوارئ إذا وجدت صعوبة شديدة في التنفس أو البلع أو خرج دم مع الكحة.",
+                noteEn: "Go to the ER if you cannot breathe or swallow, or if you cough up blood."
+              },
+              {
+                icon: "🌡️",
+                titleAr: "الحرارة الخفيفة والصداع العادي",
+                titleEn: "Low-Grade Fever & Mild Headache",
+                descAr: "يقيّم الطبيب الأعراض ويصف خافض الحرارة والمسكن الآمن مع راحة طبية عند اللزوم.",
+                descEn: "The doctor checks your symptoms and prescribes safe fever and pain medicine.",
+                noteAr: "اذهب للطوارئ إذا ارتفعت الحرارة جداً مع دوخة شديدة أو تشوش في الوعي.",
+                noteEn: "Go to the ER if fever is very high with severe dizziness or confusion."
+              },
+              {
+                icon: "👁️",
+                titleAr: "احمرار العين البسيط وألم الأذن الخفيف",
+                titleEn: "Mild Red Eye & Mild Ear Pain",
+                descAr: "معاينة العين بالكاميرا وصرف قطرات العين أو الأذن المناسبة فوراً.",
+                descEn: "Camera check of the eye and immediate prescription of eye or ear drops.",
+                noteAr: "اذهب للطوارئ فوراً عند فقدان النظر المفاجئ أو دخول مادة كيميائية بالعين.",
+                noteEn: "Go to the ER right away for sudden vision loss or chemical splash in the eye."
+              }
+            ], 'emerald') +
+            '<div class="real-photo-card" style="height:335px; border-color:#34d399;" onclick="openLightbox(IMG_HOME_COLD, tx(\'الراحة بالمنزل مع أدوية الزكام والحرارة البسيطة\', \'Resting at home with cold and fever medications\'))">' +
+              '<img src="' + IMG_HOME_COLD + '" alt="Cold Care at Home" />' +
+              '<div class="photo-caption-bar">' +
+                '<span>🏡 ' + tx("علاج الحالات الباردة من راحة منزلك (اضغط للتكبير)", "Treating Cold Cases from Home Comfort (Click to Zoom)") + '</span>' +
+                '<span>🔍</span>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 10: الحالات البسيطة (2/4): الجلدية والحساسية ولدغات الحشرات
+      {
+        sectionAr: "10 • حالات يعالجها الطب الاتصالي (2/4)",
+        sectionEn: "10 • Cases Treated Virtually (2/4)",
+        titleAr: "الحالات البسيطة (2/4): الطفح الجلدي، الحساسية، ولدغات الحشرات",
+        titleEn: "Cases Treated via Tele-Emergency (2/4): Skin Rashes, Allergies & Insect Bites",
+        subAr: "استشارة مرئية سريعة لمشاكل الجلد الخفيفة عبر كاميرا الجوال",
+        subEn: "Quick Video Evaluation for Minor Dermatological & Allergic Conditions",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تعد الكاميرا المرئية في تطبيق ملفي مثالية لمعاينة الطفح الجلدي البسيط والحساسية ولدغات الحشرات دون الحاجة للذهاب للمستشفى.",
+        notesEn: "The phone camera in Malffi is ideal for examining minor skin rashes, hives, and insect bites without visiting the hospital.",
+        helperAr: "يمكنك إظهار الطفح الجلدي أو مكان لدغة الحشرة لكاميرا الجوال في تطبيق «ملفي» ليصف لك الطبيب المرهم ومضاد الحساسية فوراً.",
+        helperEn: "Show minor skin rashes or insect bites on your phone camera in the Malffi App so the doctor can prescribe creams and antihistamines instantly.",
+        render: function() {
+          return cardGrid([
+            {
+              icon: "🖐️",
+              titleAr: "الطفح الجلدي البسيط والأكزيما الجافة",
+              titleEn: "Minor Skin Rash & Contact Dermatitis",
+              descAr: "معاينة الطفح الجلدي عبر الفيديو ووصف الكريمات الملطفة والمضادة للالتهاب.",
+              descEn: "Video inspection of the skin rash and prescription of soothing anti-inflammatory creams.",
+              noteAr: "راجع الطوارئ إذا انتشر الطفح بسرعة مع تقرحات بالفم أو حمى شديدة.",
+              noteEn: "Visit the ER if the rash spreads rapidly with mouth sores or high fever."
+            },
+            {
+              icon: "🐝",
+              titleAr: "لدغات الحشرات البسيطة والاحمرار الموضعي",
+              titleEn: "Minor Insect Bites & Local Itching",
+              descAr: "وصف مضادات الهيستامين الفموية والمراهم الموضعية لتخفيف الحكة والاحمرار البسيط.",
+              descEn: "Prescribing oral antihistamines and topical ointments to relieve itching and redness.",
+              noteAr: "راجع الطوارئ فوراً إذا حدث تورم في الوجه أو الشفتين أو اللسان أو ضيق تنفس.",
+              noteEn: "Go to the ER immediately if your face, lips, or tongue swell, or breathing gets hard."
+            },
+            {
+              icon: "🌿",
+              titleAr: "الحكة الجلدية والشرى البسيط (الأرتيكاريا)",
+              titleEn: "Mild Urticaria (Hives) Without Breathing Trouble",
+              descAr: "تحديد المسببات المحتملة وصرف علاج الحساسية المناسب وشحنه لعنوانك الوطني.",
+              descEn: "Identifying triggers and prescribing allergy treatment delivered to your National Address.",
+              noteAr: "ضيق التنفس أو بحة الصوت مع الحساسية يتطلب التوجه الفوري للطوارئ.",
+              noteEn: "Shortness of breath or hoarse voice with allergy requires immediate ER care."
+            },
+            {
+              icon: "☀️",
+              titleAr: "حروق الشمس السطحية والخدوش البسيطة",
+              titleEn: "Mild Superficial Sunburn & Minor Scrapes",
+              descAr: "تقديم إرشادات التبريد والعناية وصرف الكريمات المرممة والمسكنات البسيطة.",
+              descEn: "Cooling instructions and prescription of healing creams and mild pain relief.",
+              noteAr: "الحروق العميقة أو الواسعة أو الجروح المفتوحة الكبيرة تتطلب الذهاب للطوارئ.",
+              noteEn: "Deep or large burns and deep open cuts require going to the ER."
+            }
+          ], 'emerald');
+        }
+      },
+
+      // SLIDE 11: الحالات البسيطة (3/4): الجهاز الهضمي والمسالك البولية البسيطة
+      {
+        sectionAr: "11 • حالات يعالجها الطب الاتصالي (3/4)",
+        sectionEn: "11 • Cases Treated Virtually (3/4)",
+        titleAr: "الحالات البسيطة (3/4): الحموضة، المغص الخفيف، الإسهال البسيط، وحرقان البول",
+        titleEn: "Cases Treated via Tele-Emergency (3/4): Heartburn, Mild Stomach Ache & Dysuria",
+        subAr: "علاج اضطرابات الجهاز الهضمي البسيطة غير المصحوبة بجفاف أو ألم حاد",
+        subEn: "Managing Mild Gastrointestinal & Urinary Symptoms Without Dehydration",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تغطي هذه الشريحة أعراض الجهاز الهضمي البسيطة كالحموضة والمغص الخفيف والإسهال البسيط غير المصحوب بجفاف.",
+        notesEn: "Covers mild digestive symptoms such as heartburn, mild stomach cramps, and uncomplicated mild diarrhea.",
+        helperAr: "الحموضة، المغص الخفيف، الغثيان البسيط، أو الإسهال الخفيف بدون جفاف تُعالج فوراً عبر العيادة الافتراضية دون عناء المشوار.",
+        helperEn: "Heartburn, mild stomach ache, mild nausea, or mild diarrhea without dehydration are treated remotely via Virtual Clinic.",
+        render: function() {
+          return cardGrid([
+            {
+              icon: "🤢",
+              titleAr: "الحموضة وحرقان المعدة وارتجاع المريء",
+              titleEn: "Heartburn, Acid Reflux (GERD) & Indigestion",
+              descAr: "وصف مضادات الحموضة وأدوية حماية المعدة مع نصائح غذائية عملية فورية.",
+              descEn: "Prescribing antacids and stomach protection medicines with dietary advice.",
+              noteAr: "انتبه: ألم الصدر الضاغط المصحوب بتعرق قد يكون قلبياً ويتطلب الطوارئ فوراً.",
+              noteEn: "Warning: Squeezing chest pain with sweating may be cardiac and needs the ER."
+            },
+            {
+              icon: "🥣",
+              titleAr: "المغص البطني الخفيف والغثيان البسيط",
+              titleEn: "Mild Abdominal Cramps & Mild Nausea",
+              descAr: "تقييم طبي مرئي لوصف مضادات التقلصات والغثيان المناسبة لحالتك.",
+              descEn: "Video assessment to prescribe anti-cramp and anti-nausea medications.",
+              noteAr: "ألم البطن الحاد المتحجر أو التقيؤ المستمر/الدموي يستوجب الطوارئ.",
+              noteEn: "Severe rigid belly pain or persistent/bloody vomiting requires the ER."
+            },
+            {
+              icon: "💧",
+              titleAr: "الإسهال البسيط أو الإمساك العارض",
+              titleEn: "Mild Diarrhea or Occasional Constipation",
+              descAr: "وصف محاليل الإرواء الفموية والأدوية المنظمة للأمعاء طالما المريض يشرب السوائل بشكل طبيعي.",
+              descEn: "Prescribing oral rehydration salts and bowel regulators while fluids are tolerated.",
+              noteAr: "الدوخة الشديدة أو انقطاع التبول أو البراز الأسود/الدموي يتطلب الطوارئ.",
+              noteEn: "Severe dizziness, no urination, or black/bloody stool requires the ER."
+            },
+            {
+              icon: "🚻",
+              titleAr: "حرقان البول البسيط بدون حمى أو ألم خاصرة",
+              titleEn: "Mild Burning When Urinating (No Fever or Flank Pain)",
+              descAr: "تقييم الأعراض المبدئية وتوجيه المريض لإجراء تحليل البول أو صرف العلاج المناسب.",
+              descEn: "Evaluating mild urinary burning, ordering a urine test, or prescribing treatment.",
+              noteAr: "إذا صاحبه حمى ورعشة وألم شديد في الجنب/الظهر توجه للطوارئ.",
+              noteEn: "If accompanied by high fever, chills, and severe back/flank pain, go to the ER."
+            }
+          ], 'emerald');
+        }
+      },
+
+      // SLIDE 12: الحالات البسيطة (4/4): الآلام العضلية، تجديد الأدوية، والإجازات المرضية
+      {
+        sectionAr: "12 • حالات يعالجها الطب الاتصالي (4/4)",
+        sectionEn: "12 • Cases Treated Virtually (4/4)",
+        titleAr: "الحالات البسيطة (4/4): الشد العضلي، تجديد الدواء، التحاليل، والإجازات المرضية",
+        titleEn: "Cases Treated via Tele-Emergency (4/4): Muscle Strain, Refills, Labs & Sick Leave",
+        subAr: "لا داعي للانتظار في الطوارئ من أجل شد عضلي بسيط أو دواء أو تقرير إجازة",
+        subEn: "No Need to Wait in the ER for Minor Muscle Strain, Refills, or Sick Leave Reports",
+        sourceUrlAr: URL_ESERVICES,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "توضح علاج الشد العضلي وآلام الظهر البسيطة، وإعادة صرف الأدوية، ومناقشة التحاليل، واستخراج الإجازات.",
+        notesEn: "Covers minor muscle strains, simple back pain, routine medication refills, lab reviews, and sick leave.",
+        helperAr: "الشد العضلي البسيط، ألم الظهر الخفيف، تجديد الدواء المنتهي، ومناقشة التحاليل أو طلب الإجازة المرضية كلها تُحل عبر تطبيق «ملفي».",
+        helperEn: "Minor muscle strain, mild back ache, medicine refills, lab reviews, and sick leaves are all handled through the Malffi app.",
+        render: function() {
+          return cardGrid([
+            {
+              icon: "🦵",
+              titleAr: "الشد العضلي وآلام العضلات البسيطة",
+              titleEn: "Minor Muscle Strain & Muscle Soreness",
+              descAr: "يقيّم الطبيب الحركة مرئياً ويصف مسكنات الألم ومرخيات العضلات والمراهم.",
+              descEn: "The doctor checks your movement on video and prescribes pain relief, muscle relaxants, and creams.",
+              noteAr: "عدم القدرة على المشي أو تحريك الطرف أو وجود كسر ظاهر يتطلب الطوارئ.",
+              noteEn: "Being unable to walk, move a limb, or seeing a deformed bone requires the ER."
+            },
+            {
+              icon: "🧍",
+              titleAr: "ألم أسفل الظهر أو الرقبة الخفيف",
+              titleEn: "Mild Lower Back or Neck Pain",
+              descAr: "وصف مضادات الالتهاب وإرشادات الراحة والكمادات دون مشقة الجلوس في الطوارئ.",
+              descEn: "Prescribing anti-inflammatory medicine and rest advice without sitting in an ER chair.",
+              noteAr: "تنميل أو ضعف في الساقين أو عدم التحكم في البول يتطلب الطوارئ فوراً.",
+              noteEn: "Numbness or weakness in the legs, or loss of bladder control, needs the ER immediately."
+            },
+            {
+              icon: "💊",
+              titleAr: "إعادة صرف الأدوية المستمرة ومراجعة التحاليل",
+              titleEn: "Medicine Refills & Lab Result Reviews",
+              descAr: "طلب تجديد أدوية الأمراض المزمنة المستقرة أو مناقشة نتائج الفحوصات في تطبيق «ملفي».",
+              descEn: "Refilling regular medications for stable conditions or discussing lab results on Malffi.",
+              noteAr: "تُشحن الأدوية لعنوانك الوطني مجاناً عبر خدمة التوصيل الاستباقي «واصل».",
+              noteEn: "Medications can be shipped free to your National Address via Wasel delivery."
+            },
+            {
+              icon: "📄",
+              titleAr: "إصدار الإجازة المرضية والتقارير الطبية",
+              titleEn: "Official Sick Leave & Medical Reports",
+              descAr: "إذا استدعت حالتك الراحة، يُصدر الطبيب إجازة مرضية إلكترونية معتمدة في التطبيق.",
+              descEn: "If your condition needs rest, the doctor issues an official electronic sick leave in the app.",
+              noteAr: "معتمدة رسمياً ويمكن طباعتها والتحقق منها إلكترونياً بدون مراجعة ورقية.",
+              noteEn: "Officially verified and printable as a PDF without visiting any hospital desk."
+            }
+          ], 'emerald');
+        }
+      },
+
+      // SLIDE 13: الحالات الحرجة (1/2) مع الصورة الفوتوغرافية المدمجة IMG_ER_NIGHT
+      {
+        sectionAr: "13 • حالات يجب معها زيارة الطوارئ (1/2)",
+        sectionEn: "13 • Must Visit Physical ER (1/2)",
+        sectionRed: true,
+        titleAr: "حالات لا ينفع معها الطب الاتصالي: توجه فوراً لقسم الطوارئ (1/2)",
+        titleEn: "When Tele-Emergency Is NOT Enough: Go Straight to the ER (1/2)",
+        subAr: "الحالات الخطيرة في القلب والتنفس والوعي تستوجب حضورك الفوري للمستشفى (24/7)",
+        subEn: "Serious Heart, Breathing, and Consciousness Emergencies Require Immediate Hospital Care",
+        sourceUrlAr: URL_ER_DEPT,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تؤكد هذه الشريحة مع الصورة الفوتوغرافية لمدخل الطوارئ على التوجه الفوري للمستشفى في حالات ألم الصدر وضيق التنفس والإغماء.",
+        notesEn: "Clearly warns with the ER night entrance photo that critical heart, breathing, fainting, and severe allergic cases must go straight to the physical ER.",
+        helperAr: "تحذير مهم 🔴: إذا كان لديك ألم قوي في الصدر، أو ضيق شديد في التنفس، أو إغماء، أو تورم في الوجه واللسان — لا تستخدم التطبيق، توجه فوراً للطوارئ!",
+        helperEn: "Important Warning 🔴: If you have strong chest pain, severe trouble breathing, fainting, or face/tongue swelling—do NOT use the app, go straight to the ER!",
+        render: function() {
+          return '<div class="grid-2-asym" style="align-items:center;">' +
+            cardGrid([
+              {
+                icon: "💔",
+                titleAr: "ألم شديد أو ضغط قوي في الصدر",
+                titleEn: "Strong Chest Pain or Heavy Pressure",
+                descAr: "ألم في وسط الصدر يمتد للذراع أو الكتف أو الفك أو الظهر، أو يصاحبه تعرق بارد وغثيان.",
+                descEn: "Pain or squeezing in the chest spreading to the arm, shoulder, jaw, or back, with cold sweat or nausea.",
+                noteAr: "توجه فوراً للطوارئ: يُجرى تخطيط القلب في طوارئ الحرس خلال 10 دقائق.",
+                noteEn: "Go to ER immediately: Hospital ERs aim to perform an ECG within 10 minutes."
+              },
+              {
+                icon: "😮‍💨",
+                titleAr: "ضيق شديد في التنفس أو اختناق",
+                titleEn: "Severe Trouble Breathing or Choking",
+                descAr: "صعوبة بالغة في أخذ النفس، عدم القدرة على الكلام، ازرقاق الشفاه، أو أزمة ربو لا تهدأ بالبخاخ.",
+                descEn: "Struggling to breathe, unable to speak full sentences, blue lips, or asthma not helped by an inhaler.",
+                noteAr: "تحتاج أكسجين وعلاجاً فورياً داخل غرفة الطوارئ بالمستشفى.",
+                noteEn: "Needs immediate oxygen and emergency treatment in the hospital."
+              },
+              {
+                icon: "⚡",
+                titleAr: "فقدان الوعي أو الإغماء المفاجئ",
+                titleEn: "Fainting or Loss of Consciousness",
+                descAr: "إغماء مفاجئ، عدم استجابة الشخص عند مناداته، أو دوخة شديدة تمنع الوقوف.",
+                descEn: "Sudden passing out, not waking up when spoken to, or severe dizziness preventing standing.",
+                noteAr: "حالة طارئة جداً تتطلب إسعافاً فورياً وتقييماً في غرفة الإنعاش.",
+                noteEn: "Critical emergency needing immediate ambulance care or ER resuscitation."
+              },
+              {
+                icon: "🐝",
+                titleAr: "الحساسية الشديدة المفاجئة (Anaphylaxis)",
+                titleEn: "Severe Sudden Allergic Reaction",
+                descAr: "تورم سريع في الشفتين أو اللسان أو الحلق مع صعوبة التنفس أو تغير الصوت بعد دواء أو طعام.",
+                descEn: "Fast swelling of lips, tongue, or throat with trouble breathing or hoarse voice after food or medicine.",
+                noteAr: "تحتاج حقنة طوارئ فورية في المستشفى لفتح مجرى التنفس.",
+                noteEn: "Needs an immediate emergency injection in the hospital to keep airways open."
+              }
+            ], 'red') +
+            '<div class="real-photo-card" style="height:335px; border-color:#f87171;" onclick="openLightbox(IMG_ER_NIGHT, tx(\'قسم الطوارئ بالمستشفى يستقبل الحالات الحرجة 24 ساعة\', \'Hospital Emergency Department receiving critical cases 24/7\'))">' +
+              '<img src="' + IMG_ER_NIGHT + '" alt="Hospital Emergency Entrance" />' +
+              '<div class="photo-caption-bar">' +
+                '<span>🚑 ' + tx("الحالات الخطيرة تتطلب الطوارئ فوراً 24/7 (اضغط للتكبير)", "Critical Cases Require Immediate ER 24/7 (Click to Zoom)") + '</span>' +
+                '<span>🔍</span>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 14: الحالات الحرجة (2/2): الجلطة، النزيف، الكسور، الحروق، والتسمم
+      {
+        sectionAr: "14 • حالات يجب معها زيارة الطوارئ (2/2)",
+        sectionEn: "14 • Must Visit Physical ER (2/2)",
+        sectionRed: true,
+        titleAr: "حالات لا ينفع معها الطب الاتصالي: توجه فوراً لقسم الطوارئ (2/2)",
+        titleEn: "When Tele-Emergency Is NOT Enough: Go Straight to the ER (2/2)",
+        subAr: "علامات الجلطة، النزيف، الكسور، الحروق، والتسمم تتطلب فحصاً وعلاجاً بالمستشفى",
+        subEn: "Stroke Signs, Heavy Bleeding, Broken Bones, Severe Burns & Poisoning Need Hospital Care",
+        sourceUrlAr: URL_ER_DEPT,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تكمل قائمة الحالات الخطيرة التي يجب فيها الذهاب المباشر لقسم الطوارئ.",
+        notesEn: "Completes the list of serious conditions requiring an immediate in-person ER visit.",
+        helperAr: "ميلان الفم أو ثقل اللسان، النزيف الذي لا يتوقف، الكسور والحوادث، التشنجات، أو الحروق والتسمم — مكانها قسم الطوارئ في المستشفى فوراً!",
+        helperEn: "Drooping face or slurred speech, non-stop bleeding, broken bones, seizures, severe burns, or poisoning—go straight to the Hospital ER!",
+        render: function() {
+          return cardGrid([
+            {
+              icon: "🧠",
+              titleAr: "علامات الجلطة الدماغية المفاجئة (FAST)",
+              titleEn: "Sudden Stroke Warning Signs (FAST)",
+              descAr: "ميلان مفاجئ في الفم، ضعف أو تنميل في ذراع أو ساق، أو صعوبة وثقل مفاجئ في الكلام.",
+              descEn: "Sudden drooping on one side of the face, weakness in one arm or leg, or sudden slurred speech.",
+              noteAr: "كل دقيقة مهمة لإنقاذ الدماغ بالأشعة المقطعية والعلاج الفوري بالمستشفى.",
+              noteEn: "Every minute counts for urgent hospital brain scans and stroke treatment."
+            },
+            {
+              icon: "🩸",
+              titleAr: "النزيف القوي، الجروح العميقة، والكسور",
+              titleEn: "Heavy Bleeding, Deep Cuts & Broken Bones",
+              descAr: "نزيف لا يتوقف بالضغط، تقيؤ دم، جروح عميقة تحتاج خياطة، أو حوادث وكسور بالعظام.",
+              descEn: "Bleeding that will not stop, vomiting blood, deep cuts needing stitches, or broken bones and accidents.",
+              noteAr: "تحتاج خياطة أو جبيرة أو أشعة سينية وجراحة في قسم الطوارئ.",
+              noteEn: "Needs stitches, casts, X-rays, or surgical care in the Emergency Room."
+            },
+            {
+              icon: "😵",
+              titleAr: "التشنجات وإصابات الرأس القوية",
+              titleEn: "Seizures & Strong Head Injuries",
+              descAr: "نوبات تشنجية، أو ضربة قوية على الرأس بعد سقوط أو حادث مع قيء أو نعاس غير طبيعي.",
+              descEn: "Fits/convulsions, or a hard hit to the head from a fall or crash followed by vomiting or drowsiness.",
+              noteAr: "تتطلب مراقبة مباشرة وفحصاً فورياً في طوارئ المستشفى.",
+              noteEn: "Requires direct observation and urgent scans in the Hospital ER."
+            },
+            {
+              icon: "🔥",
+              titleAr: "الحروق الشديدة، ضربة الشمس، والتسمم",
+              titleEn: "Severe Burns, Heatstroke & Poisoning",
+              descAr: "حروق كبيرة أو في الوجه واليدين، ضربة شمس مع تشوش، أو شرب مواد سامة أو جرعة دواء زائدة.",
+              descEn: "Large burns or burns on face/hands, heatstroke with confusion, or swallowing poison or too much medicine.",
+              noteAr: "توجه فوراً للطوارئ وأحضر علبة الدواء أو المادة التي تم بلعها.",
+              noteEn: "Go straight to the ER and bring the bottle of the medicine or substance."
+            }
+          ], 'red');
+        }
+      },
+
+      // SLIDE 15: خارطة المسارات العلاجية الثلاثة + التوجيه الآمن للطوارئ
+      {
+        sectionAr: "15 • المسارات العلاجية والتوجيه الآمن",
+        sectionEn: "15 • Care Pathways & Safe ER Referral",
+        titleAr: "خارطة المسارات الثلاثة + كيف يوجهك الطب الاتصالي إذا احتجت الطوارئ فعلياً؟",
+        titleEn: "The 3 Care Pathways + How Tele-Emergency Guides You If You Need the Physical ER",
+        subAr: "توفير الوقت في الحالات البسيطة، وتوجيه طبي آمن إذا تطلبت حالتك الحضور للمستشفى",
+        subEn: "Saving Time on Mild Cases, with Safe Medical Guidance When an In-Person Visit Is Needed",
+        sourceUrlAr: URL_VIRT_BOOK,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "توضح المسارات الثلاثة في الشؤون الصحية وميزة التوجيه الطبي المباشر إذا احتاج المريض لزيارة الطوارئ.",
+        notesEn: "Shows the 3 care pathways and highlights the safe ER referral feature when in-person care is required.",
+        helperAr: "إذا لم تكن متأكداً هل حالتك بسيطة أم تحتاج طوارئ (ولم تكن هناك علامات خطر واضحة)، ابدأ بالطب الاتصالي وسيوجهك الطبيب للمكان الصحيح!",
+        helperEn: "If you are unsure whether your mild symptoms need an ER visit (and there are no danger signs), start with Tele-Emergency and the doctor will guide you!",
+        render: function() {
+          return '<div class="grid-3">' +
+            '<div class="ppt-card emerald"><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;"><span class="section-pill">' + tx("المسار 1 • فوري عن بُعد", "Pathway 1 • Instant Remote") + '</span><span style="font-size:1.6rem;">📲</span></div><div class="card-title">' + tx("طب الطوارئ الاتصالي المرئي", "Visual Tele-Emergency") + '</div><div class="card-desc">' + tx("للأعراض البسيطة العارضة (المستوى 4 و 5) التي تحتاج تقييم طبيب طوارئ فوراً دون انتظار موعد مسبق، مع صرف الدواء والإجازة.", "For sudden mild symptoms (Levels 4 & 5) needing immediate ER doctor evaluation without an appointment.") + '</div></div>' +
+            '<div class="ppt-card sky"><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;"><span class="section-pill" style="background:#e0f2fe; color:#0369a1; border-color:#7dd3fc;">' + tx("المسار 2 • مجدول بالتاريخ والوقت", "Pathway 2 • Scheduled") + '</span><span style="font-size:1.6rem;">🗓️</span></div><div class="card-title">' + tx("المواعيد الافتراضية وطب الأسرة", "Scheduled Virtual Clinics") + '</div><div class="card-desc">' + tx("للمتابعة الدورية للأمراض المزمنة المستقرة، ومناقشة نتائج التحاليل والأشعة، وتجديد الوصفات المستمرة مع تذكرة موعد PDF.", "For routine chronic disease follow-ups, lab/imaging reviews, and prescription renewals with a PDF ticket.") + '</div></div>' +
+            '<div class="ppt-card red"><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;"><span class="section-pill red">' + tx("المسار 3 • حضوري حرج 24/7", "Pathway 3 • Physical ER 24/7") + '</span><span style="font-size:1.6rem;">🚑</span></div><div class="card-title">' + tx("قسم طب الطوارئ بالمستشفى", "Hospital Emergency Room") + '</div><div class="card-desc">' + tx("للحالات المهددة للحياة والحالات الحادة والإصابات (المستوى 1 إلى 3) التي تتطلب فحصاً سريرياً أو تخطيط قلب أو جراحة.", "For life-threatening and acute conditions (Levels 1–3) requiring physical exam, ECG, or surgery.") + '</div></div>' +
+          '</div>' +
+          '<div class="ppt-card amber"><div class="card-title">🧭 ' + tx("ماذا لو احتاج المريض لزيارة الطوارئ فعلياً أثناء المكالمة؟", "What If the Patient Actually Needs a Physical ER Visit During the Call?") + '</div><div class="card-desc">' + tx("يوجهك طبيب الطوارئ الاتصالي فوراً للتوجه إلى قسم الطوارئ في المستشفى، ويسجل ملاحظاته الطبية المبدئية في ملفك الإلكتروني لتكون جاهزة لدى الفريق الطبي عند وصولك.", "The Tele-Emergency doctor immediately directs you to the Hospital ER and records clinical notes in your electronic medical file so the ER team is ready when you arrive.") + '</div></div>';
+        }
+      },
+
+      // SLIDE 16: محاكي الفرز السريري التفاعلي (8 سيناريوهات)
+      {
+        sectionAr: "16 • تدريب تفاعلي: أين أذهب؟",
+        sectionEn: "16 • Interactive Practice: Where to Go?",
+        titleAr: "محاكي الفرز الذكي التفاعلي: اختر الحالة لتعرف المسار الصحيح فوراً",
+        titleEn: "Interactive Smart Triage Simulator: Pick a Condition to See the Right Path",
+        subAr: "اضغط على أي بطاقة بالأسفل لمعرفة القرار الطبي الصحيح فوراً",
+        subEn: "Click Any Card Below to See the Right Medical Decision Right Away",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "شريحة تفاعلية تساعد المستمعين على التمييز العملي بين الحالات الباردة والحالات الحرجة.",
+        notesEn: "Interactive activity to help listeners practice distinguishing cold cases from real emergencies.",
+        helperAr: "اضغط على أي حالة من الحالات الثمان لمعرفة التصنيف والقرار الصحيح: طب اتصالي (أخضر 🟢) أم طوارئ المستشفى (أحمر 🔴).",
+        helperEn: "Click any of the 8 cases below to see the right path: Tele-Emergency (Green 🟢) or Hospital ER (Red 🔴).",
+        render: function() { return renderTriageSimulatorSlide(); }
+      },
+
+      // SLIDE 17: خطوات التقديم الخمس من ملف PDF المرفق (مع المحاكي التفاعلي)
+      {
+        sectionAr: "17 • خطوات التقديم (دليل PDF)",
+        sectionEn: "17 • 5-Step Request Guide (PDF)",
+        titleAr: "كيف تطلب الخدمة من جوالك؟ (الخطوات الخمس المصورة من دليل تطبيق «ملفي»)",
+        titleEn: "How to Request the Service on Your Phone (5 Steps from the Malffi App Guide)",
+        subAr: "خطوات مصورة وسهلة للتقديم على طب الطوارئ الاتصالي المرئي مع تنبيه أرقام الطوارئ",
+        subEn: "Simple Step-by-Step Guide Matching the Official App Screens & Emergency Numbers",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تشرح الخطوات الخمس المرفقة في ملف PDF خطوة بخطوة مع محاكي تفاعلي للجوال وتنبيه أرقام الطوارئ الموجود في شاشة التطبيق.",
+        notesEn: "Walks through the exact 5 steps from the attached PDF guide with an interactive phone screen and the emergency numbers shown in the app.",
+        helperAr: "5 خطوات فقط في تطبيق «ملفي»: (1) تسجيل الدخول 👈 (2) المزيد 👈 (3) الطب الاتصالي المرئي 👈 (4) طب الطوارئ الاتصالي المرئي وتأكيد 👈 (5) يتواصل معك موظف التنسيق!",
+        helperEn: "Just 5 steps in Malffi: (1) Sign in 👈 (2) Tap More 👈 (3) Tap Visual Telemedicine 👈 (4) Select Visual Tele-Emergency & Confirm 👈 (5) Coordinator contacts you!",
+        render: function() { return renderPdf5StepsInteractive(); }
+      },
+
+      // SLIDE 18: البطاقة التعريفية الرسمية لخدمة «طلب طب الطوارئ الاتصالي» (my.gov.sa)
+      {
+        sectionAr: "18 • بطاقة التوثيق الحكومي",
+        sectionEn: "18 • Official Government Service Card",
+        titleAr: "البطاقة التعريفية الرسمية لخدمة «طلب طب الطوارئ الاتصالي»",
+        titleEn: "Official Service Specification Card: Request Virtual Emergency",
+        subAr: "توثيق بوابة الشؤون الصحية بوزارة الحرس الوطني والمنصة الوطنية الموحدة (my.gov.sa)",
+        subEn: "Verified on MNGHA E-Services Portal & Unified National Platform (my.gov.sa - 2187405)",
+        sourceUrlAr: URL_MYGOV,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "توثق هذه الشريحة البيانات الرسمية المعتمدة لخدمة طلب طب الطوارئ الاتصالي كما وردت في بوابة الشؤون الصحية والمنصة الوطنية الموحدة.",
+        notesEn: "Documents the official service specifications on the MNGHA Portal and Unified National Platform (my.gov.sa).",
+        helperAr: "الخدمة رسمية وموثقة في المنصة الوطنية الموحدة (my.gov.sa) وبوابة الشؤون الصحية: مجانية بالكامل، فورية التنفيذ، ومتاحة بالعربية والإنجليزية.",
+        helperEn: "Verified on the Unified National Platform (my.gov.sa) & MNGHA Portal: 100% Free, Instant Execution, available in Arabic & English.",
+        render: function() {
+          return '<div class="grid-2">' +
+            '<table class="ppt-table">' +
+              '<thead><tr><th colspan="2">📋 ' + tx("المواصفات الرسمية لخدمة «طلب طب الطوارئ الاتصالي»", "Official Specifications: Request Virtual Emergency") + '</th></tr></thead>' +
+              '<tbody>' +
+                '<tr><td><strong>' + tx("اسم الخدمة والمنتج", "Service & Product") + '</strong></td><td>' + tx("طلب خدمة طب الطوارئ الاتصالي — المنتج: الطب الاتصالي", "Request Virtual Emergency — Product: Telemedicine") + '</td></tr>' +
+                '<tr><td><strong>' + tx("تصنيف الخدمة", "Classification") + '</strong></td><td>' + tx("خدمة إلكترونية تكاملية", "Integrated E-Service") + '</td></tr>' +
+                '<tr><td><strong>' + tx("تاريخ إطلاق الخدمة", "Launch Date") + '</strong></td><td><strong>21 / 04 / 2024</strong></td></tr>' +
+                '<tr><td><strong>' + tx("تكلفة الخدمة ووقت التنفيذ", "Cost & Execution Time") + '</strong></td><td><strong style="color:#047857;">' + tx("مجاناً (0 ريال) • وقت التنفيذ: فوري", "100% Free • Immediate Execution") + '</strong></td></tr>' +
+                '<tr><td><strong>' + tx("لغات وقنوات الخدمة", "Languages & Channels") + '</strong></td><td>' + tx("العربية والإنجليزية • تطبيق ملفي (iOS، أندرويد، AppGallery)", "Arabic & English • Malffi App (iOS, Android, AppGallery)") + '</td></tr>' +
+                '<tr><td><strong>' + tx("المتطلبات الأساسية", "Prerequisites") + '</strong></td><td>' + tx("وجود ملف طبي ساري وفعال في إحدى منشآت الشؤون الصحية أو مراكزها", "Active medical file at an MNGHA hospital or health center") + '</td></tr>' +
+              '</tbody>' +
+            '</table>' +
+            '<div class="ppt-card emerald" style="display:flex; flex-direction:column; justify-content:space-between; gap:0.8rem;">' +
+              '<div><div class="card-title">🎯 ' + tx("وصف الخدمة الرسمي ومزاياها للمستفيد", "Official Service Description & Benefits") + '</div><p class="card-desc" style="margin-top:0.4rem;">' + tx("خدمة إلكترونية مخصصة للمراجع لدى إحدى منشآت الشؤون الصحية بوزارة الحرس الوطني أو المراكز الصحية التابعة لها، تتيح إمكانية طلب طوارئ افتراضية لتقديم الخدمة العاجلة للمستفيد دون الحاجة للحضور لقسم الطوارئ.", "An electronic service for patients of MNGHA facilities and affiliated health centers allowing them to request virtual emergency care remotely without visiting the physical ER.") + '</p></div>' +
+              '<div style="background:#ffffff; border:1px solid #a7f3d0; border-radius:11px; padding:0.8rem; font-size:0.8rem; line-height:1.6;">' +
+                '<strong>🔗 ' + tx("روابط التوثيق الحكومي المباشرة:", "Official Verification Links:") + '</strong><br/>' +
+                '• <a href="' + URL_REQ_ER + '" target="_blank" rel="noopener noreferrer" style="color:#047857; font-weight:800;">' + tx("صفحة الخدمة في بوابة الشؤون الصحية بوزارة الحرس الوطني ↗", "MNGHA E-Services Portal Page ↗") + '</a><br/>' +
+                '• <a href="' + URL_MYGOV + '" target="_blank" rel="noopener noreferrer" style="color:#047857; font-weight:800;">' + tx("صفحة الخدمة في المنصة الوطنية الموحدة (my.gov.sa - 2187405) ↗", "Unified National Platform (my.gov.sa - 2187405) ↗") + '</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 19: خدمة حجز المواعيد الافتراضية للعيادات التخصصية وطب الأسرة (8 خطوات)
+      {
+        sectionAr: "19 • حجز المواعيد الافتراضية (8 خطوات)",
+        sectionEn: "19 • Scheduled Virtual Appointments (8 Steps)",
+        titleAr: "خدمة «حجز المواعيد الافتراضية» للعيادات التخصصية وطب الأسرة (8 خطوات)",
+        titleEn: "Scheduled Virtual Appointments Booking Service & PDF Ticket Export",
+        subAr: "حجز مواعيد المتابعة عن بُعد وإرسال تذكرة الموعد بصيغة PDF للبريد الإلكتروني",
+        subEn: "Booking Remote Follow-Up Clinics & Exporting PDF Appointment Tickets",
+        sourceUrlAr: URL_VIRT_BOOK,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "إلى جانب الطوارئ الاتصالي الفوري، يوفر تطبيق ملفي خدمة حجز المواعيد الافتراضية المجدولة في المستشفيات والمراكز الصحية عبر 8 خطوات رسمية.",
+        notesEn: "Alongside instant Tele-Emergency, Malffi offers scheduled Virtual Appointments across MNGHA hospitals and primary care centers in 8 official steps.",
+        helperAr: "للمتابعة غير الطارئة، يمكنك حجز موعد افتراضي باختيار المستشفى والعيادة والتاريخ والوقت، وإرسال تذكرة الموعد بصيغة PDF لبريدك الإلكتروني!",
+        helperEn: "For routine follow-ups, book a scheduled Virtual Appointment by selecting your hospital, clinic, date & time, and export your ticket as a PDF!",
+        render: function() {
+          return '<div class="grid-2">' +
+            '<div class="ppt-card sky">' +
+              '<div class="card-title">📅 ' + tx("الخطوات الثمان الرسمية لحجز موعد افتراضي في «ملفي»:", "8 Official Steps to Book a Virtual Appointment in Malffi:") + '</div>' +
+              '<ol style="padding-inline-start:1.2rem; font-size:0.8rem; line-height:1.65; color:#1e293b; margin-top:0.35rem;">' +
+                '<li>' + tx("تسجيل الدخول إلى منصة «ملفي» عن طريق <strong>نفاذ</strong>، بصمة الوجه أو الأصبع، أو بيانات التسجيل.", "Sign in to Malffi via <strong>Nafath</strong>, biometrics, or login credentials.") + '</li>' +
+                '<li>' + tx("الذهاب إلى <strong>الصفحة الرئيسية</strong> في تطبيق «ملفي».", "Go to the <strong>Home Screen</strong> in the Malffi app.") + '</li>' +
+                '<li>' + tx("الضغط على أيقونة <strong>«الطب الاتصالي»</strong>.", "Tap the <strong>'Telemedicine'</strong> icon.") + '</li>' +
+                '<li>' + tx("النقر فوق <strong>[حجز موعد جديد]</strong> ثم اختيار نوع العيادة ⬅ المستشفى ⬅ العيادة والنقر فوق <strong>[بحث]</strong>.", "Tap <strong>[Book New Appointment]</strong>, select clinic type ➔ hospital ➔ clinic, and tap <strong>[Search]</strong>.") + '</li>' +
+                '<li>' + tx("اختيار <strong>التاريخ والوقت الأنسب</strong> لحجز الموعد عليه.", "Select the most convenient <strong>date and time</strong>.") + '</li>' +
+                '<li>' + tx("ظهور رسالة بجميع معلومات الموعد المختارة لمراجعتها.", "Review the summary message displaying all selected appointment details.") + '</li>' +
+                '<li>' + tx("التأكد من جميع معلومات الموعد ثم النقر فوق <strong>[تأكيد]</strong>.", "Verify all details and tap <strong>[Confirm]</strong>.") + '</li>' +
+                '<li>' + tx("تلقي رسالة تؤكد تسجيل الموعد بنجاح.", "Receive confirmation of your booked virtual appointment.") + '</li>' +
+              '</ol>' +
+            '</div>' +
+            '<div style="display:flex; flex-direction:column; gap:0.75rem;">' +
+              '<div class="ppt-card emerald"><div class="card-title">✨ ' + tx("مزايا إضافية في خدمة المواعيد الافتراضية", "Additional Features of Virtual Appointments") + '</div><div class="card-desc">' + tx("• استعراض جميع المواعيد الافتراضية القادمة والسابقة خلال فترة زمنية محددة.<br/>• إمكانية إرسال <strong>تذكرة الموعد إلى البريد الإلكتروني وعرضها بصيغة PDF</strong>.<br/>• متاحة مجاناً وفورياً باللغتين العربية والإنجليزية (أُطلقت بتاريخ 21/4/2024).", "• View all upcoming and past virtual appointments.<br/>• Send your <strong>appointment ticket to your email and view it as a PDF</strong>.<br/>• Free and instant in Arabic and English (Launched 21/4/2024).") + '</div></div>' +
+              '<div class="ppt-card amber"><div class="card-title">📌 ' + tx("شروط الاستفادة من حجز المواعيد الافتراضية", "Eligibility Requirements") + '</div><div class="card-desc">' + tx("1. وجود ملف طبي ساري وفعال في إحدى منشآت الشؤون الصحية بوزارة الحرس الوطني أو المراكز الصحية التابعة لها.<br/>2. أن يكون المراجع مؤهلاً للعلاج في العيادة المراد الحجز فيها.", "1. Active medical file at an MNGHA facility or affiliated health center.<br/>2. Treatment eligibility in the requested clinic.") + '</div></div>' +
+            '</div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 20: صفحة الفيديوهات الرسمية (@sanggovsa و @NGHAnews + مشغل محلي)
+      {
+        sectionAr: "20 • فيديوهات الخدمة الرسمية",
+        sectionEn: "20 • Official Service Videos",
+        titleAr: "مقاطع الفيديو الرسمية عن الطب الاتصالي في الشؤون الصحية بالحرس الوطني",
+        titleEn: "Official Videos on Telemedicine at Ministry of National Guard Health Affairs",
+        subAr: "تشغيل مباشر لمقاطع الفيديو الرسمية من حساب وزارة الحرس الوطني (@sanggovsa) والشؤون الصحية (@NGHAnews)",
+        subEn: "Direct Video Playback from Official @sanggovsa and @NGHAnews Social Media Channels",
+        sourceUrlAr: URL_TWEET_1,
+        sourceUrlEn: URL_TWEET_1,
+        notesAr: "تحتوي على مشغل الفيديو المباشر للفيديوين المرفقين في الطلب، مع خيار إضافي لتحميل وتشغيل أي فيديو محفوظ على الجهاز.",
+        notesEn: "Includes embedded video players for both official videos provided, plus an option to load a local video file from your computer.",
+        helperAr: "اضغط تشغيل لمشاهدة الفيديو الرسمي لمركز الطب الاتصالي المرئي، أو انتقل للتبويب الثاني لمشاهدة الفيديو الثاني أو إضافة فيديو من جهازك.",
+        helperEn: "Press play to watch the official video of the Visual Telemedicine Center, or switch tabs to view the second video or load a video from your computer.",
+        render: function() { return renderVideosSlide(); }
+      },
+
+      // SLIDE 21: ماذا يحدث بعد المكالمة؟ (التوصيل الاستباقي للأدوية عبر «واصل» والإجازة المرضية)
+      {
+        sectionAr: "21 • استلام الدواء والإجازة (واصل)",
+        sectionEn: "21 • Medicine Delivery (Wasel) & Sick Leave",
+        titleAr: "بعد انتهاء المكالمة: التوصيل الاستباقي للأدوية عبر «واصل» والإجازة المرضية",
+        titleEn: "After Your Video Call: Proactive Wasel Medication Delivery & Sick Leave",
+        subAr: "شحن تلقائي ومجاني للأدوية إلى العنوان الوطني (إطلاق رسمي: 01-01-2026)",
+        subEn: "Automatic Free Medication Shipping to Your National Address (Launched 01-01-2026)",
+        sourceUrlAr: URL_MED_DELIV,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تشرح كيفية استلام الدواء عبر الشحن المجاني الاستباقي (واصل) وكيفية تحميل الإجازة المرضية.",
+        notesEn: "Explains how medications are delivered automatically via Wasel and how to download official sick leaves.",
+        helperAr: "تُرسل وصفتك تلقائياً للصيدلية وتُشحن مجاناً لعنوانك الوطني عبر «واصل»، وتظهر إجازتك المرضية في التطبيق لطباعتها متى شئت.",
+        helperEn: "Your prescription goes straight to the pharmacy for free home delivery via Wasel, and your sick leave appears in the app ready to print.",
+        render: function() {
+          return '<div class="grid-4">' +
+            '<div class="ppt-card emerald"><div class="card-icon">1️⃣</div><div class="card-title" style="margin-top:0.35rem;">' + tx("اعتماد الوصفة فوراً", "1. Instant Prescription") + '</div><div class="card-desc">' + tx("بعد المكالمة مباشرة، يسجل الطبيب وصفتك الدوائية في ملفك الطبي الإلكتروني.", "Right after the call, the doctor saves your prescription in your electronic medical file.") + '</div></div>' +
+            '<div class="ppt-card emerald"><div class="card-icon">2️⃣</div><div class="card-title" style="margin-top:0.35rem;">' + tx("تجهيز الدواء بالصيدلية", "2. Pharmacy Preparation") + '</div><div class="card-desc">' + tx("تستلم الصيدلية الوصفة إلكترونياً وتجهز أدويتك تلقائياً بدون مراجعة ورقية.", "The pharmacy receives your prescription digitally and prepares your medicines automatically.") + '</div></div>' +
+            '<div class="ppt-card emerald"><div class="card-icon">3️⃣</div><div class="card-title" style="margin-top:0.35rem;">' + tx("التوصيل عبر «واصل»", "3. Wasel Home Delivery") + '</div><div class="card-desc">' + tx("تُشحن الأدوية مجاناً إلى عنوانك الوطني المسجل عبر البريد السعودي «واصل».", "Medications are shipped free of charge to your registered National Address via SPL Wasel.") + '</div></div>' +
+            '<div class="ppt-card sky"><div class="card-icon">📄</div><div class="card-title" style="margin-top:0.35rem;">' + tx("الإجازة المرضية", "4. Official Sick Leave") + '</div><div class="card-desc">' + tx("تظهر إجازتك المرضية في قسم «التقارير الطبية» بالتطبيق باللغتين العربية والإنجليزية.", "Your sick leave appears under 'Medical Reports' in the app in both Arabic and English.") + '</div></div>' +
+          '</div>' +
+          '<div class="ppt-card amber"><div class="card-title">💡 ' + tx("نصيحة مهمة قبل استخدام الخدمة (تاريخ إطلاق التوصيل الاستباقي: 01-01-2026):", "Important Tip (Proactive Delivery Launched 01-01-2026):") + '</div><div class="card-desc">' + tx("تأكد دائماً من تحديث <strong>عنوانك الوطني ورقم جوالك</strong> داخل تطبيق «ملفي» لتصلك رسائل التتبع والشحنات الدوائية بسرعة، علماً أنه يمكنك أيضاً استلام الأدوية العاجلة مباشرة من الصيدلية إذا رغبت.", "Always keep your <strong>National Address and mobile number</strong> updated in the Malffi app so delivery updates and medicines reach you quickly.") + '</div></div>';
+        }
+      },
+
+      // SLIDE 22: إدارة الوصفات وسجل زيارات الطوارئ والخدمات الرقمية المساندة (66 خدمة)
+      {
+        sectionAr: "22 • سجل الطوارئ والخدمات الرقمية (66 خدمة)",
+        sectionEn: "22 • ER History & 66 Digital E-Services",
+        titleAr: "إدارة الوصفات، سجل زيارات الطوارئ السابقة، والخدمات الرقمية المساندة",
+        titleEn: "Prescription Management, Previous ER Visit History & Integrated E-Services",
+        subAr: "66 خدمة إلكترونية متكاملة مع تطبيق «ملفي» وتطبيق «توكلنا»",
+        subEn: "66 Digital Health Services Integrated Across Malffi App & Tawakkalna",
+        sourceUrlAr: URL_PREV_ER,
+        sourceUrlEn: URL_ESERVICES,
+        notesAr: "تستعرض هذه الشريحة خدمات سجل زيارات الطوارئ السابقة، إعادة تعبئة الدواء، فتح الملف الطبي، أهلية العلاج، وإسناد الأبناء.",
+        notesEn: "Covers Previous ER Visit History, prescription refills and dose alarms, opening medical files, treatment eligibility, and child linking.",
+        helperAr: "من خلال تطبيق «ملفي» يمكنك مراجعة تفاصيل زياراتك السابقة للطوارئ، ضبط منبه الجرعات، تحديث أهلية العلاج، والتحقق من الإجازات المرضية.",
+        helperEn: "In Malffi App, review your full ER visit history, set medication dose alarms, renew treatment eligibility, and verify sick leaves.",
+        render: function() {
+          return '<div class="grid-3">' +
+            '<div class="ppt-card emerald"><div class="card-title">📂 ' + tx("سجل زيارات الطوارئ السابقة", "Previous ER Visits History") + '</div><div class="card-desc">' + tx("الاطلاع على اسم الطبيب المعالج، التشخيص، التحاليل، الوصفات، ودليل تعليمات ما بعد الزيارة.", "View treating physician name, diagnosis, labs, prescriptions, and post-visit discharge instructions.") + '</div></div>' +
+            '<div class="ppt-card emerald"><div class="card-title">⏰ ' + tx("إدارة الوصفات ومنبه الجرعات", "Prescriptions & Dose Alarms") + '</div><div class="card-desc">' + tx("عرض الوصفات الحالية والسابقة، تصديرها كـ PDF، طلب إعادة التعبئة، وإضافة منبه لمواعيد الدواء.", "View current/past prescriptions, export as PDF, request refills, and set medication dose alarms.") + '</div></div>' +
+            '<div class="ppt-card emerald"><div class="card-title">🆔 ' + tx("فتح ملف طبي وأهلية العلاج", "Open Medical File & Eligibility") + '</div><div class="card-desc">' + tx("فتح ملف طبي إلكترونياً عبر الجوال، واستعراض صلاحية أهلية العلاج وتحديثها آلياً.", "Open a medical file online via mobile and check or renew treatment eligibility.") + '</div></div>' +
+            '<div class="ppt-card sky"><div class="card-title">👨‍👩‍👧‍👦 ' + tx("إسناد الأبناء وملف المولود", "Family Linking & Newborn File") + '</div><div class="card-desc">' + tx("فتح ملف طبي للمولود الجديد، وإسناد الأبناء دون 18 عاماً تلقائياً لحساب الوالدين.", "Open a newborn medical file and automatically link children under 18 to parents' accounts.") + '</div></div>' +
+            '<div class="ppt-card sky"><div class="card-title">📄 ' + tx("التحقق من التقرير الطبي والإجازة", "Medical Report & Sick Leave Verification") + '</div><div class="card-desc">' + tx("عرض وطباعة الإجازات المرضية وتقارير المرافقة والتحقق من صحتها إلكترونياً عبر البوابة.", "Print official sick leaves and companion reports and verify them online.") + '</div></div>' +
+            '<div class="ppt-card sky"><div class="card-title">🧭 ' + tx("خدمة «دلني» وتكامل «توكلنا»", "'Delni' Navigation & Tawakkalna") + '</div><div class="card-desc">' + tx("إرشاد تفاعلي داخل المستشفيات، ومزامنة القراءات الحيوية، ودمج الخدمات في تطبيق توكلنا.", "In-hospital navigation, smart vital-sign sync, and full integration with Tawakkalna.") + '</div></div>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 23: نصائح الاستعداد والأسئلة الشائعة + القاموس المبسط بـ 4 لغات
+      {
+        sectionAr: "23 • الاستعداد والأسئلة والقاموس",
+        sectionEn: "23 • Preparation, FAQs & 4-Language Guide",
+        titleAr: "كيف تستعد للمكالمة المرئية؟ + الأسئلة الشائعة والدليل السريع بـ 4 لغات",
+        titleEn: "How to Prepare for the Video Call + FAQs & 4-Language Quick Reference",
+        subAr: "نصائح سريعة لضمان كشف طبي واضح ومريح مع جدول مبسط لغير الناطقين بالعربية",
+        subEn: "Quick Tips for a Smooth Video Checkup and a Multilingual Visual Guide",
+        sourceUrlAr: URL_SLA,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "نصائح بسيطة قبل المكالمة (الإضاءة، الجوال، الأدوية) مع جدول مرئي بـ 4 لغات (العربية، الإنجليزية، الأوردو، التاجالوج).",
+        notesEn: "Simple pre-call tips alongside a 4-language quick reference table (Arabic, English, Urdu, Tagalog).",
+        helperAr: "اجلس في مكان مضاء وهادئ، جهز أدويتك التي تستخدمها، وأبقِ جوالك قريباً للرد على مكالمة موظف التنسيق والطبيب.",
+        helperEn: "Sit in a quiet, well-lit place, keep your current medicines nearby, and keep your phone close to answer the coordinator and doctor.",
+        render: function() {
+          return '<div class="grid-2">' +
+            '<div class="ppt-card emerald">' +
+              '<div class="card-title">✅ ' + tx("5 خطوات بسيطة قبل المكالمة + الأسئلة الشائعة:", "5 Simple Steps Before Your Call + FAQs:") + '</div>' +
+              '<div class="card-desc" style="margin-top:0.35rem; line-height:1.65;">' +
+                tx("1. <strong>تأكد من سريان ملفك الطبي</strong> وتحديث عنوانك الوطني في تطبيق «ملفي».<br/>2. <strong>أبقِ جوالك قريباً</strong> للرد على موظف التنسيق الطبي.<br/>3. <strong>اجلس في مكان مضاء وهادئ</strong> لمعاينة الحلق أو الجلد بوضوح.<br/>4. <strong>جهز قائمة أدويتك</strong> وأي حساسية دوائية وقس حرارتك إن أمكن.<br/>• <strong>مجانية 100% ومتاحة 24/7</strong> لجميع المستفيدين والتابعين بتقارير معتمدة.",
+                   "1. <strong>Verify active medical file</strong> and National Address in Malffi.<br/>2. <strong>Keep phone nearby</strong> to answer the medical coordinator.<br/>3. <strong>Sit in a bright, quiet place</strong> for clear camera examination.<br/>4. <strong>Prepare your medication list</strong>, allergies, and temperature reading.<br/>• <strong>100% Free & Available 24/7</strong> for patients and dependents with official reports.") +
+              '</div>' +
+            '</div>' +
+            '<table class="ppt-table" style="font-size:0.76rem;">' +
+              '<thead><tr><th>العربية</th><th>English</th><th>اردو</th><th>Tagalog</th></tr></thead>' +
+              '<tbody>' +
+                '<tr><td><strong>🟢 حالة بسيطة ⬅ ملفي</strong></td><td>Mild ➔ Malffi App</td><td>معمولی ⬅ ملفی ایپ</td><td>Simple ➔ Malffi App</td></tr>' +
+                '<tr><td><strong>🤧 زكام، كحة، حرارة، طفح</strong></td><td>Cold, Cough, Rash</td><td>نزلہ، کھانسی، خارش</td><td>Sipon, Ubo, Pantal</td></tr>' +
+                '<tr><td><strong>💊 دواء مجاني (واصل)</strong></td><td>Free Med Delivery</td><td>مفت دوا ڈیلیوری</td><td>Libreng Hatid-Gamot</td></tr>' +
+                '<tr><td><strong style="color:#dc2626;">🔴 ألم صدر/ضيق تنفس ⬅ طوارئ</strong></td><td style="color:#dc2626; font-weight:800;">Chest Pain ➔ ER!</td><td style="color:#dc2626; font-weight:800;">سینے میں درد ⬅ ایمرجنسی!</td><td style="color:#dc2626; font-weight:800;">Sakit sa Dibdib ➔ ER!</td></tr>' +
+              '</tbody>' +
+            '</table>' +
+          '</div>';
+        }
+      },
+
+      // SLIDE 24: الاختبار التفاعلي السريع وأرقام التواصل الرسمية
+      {
+        sectionAr: "24 • مراجعة تفاعلية وأرقام الطوارئ",
+        sectionEn: "24 • Quick Review & Emergency Numbers",
+        titleAr: "مراجعة تفاعلية سريعة + أرقام الطوارئ والتواصل الرسمية للمدن الطبية",
+        titleEn: "Quick Interactive Review + Official Emergency Contact Numbers",
+        subAr: "تثبيت المعلومات الأساسية وأرقام التواصل المباشرة في جدة والرياض والمدينة والشرقية",
+        subEn: "Reinforcing Key Points and Official Contact Numbers Across All Regions",
+        sourceUrlAr: URL_FIND_LOC,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "تتضمن 4 أسئلة مراجعة تفاعلية بسيطة مع أرقام التواصل الرسمية الموثقة لجميع المدن الطبية والهلال الأحمر 997.",
+        notesEn: "Includes a simple 4-question review quiz and verified official contact numbers.",
+        helperAr: "شاركوا في الإجابة على الأسئلة الأربعة للتحقق من الفهم، واحفظوا أرقام الطوارئ المعتمدة.",
+        helperEn: "Answer the 4 quick review questions and save the official emergency numbers.",
+        render: function() { return renderQuizAndContactsSlide(); }
+      },
+
+      // SLIDE 25: الخاتمة وشكر المستمعين وفتح باب الاستفسارات والأسئلة
+      {
+        sectionAr: "25 • الخاتمة والاستفسارات",
+        sectionEn: "25 • Conclusion & Questions",
+        titleAr: "شكراً لحسن استماعكم.. نرحب بأسئلتكم واستفساراتكم",
+        titleEn: "Thank You for Your Attention.. We Welcome Your Questions",
+        subAr: "الشؤون الصحية بوزارة الحرس الوطني — الرعاية الصحيحة في وقتها",
+        subEn: "Ministry of National Guard Health Affairs — Right Care at the Right Time",
+        sourceUrlAr: URL_REQ_ER,
+        sourceUrlEn: URL_REQ_ER_EN,
+        notesAr: "شريحة الخاتمة (25 من 25): شكر الحضور وتلخيص الرسالة الأساسية في 3 نقاط سريعة وفتح المجال لأي أسئلة أو استفسارات.",
+        notesEn: "Closing slide (25 of 25): thanking the audience, summarizing the 3 core takeaways, and opening the floor for questions and inquiries.",
+        helperAr: "ختاماً: تطبيق «ملفي» في جوالك هو بوابتك الفورية لطب الطوارئ الاتصالي المرئي على مدار الساعة — نسعد الآن بالإجابة على استفساراتكم.",
+        helperEn: "In closing: the Malffi app on your phone is your 24/7 gateway to Visual Tele-Emergency—we are happy to answer your questions now.",
+        render: function() {
+          return '<div class="grid-2-asym" style="align-items:center;">' +
+            '<div class="ppt-card dark" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.85rem;">' +
+              '<div style="width:76px; height:76px; background:#ffffff; border-radius:20px; padding:5px; border:2px solid #fbbf24;">' + mnghaLogoSvgMarkup + '</div>' +
+              '<h3 style="font-size:1.7rem; font-weight:900; color:#fbbf24;">' + tx("شكراً جزيلاً لحسن استماعكم واهتمامكم", "Thank You Very Much for Your Attention") + '</h3>' +
+              '<p style="font-size:1.02rem; color:#ecfdf5; font-weight:800; line-height:1.6;">' +
+                tx("💬 هل لديكم أي أسئلة أو استفسارات؟<br/><span style='font-size:0.86rem; color:#a7f3d0;'>يسعدنا الإجابة على جميع تساؤلاتكم حول خدمة طب الطوارئ الاتصالي المرئي وتطبيق «ملفي»</span>",
+                   "💬 Do You Have Any Questions or Inquiries?<br/><span style='font-size:0.86rem; color:#a7f3d0;'>We are happy to answer all your questions about Visual Tele-Emergency and the Malffi App</span>") +
+              '</p>' +
+              '<div style="display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; margin-top:0.25rem;">' +
+                '<button class="btn-action gold" onclick="goToSlide(0)">🔄 ' + tx("العودة للشريحة الأولى", "Back to First Slide") + '</button>' +
+                '<button class="btn-action" onclick="goToSlide(16)">📱 ' + tx("مراجعة خطوات التطبيق", "Review App Steps") + '</button>' +
+              '</div>' +
+            '</div>' +
+            '<div style="display:flex; flex-direction:column; gap:0.7rem;">' +
+              '<div class="ppt-card emerald">' +
+                '<div class="card-title">🟢 ' + tx("الرسالة الأولى: للحالات الباردة البسيطة (4 و 5)", "Takeaway 1: For Mild Cold Cases (Levels 4 & 5)") + '</div>' +
+                '<div class="card-desc">' + tx("افتح تطبيق «ملفي» واطلب «طب الطوارئ الاتصالي المرئي» لتحصل على التشخيص والعلاج والإجازة المرضية من مكانك بدون انتظار.", "Open the Malffi app and request 'Visual Tele-Emergency' for fast diagnosis, prescription, and sick leave from home.") + '</div>' +
+              '</div>' +
+              '<div class="ppt-card red">' +
+                '<div class="card-title">🔴 ' + tx("الرسالة الثانية: للحالات الخطيرة والحرجة (1 و 2)", "Takeaway 2: For Life-Threatening Emergencies (Levels 1 & 2)") + '</div>' +
+                '<div class="card-desc">' + tx("عند ألم الصدر القوي أو ضيق التنفس الشديد أو النزيف أو علامات الجلطة، توجه فوراً لقسم الطوارئ أو اتصل بـ 997.", "For strong chest pain, severe breathing trouble, heavy bleeding, or stroke signs, go straight to the Hospital ER or call 997.") + '</div>' +
+              '</div>' +
+              '<div class="ppt-card sky">' +
+                '<div class="card-title">🧭 ' + tx("الرسالة الثالثة: توجيه آمن وموثوق دائماً", "Takeaway 3: Safe Medical Guidance Always") + '</div>' +
+                '<div class="card-desc">' + tx("طبيب الطوارئ الاتصالي معك على مدار الساعة، وإذا احتاجت حالتك فحصاً حضورياً سيوجهك فوراً لقسم الطوارئ.", "The Tele-Emergency doctor is available 24/7 and will immediately guide you to the physical ER if an in-person exam is needed.") + '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+      }
+    ];
+
+    var pdfStepsData = [
+      {
+        num: 1, icon: "🔐",
+        titleAr: "الخطوة 1: الدخول لتطبيق «ملفي»",
+        titleEn: "Step 1: Sign In to the Malffi App",
+        ocrAr: "الدخول لتطبيق ملفي عن طريق الملف الطبي أو عن طريق النفاذ",
+        ocrEn: "Sign in to Malffi using your Medical File or Nafath",
+        descAr: "افتح تطبيق «ملفي» على جوالك، وسجل الدخول عن طريق النفاذ الوطني الموحد أو برقم الملف الطبي وكلمة المرور.",
+        descEn: "Open the Malffi app on your phone and sign in using Nafath (National Single Sign-On) or your Medical File Number and password."
+      },
+      {
+        num: 2, icon: "📋",
+        titleAr: "الخطوة 2: الضغط على «المزيد»",
+        titleEn: "Step 2: Tap 'More'",
+        ocrAr: "بعد تسجيل الدخول تظهر القائمة ⬅ الضغط على «المزيد»",
+        ocrEn: "After signing in, the menu appears ➔ Tap 'More'",
+        descAr: "بعد الدخول إلى الصفحة الرئيسية للتطبيق، اضغط على زر «المزيد» لفتح قائمة الخدمات الكاملة.",
+        descEn: "Once on the app home screen, tap the 'More' button to view the full list of services."
+      },
+      {
+        num: 3, icon: "🩺",
+        titleAr: "الخطوة 3: الضغط على «الطب الاتصالي المرئي»",
+        titleEn: "Step 3: Tap 'Visual Telemedicine'",
+        ocrAr: "الضغط على أيقونة «الطب الاتصالي المرئي»",
+        ocrEn: "Tap the 'Visual Telemedicine' icon",
+        descAr: "من قائمة الخدمات الظاهرة، اختر واضغط على أيقونة «الطب الاتصالي المرئي».",
+        descEn: "From the services menu, locate and tap the 'Visual Telemedicine' icon."
+      },
+      {
+        num: 4, icon: "✅",
+        titleAr: "الخطوة 4: اختيار «طب الطوارئ الاتصالي المرئي» وتأكيد",
+        titleEn: "Step 4: Choose 'Visual Tele-Emergency' & Confirm",
+        ocrAr: "اختيار «طب الطوارئ الاتصالي المرئي» والاستمرار ثم الضغط على «تأكيد»",
+        ocrEn: "Select 'Visual Tele-Emergency', continue, then tap 'Confirm'",
+        descAr: "اختر «طب الطوارئ الاتصالي المرئي» من الخيارات الثلاثة، ثم اضغط استمرار واقرأ التنبيه واضغط على زر «تأكيد».",
+        descEn: "Select 'Visual Tele-Emergency' from the three options, continue, review the notice, and tap the green 'Confirm' button."
+      },
+      {
+        num: 5, icon: "🎧",
+        titleAr: "الخطوة 5: نجاح الطلب وتواصل موظف التنسيق",
+        titleEn: "Step 5: Request Sent & Coordinator Contacts You",
+        ocrAr: "تم تقديم الطلب بنجاح، وسوف يتم التواصل معك من قبل موظف التنسيق",
+        ocrEn: "Request submitted successfully; a coordinator will contact you",
+        descAr: "تظهر شاشة «تمت بنجاح» لتأكيد إرسال طلبك، وسيتواصل معك موظف التنسيق الطبي لبدء المكالمة مع الطبيب.",
+        descEn: "A confirmation screen appears showing your request was sent successfully, and a coordinator will contact you to start your video call with the doctor."
+      }
+    ];
+
+    function renderPdf5StepsInteractive() {
+      var listHtml = '<div style="display:flex; flex-direction:column; gap:0.4rem;">';
+      for (var i = 0; i < pdfStepsData.length; i++) {
+        var st = pdfStepsData[i];
+        var act = (i === currentPdfStep);
+        listHtml += '<div onclick="selectPdfStep(' + i + ')" class="ppt-card ' + (act ? 'emerald' : '') + '" style="padding:0.52rem 0.82rem; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:0.6rem;">' +
+          '<div><div style="font-size:0.84rem; font-weight:900; color:#0f172a;">' + tx(st.titleAr, st.titleEn) + '</div><div style="font-size:0.74rem; color:#047857; font-weight:700;">' + tx(st.ocrAr, st.ocrEn) + '</div></div>' +
+          '<span style="font-size:1.3rem;">' + st.icon + '</span>' +
+        '</div>';
+      }
+      listHtml += '<div class="ppt-card red" style="padding:0.52rem 0.82rem; font-size:0.74rem;">' +
+        '<strong>⚠️ ' + tx("تنبيه الطوارئ الموجود داخل شاشة التطبيق:", "Emergency Notice Shown Inside the App:") + '</strong><br/>' +
+        tx("إذا كانت الأعراض خطيرة ومهددة للحياة، توجه فوراً لأقرب طوارئ أو اتصل بـ: الهلال الأحمر (997) • طوارئ جدة (0122266666) • طوارئ الرياض (0112520088 تحويلة 11111).",
+           "If symptoms are life-threatening, go to the nearest ER immediately or call: Red Crescent (997) • Jeddah ER (012-2266666) • Riyadh ER (011-2520088 ext 11111).") +
+      '</div></div>';
+
+      var cur = pdfStepsData[currentPdfStep];
+      var phoneHtml = '<div style="background:#0f172a; border-radius:26px; padding:11px; max-width:340px; width:100%; margin:0 auto; border:4px solid #334155; box-shadow:0 20px 45px rgba(0,0,0,0.28);">' +
+        '<div style="background:#ffffff; border-radius:18px; overflow:hidden; min-height:345px; display:flex; flex-direction:column; justify-content:space-between;">' +
+          '<div style="background:#065f46; color:#ffffff; padding:0.7rem 0.95rem; display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; font-weight:800;">' +
+            '<span>' + tx("تطبيق ملفي (MNGHA Care)", "Malffi App (MNGHA Care)") + '</span>' +
+            '<span style="background:#fbbf24; color:#0f172a; padding:0.15rem 0.5rem; border-radius:999px; font-weight:900;">' + cur.num + ' / 5</span>' +
+          '</div>' +
+          '<div style="padding:1.15rem; text-align:center; display:flex; flex-direction:column; gap:0.6rem; align-items:center;">' +
+            '<div style="width:60px; height:60px; border-radius:50%; background:#ecfdf5; border:2px solid #10b981; display:flex; align-items:center; justify-content:center; font-size:2rem;">' + cur.icon + '</div>' +
+            '<div style="font-size:0.92rem; font-weight:900; color:#0f172a;">' + tx(cur.titleAr, cur.titleEn) + '</div>' +
+            '<div style="font-size:0.78rem; color:#334155; line-height:1.55;">' + tx(cur.descAr, cur.descEn) + '</div>' +
+            '<button class="btn-action" style="width:100%; justify-content:center; margin-top:0.3rem;" onclick="selectPdfStep(' + ((currentPdfStep + 1) % 5) + ')">' + tx("الخطوة التالية ←", "Next Step →") + '</button>' +
+          '</div>' +
+          '<div style="background:#f8fafc; border-top:1px solid #e2e8f0; padding:0.48rem 0.8rem; font-size:0.68rem; color:#64748b; display:flex; justify-content:space-between;">' +
+            '<span>' + tx("الدليل الرسمي (5 خطوات)", "Official 5-Step Guide") + '</span>' +
+            '<span style="color:#047857; font-weight:800; cursor:pointer;" onclick="selectPdfStep(0)">' + tx("العودة للخطوة 1", "Back to Step 1") + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+      return '<div class="grid-2-asym" style="align-items:center;">' + listHtml + phoneHtml + '</div>';
+    }
+
+    function selectPdfStep(idx) { currentPdfStep = idx; renderCurrentSlide(); }
+
+    var triageSimulatorScenarios = [
+      {
+        icon: "🤧", labelAr: "زكام واحتقان حلق وكحة خفيفة", labelEn: "Cold, Sore Throat & Mild Cough", level: "green",
+        ctasAr: "🟢 المستوى 4–5 (حالة باردة)", ctasEn: "🟢 CTAS Level 4–5 (Cold Case)",
+        decisionAr: "اطلب «طب الطوارئ الاتصالي المرئي» عبر تطبيق «ملفي»", decisionEn: "Use 'Visual Tele-Emergency' in the Malffi App",
+        reasonAr: "حالة بسيطة غير خطيرة؛ يعاينك الطبيب عبر الفيديو ويصف الدواء والإجازة المرضية إذا استدعت الحالة، دون انتظار في المستشفى.",
+        reasonEn: "A mild condition; the doctor checks you on video and prescribes medicine and sick leave if needed, without waiting at the hospital.",
+        actionAr: "تطبيق ملفي ⬅ المزيد ⬅ الطب الاتصالي المرئي ⬅ طب الطوارئ الاتصالي المرئي",
+        actionEn: "Malffi App ➔ More ➔ Visual Telemedicine ➔ Visual Tele-Emergency"
+      },
+      {
+        icon: "💔", labelAr: "ألم شديد وعاصر في الصدر مع تعرق", labelEn: "Strong Chest Pain or Pressure with Sweat", level: "red",
+        ctasAr: "🔴 المستوى 1–2 (حالة حرجة جداً)", ctasEn: "🔴 CTAS Level 1–2 (Critical Emergency)",
+        decisionAr: "توجه فوراً إلى قسم الطوارئ بالمستشفى أو اتصل بالإسعاف (997)!", decisionEn: "Go IMMEDIATELY to the Hospital ER or Call 997!",
+        reasonAr: "ألم الصدر القوي لا ينفع معه الطب الاتصالي؛ يحتاج تخطيط قلب سريع خلال 10 دقائق وفحوصات عاجلة داخل المستشفى.",
+        reasonEn: "Strong chest pain cannot be treated on video; it needs an immediate hospital ECG within 10 minutes and urgent tests.",
+        actionAr: "توجه فوراً لقسم الطوارئ أو اتصل بالهلال الأحمر (997)",
+        actionEn: "Go to the Hospital ER immediately or call Red Crescent (997)"
+      },
+      {
+        icon: "🦵", labelAr: "شد عضلي أو ألم ظهر خفيف", labelEn: "Mild Muscle Strain or Mild Back Pain", level: "green",
+        ctasAr: "🟢 المستوى 4 (حالة باردة)", ctasEn: "🟢 CTAS Level 4 (Cold Case)",
+        decisionAr: "استشر طبيب الطوارئ الاتصالي المرئي عبر تطبيق «ملفي»", decisionEn: "Consult the Visual Tele-Emergency Doctor on Malffi",
+        reasonAr: "طالما تستطيع المشي والتحرك ولا يوجد كسر ظاهر أو تنميل، يقيّمك الطبيب مرئياً ويصف المسكنات ومرخيات العضلات.",
+        reasonEn: "As long as you can walk and move with no numbness or broken bone, the doctor checks you on video and prescribes pain relief.",
+        actionAr: "تطبيق ملفي ⬅ الطب الاتصالي المرئي ⬅ طب الطوارئ الاتصالي المرئي",
+        actionEn: "Malffi App ➔ Visual Telemedicine ➔ Visual Tele-Emergency"
+      },
+      {
+        icon: "😮‍💨", labelAr: "ضيق شديد في التنفس أو اختناق", labelEn: "Severe Trouble Breathing or Choking", level: "red",
+        ctasAr: "🔴 المستوى 1–2 (طوارئ تنفسية)", ctasEn: "🔴 CTAS Level 1–2 (Breathing Emergency)",
+        decisionAr: "توجه فوراً لقسم الطوارئ بالمستشفى!", decisionEn: "Go Immediately to the Hospital ER!",
+        reasonAr: "ضيق التنفس الشديد أو أزمة الربو التي لا تهدأ بالبخاخ تحتاج أكسجين وعلاجاً فورياً في قسم الطوارئ.",
+        reasonEn: "Severe trouble breathing or asthma not helped by an inhaler needs oxygen and emergency care in the hospital.",
+        actionAr: "توجه فوراً لأقرب قسم طوارئ (يعمل 24 ساعة)",
+        actionEn: "Go directly to the nearest Hospital ER (Open 24/7)"
+      },
+      {
+        icon: "🖐️", labelAr: "طفح جلدي بسيط أو لدغة حشرة", labelEn: "Mild Skin Rash or Insect Bite", level: "green",
+        ctasAr: "🟢 المستوى 5 (حالة باردة)", ctasEn: "🟢 CTAS Level 5 (Cold Case)",
+        decisionAr: "اعرض الطفح على كاميرا «طب الطوارئ الاتصالي المرئي»", decisionEn: "Show the Rash on Camera via Visual Tele-Emergency",
+        reasonAr: "الحساسية الجلدية البسيطة بدون تورم الوجه أو ضيق التنفس تُشخّص بوضوح عبر الكاميرا ويُصرف لها المرهم فوراً.",
+        reasonEn: "Mild rashes without face swelling or breathing trouble are easily checked on camera and treated with creams.",
+        actionAr: "تطبيق ملفي ⬅ الطب الاتصالي المرئي ⬅ استشارة مرئية فورية",
+        actionEn: "Malffi App ➔ Visual Telemedicine ➔ Instant Video Consult"
+      },
+      {
+        icon: "🧠", labelAr: "ثقل مفاجئ في الكلام أو ضعف بالذراع", labelEn: "Sudden Slurred Speech or Arm Weakness", level: "red",
+        ctasAr: "🔴 المستوى 1 (طوارئ جلطة دماغية)", ctasEn: "🔴 CTAS Level 1 (Stroke Emergency)",
+        decisionAr: "طوارئ قصوى! توجه فوراً لقسم الطوارئ بالمستشفى", decisionEn: "CRITICAL EMERGENCY! Go Straight to the Hospital ER",
+        reasonAr: "ميلان الفم أو ثقل الكلام أو ضعف أحد الأطراف علامات خطر تستوجب أشعة مقطعية وعلاجاً فورياً بالمستشفى.",
+        reasonEn: "Drooping face, slurred speech, or sudden weakness on one side needs immediate hospital brain scans and treatment.",
+        actionAr: "لا تنتظر أي مكالمة — توجه فوراً للطوارئ أو اتصل بـ 997",
+        actionEn: "Do NOT wait for a call — Go straight to the ER or call 997"
+      },
+      {
+        icon: "📄", labelAr: "طلب إجازة مرضية أو تجديد دواء", labelEn: "Sick Leave Request or Medicine Refill", level: "green",
+        ctasAr: "🟢 المستوى 5 (خدمة رقمية)", ctasEn: "🟢 CTAS Level 5 (Digital Service)",
+        decisionAr: "أنجزها عبر تطبيق «ملفي» دون زيارة المستشفى", decisionEn: "Complete via Malffi App Without Visiting the Hospital",
+        reasonAr: "يتيح التطبيق طلب الإجازات المرضية عند الحاجة وإعادة صرف الأدوية وشحنها عبر «واصل» بدون إشغال قسم الطوارئ.",
+        reasonEn: "The app provides official sick leave when needed and medicine refills via Wasel without crowding the ER.",
+        actionAr: "تطبيق ملفي ⬅ الطب الاتصالي المرئي / الوصفات / التقارير",
+        actionEn: "Malffi App ➔ Visual Telemedicine / Prescriptions / Reports"
+      },
+      {
+        icon: "🤢", labelAr: "حموضة أو مغص خفيف أو إسهال بسيط", labelEn: "Heartburn, Mild Cramps or Mild Diarrhea", level: "green",
+        ctasAr: "🟢 المستوى 4–5 (حالة باردة)", ctasEn: "🟢 CTAS Level 4–5 (Cold Case)",
+        decisionAr: "استشر طبيب الطوارئ الاتصالي المرئي عبر جوالك", decisionEn: "Consult the Visual Tele-Emergency Doctor on Your Phone",
+        reasonAr: "طالما المريض يشرب السوائل ولا يوجد ألم بطن شديد أو قيء مستمر، يصف الطبيب عن بُعد العلاج المناسب.",
+        reasonEn: "As long as fluids are tolerated with no severe belly pain or non-stop vomiting, the doctor prescribes medicine remotely.",
+        actionAr: "تطبيق ملفي ⬅ الطب الاتصالي المرئي ⬅ طب الطوارئ الاتصالي المرئي",
+        actionEn: "Malffi App ➔ Visual Telemedicine ➔ Visual Tele-Emergency"
+      }
+    ];
+
+    function renderTriageSimulatorSlide() {
+      var btns = '';
+      for (var i = 0; i < triageSimulatorScenarios.length; i++) {
+        var sc = triageSimulatorScenarios[i];
+        var active = (i === selectedTriageIdx);
+        var cls = active ? (sc.level === 'red' ? 'ppt-card red' : 'ppt-card emerald') : 'ppt-card';
+        var tag = (sc.level === 'red') ? tx("🔴 طوارئ المستشفى", "🔴 Hospital ER") : tx("🟢 طب اتصالي", "🟢 Tele-Emergency");
+
+        btns += '<div onclick="selectTriageScenario(' + i + ')" class="' + cls + '" style="cursor:pointer; padding:0.65rem 0.78rem;">' +
+          '<div style="display:flex; justify-content:space-between; align-items:center;"><span style="font-size:1.3rem;">' + sc.icon + '</span><span style="font-size:0.7rem; font-weight:900; color:' + (sc.level === 'red' ? '#dc2626' : '#047857') + ';">' + tag + '</span></div>' +
+          '<div style="font-size:0.82rem; font-weight:900; margin-top:0.25rem;">' + tx(sc.labelAr, sc.labelEn) + '</div>' +
+        '</div>';
+      }
+      var cur = triageSimulatorScenarios[selectedTriageIdx];
+      var resCls = cur.level === 'red' ? 'ppt-card red' : 'ppt-card emerald';
+
+      return '<div class="grid-2-asym" style="align-items:center;">' +
+        '<div class="grid-2" style="gap:0.55rem;">' + btns + '</div>' +
+        '<div class="' + resCls + '" style="padding:1.25rem;">' +
+          '<div style="display:flex; justify-content:space-between; align-items:center;"><span class="section-pill ' + (cur.level === 'red' ? 'red' : '') + '">' + tx(cur.ctasAr, cur.ctasEn) + '</span><span style="font-size:2.1rem;">' + cur.icon + '</span></div>' +
+          '<div style="font-size:0.75rem; font-weight:800; color:#475569; margin-top:0.65rem;">' + tx("القرار الطبي الصحيح:", "Right Medical Decision:") + '</div>' +
+          '<div style="font-size:1.1rem; font-weight:900; color:#0f172a; margin-top:0.2rem;">' + tx(cur.decisionAr, cur.decisionEn) + '</div>' +
+          '<p style="font-size:0.84rem; color:#334155; line-height:1.6; margin-top:0.45rem;">' + tx(cur.reasonAr, cur.reasonEn) + '</p>' +
+          '<div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:10px; padding:0.7rem; margin-top:0.7rem; font-size:0.8rem; font-weight:900;">⚡ ' + tx("ماذا تفعل:", "What to do:") + ' ' + tx(cur.actionAr, cur.actionEn) + '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    function selectTriageScenario(idx) { selectedTriageIdx = idx; renderCurrentSlide(); }
+
+    function renderVideosSlide() {
+      var v1Active = (currentVideoTab === 0);
+      var v2Active = (currentVideoTab === 1);
+      var v3Active = (currentVideoTab === 2);
+
+      return '<div style="display:flex; flex-direction:column; gap:0.8rem;">' +
+        '<div style="display:flex; flex-wrap:wrap; gap:0.5rem;">' +
+          '<button type="button" class="btn-action ' + (v1Active ? '' : 'outline') + '" onclick="selectVideoTab(0)">🎥 ' + tx("الفيديو 1: مركز الطب الاتصالي المرئي (@sanggovsa)", "Video 1: Visual Telemedicine Center (@sanggovsa)") + '</button>' +
+          '<button type="button" class="btn-action ' + (v2Active ? '' : 'outline') + '" onclick="selectVideoTab(1)">🎥 ' + tx("الفيديو 2: برنامج الطب الاتصالي والطوارئ (@NGHAnews)", "Video 2: Tele-Emergency Program (@NGHAnews)") + '</button>' +
+          '<button type="button" class="btn-action ' + (v3Active ? 'gold' : 'outline') + '" onclick="selectVideoTab(2)">📂 ' + tx("تشغيل فيديو من جهازك (بدون إنترنت)", "Play Local Video File (Offline)") + '</button>' +
+        '</div>' +
+        (v1Active ?
+          '<div class="grid-2-asym" style="align-items:center;">' +
+            '<div class="video-box">' +
+              '<div class="video-box-header">' +
+                '<span>🎬 ' + tx("مركز الطب الاتصالي المرئي (@sanggovsa)", "Visual Telemedicine Center (@sanggovsa)") + '</span>' +
+                '<a href="' + URL_TWEET_1 + '" target="_blank" rel="noopener noreferrer" style="color:#fde68a; text-decoration:none;">' + tx("فتح في X ↗", "Open on X ↗") + '</a>' +
+              '</div>' +
+              '<video controls preload="metadata" src="' + VIDEO_MP4_1 + '"></video>' +
+            '</div>' +
+            '<div class="ppt-card emerald" style="display:flex; flex-direction:column; gap:0.7rem;">' +
+              '<div class="card-title">' + tx("📌 الفيديو الأول (حساب وزارة الحرس الوطني الرسمي)", "📌 Official Video 1 (@sanggovsa)") + '</div>' +
+              '<div class="card-desc">' +
+                tx("<strong>النص الرسمي:</strong><br/>«مركز الطب الاتصالي المرئي بالشؤون الصحية — رؤية مبتكرة لتقديم أفضل الخدمات الصحية».<br/><br/>يوضح الفيديو تجهيزات مركز الطب الاتصالي المرئي وكيفية تقديم الاستشارات الطبية عن بُعد.",
+                   "<strong>Official Post:</strong><br/>'Visual Telemedicine Center at @NGHAnews — An innovative vision to deliver the best healthcare services.'<br/><br/>Shows the telemedicine center facilities and how doctors provide remote care.") +
+              '</div>' +
+              '<a href="' + URL_TWEET_1 + '" target="_blank" rel="noopener noreferrer" class="btn-action" style="justify-content:center;">🔗 ' + tx("فتح رابط الفيديو في X", "Open Video Link on X") + ' ↗</a>' +
+            '</div>' +
+          '</div>'
+        : v2Active ?
+          '<div class="grid-2-asym" style="align-items:center;">' +
+            '<div class="video-box">' +
+              '<div class="video-box-header">' +
+                '<span>🎬 ' + tx("برنامج الطب الاتصالي المرئي للطوارئ (@NGHAnews)", "Visual Tele-Emergency Program (@NGHAnews)") + '</span>' +
+                '<a href="' + URL_TWEET_2 + '" target="_blank" rel="noopener noreferrer" style="color:#fde68a; text-decoration:none;">' + tx("فتح في X ↗", "Open on X ↗") + '</a>' +
+              '</div>' +
+              '<video controls preload="metadata" src="' + VIDEO_MP4_2 + '"></video>' +
+            '</div>' +
+            '<div class="ppt-card emerald" style="display:flex; flex-direction:column; gap:0.7rem;">' +
+              '<div class="card-title">' + tx("📌 الفيديو الثاني (حساب الشؤون الصحية @NGHAnews)", "📌 Official Video 2 (@NGHAnews)") + '</div>' +
+              '<div class="card-desc">' +
+                tx("<strong>النص الرسمي:</strong><br/>«برنامج الطب الاتصالي المرئي يشمل أقسام الطوارئ (ولأول مرة في المملكة)، العيادات الأولية، والعيادات التخصصية — لتحقيق الرعاية الصحيحة في وقتها».",
+                   "<strong>Official Post:</strong><br/>'The Visual Telemedicine Program includes Emergency Departments (for the first time in Saudi Arabia), Primary Care Clinics, and Specialty Clinics—delivering the right care at the right time.'") +
+              '</div>' +
+              '<a href="' + URL_TWEET_2 + '" target="_blank" rel="noopener noreferrer" class="btn-action" style="justify-content:center;">🔗 ' + tx("فتح رابط الفيديو في X", "Open Video Link on X") + ' ↗</a>' +
+            '</div>' +
+          '</div>'
+        :
+          '<div class="grid-2" style="align-items:center;">' +
+            '<div class="ppt-card amber" style="display:flex; flex-direction:column; gap:0.7rem;">' +
+              '<div class="card-title">📂 ' + tx("إضافة أو تشغيل فيديو من جهازك", "Load a Video from Your Computer") + '</div>' +
+              '<div class="card-desc">' +
+                tx("اختر أي ملف فيديو (MP4 / WebM / MOV) محفوظ على جهازك وسيعمل مباشرة داخل هذه الشريحة بدون الحاجة للإنترنت:",
+                   "Select any video file (MP4 / WebM / MOV) saved on your device to play it directly on this slide without internet:") +
+              '</div>' +
+              '<input type="file" accept="video/*" onchange="loadLocalVideoFile(this)" style="padding:0.5rem; background:#ffffff; border:1px solid #cbd5e1; border-radius:8px; font-family:inherit;" />' +
+            '</div>' +
+            '<div class="video-box">' +
+              '<div class="video-box-header"><span>🎬 ' + tx("مشغل الفيديو المحلي", "Local Video Player") + '</span></div>' +
+              '<video id="customLocalVideoPlayer" controls style="min-height:250px;"></video>' +
+            '</div>' +
+          '</div>'
+        ) +
+      '</div>';
+    }
+
+    function selectVideoTab(idx) { currentVideoTab = idx; renderCurrentSlide(); }
+
+    function loadLocalVideoFile(inputEl) {
+      if (inputEl.files && inputEl.files[0]) {
+        var fileUrl = URL.createObjectURL(inputEl.files[0]);
+        var v = document.getElementById('customLocalVideoPlayer');
+        if (v) { v.src = fileUrl; v.play(); }
+      }
+    }
+
+    var quizQuestions = [
+      {
+        id: 0,
+        qAr: "1. شخص لديه زكام وألم حلق خفيف بدون ضيق تنفس. ما التصرف الصحيح؟",
+        qEn: "1. A person has a cold and mild sore throat without trouble breathing. Best choice?",
+        optsAr: ["يطلب «طب الطوارئ الاتصالي المرئي» من تطبيق ملفي", "يذهب لقسم الطوارئ وينتظر ساعات"],
+        optsEn: ["Request 'Visual Tele-Emergency' on the Malffi app", "Go to the Hospital ER and wait for hours"],
+        ans: 0
+      },
+      {
+        id: 1,
+        qAr: "2. هل يوفر طبيب الطوارئ الاتصالي العلاج والإجازة المرضية والتوجيه للطوارئ عند الحاجة؟",
+        qEn: "2. Does the Tele-Emergency doctor provide treatment, sick leave, and ER guidance if needed?",
+        optsAr: ["نعم، يقدم العلاج والإجازة إذا لزم، ويوجه للطوارئ عند الحاجة", "لا، الخدمة للأسئلة فقط بدون علاج أو إجازة"],
+        optsEn: ["Yes, prescribes treatment, sick leave if needed, and guides to ER", "No, questions only without treatment or sick leave"],
+        ans: 0
+      },
+      {
+        id: 2,
+        qAr: "3. شخص شعر بألم قوي في الصدر مع ضيق شديد في التنفس. ماذا يفعل فوراً؟",
+        qEn: "3. A person has strong chest pain with severe trouble breathing. What should they do right away?",
+        optsAr: ["يتوجه فوراً لقسم الطوارئ بالمستشفى أو يتصل بـ 997", "يستخدم الاتصال المرئي وينتظر"],
+        optsEn: ["Go straight to the Hospital ER or call 997", "Use the video call app and wait"],
+        ans: 0
+      },
+      {
+        id: 3,
+        qAr: "4. كيف تبدأ طلب الخدمة في تطبيق «ملفي»؟",
+        qEn: "4. How do you start requesting the service in the Malffi app?",
+        optsAr: ["الدخول ⬅ المزيد ⬅ الطب الاتصالي المرئي ⬅ طب الطوارئ الاتصالي المرئي", "الذهاب للاستقبال في المستشفى لحجز اتصال"],
+        optsEn: ["Sign in ➔ More ➔ Visual Telemedicine ➔ Visual Tele-Emergency", "Go to the hospital reception desk to book a video call"],
+        ans: 0
+      }
+    ];
+
+    function renderQuizAndContactsSlide() {
+      var qHtml = '<div style="display:flex; flex-direction:column; gap:0.5rem;">';
+      var score = 0;
+      for (var i = 0; i < quizQuestions.length; i++) {
+        var q = quizQuestions[i];
+        var chosen = quizAnswers[q.id];
+        if (chosen === q.ans) score++;
+        var opts = (deckLang === 'en') ? q.optsEn : q.optsAr;
+
+        qHtml += '<div class="ppt-card" style="padding:0.6rem 0.8rem;">' +
+          '<div style="font-size:0.8rem; font-weight:900; margin-bottom:0.3rem;">' + tx(q.qAr, q.qEn) + '</div>' +
+          '<div class="grid-2" style="gap:0.35rem;">';
+        for (var j = 0; j < opts.length; j++) {
+          var isSelected = (chosen === j);
+          var bg = '#f8fafc';
+          var col = '#0f172a';
+          if (typeof chosen === 'number') {
+            if (j === q.ans) { bg = '#047857'; col = '#ffffff'; }
+            else if (isSelected) { bg = '#dc2626'; col = '#ffffff'; }
+          }
+          qHtml += '<button type="button" onclick="answerFinalQuiz(' + q.id + ',' + j + ')" style="border:1px solid #cbd5e1; background:' + bg + '; color:' + col + '; padding:0.4rem 0.6rem; border-radius:8px; font-size:0.74rem; font-weight:800; text-align:start; cursor:pointer; font-family:inherit;">' + opts[j] + '</button>';
+        }
+        qHtml += '</div></div>';
+      }
+      qHtml += '</div>';
+
+      var contactHtml = '<div style="display:flex; flex-direction:column; gap:0.65rem;">' +
+        '<div class="ppt-card emerald" style="display:flex; justify-content:space-between; align-items:center;">' +
+          '<div><div style="font-size:0.88rem; font-weight:900;">🏆 ' + tx("نتيجة المراجعة", "Review Score") + '</div><div style="font-size:0.74rem; color:#065f46;">' + tx("اضغط على الإجابات للتحقق", "Click answers to check") + '</div></div>' +
+          '<div style="font-size:1.3rem; font-weight:900; color:#047857;">' + score + ' / ' + quizQuestions.length + '</div>' +
+        '</div>' +
+        '<table class="ppt-table">' +
+          '<thead><tr><th>' + tx("المستشفى / الجهة", "Hospital / Service") + '</th><th>' + tx("المدينة", "City") + '</th><th>' + tx("رقم التواصل", "Phone Number") + '</th></tr></thead>' +
+          '<tbody>' +
+            '<tr><td><strong>' + tx("مدينة الملك عبدالعزيز الطبية", "King Abdulaziz Medical City") + '</strong></td><td>' + tx("جدة", "Jeddah") + '</td><td dir="ltr" style="font-weight:900; color:#047857;">+966-12-2266666</td></tr>' +
+            '<tr><td><strong>' + tx("مدينة الملك عبدالعزيز الطبية", "King Abdulaziz Medical City") + '</strong></td><td>' + tx("الرياض", "Riyadh") + '</td><td dir="ltr" style="font-weight:900; color:#047857;">+966-11-8011111</td></tr>' +
+            '<tr><td><strong>' + tx("مستشفى الأمير محمد بن عبدالعزيز", "Prince Mohammed Bin Abdulaziz Hospital") + '</strong></td><td>' + tx("المدينة المنورة", "Madinah") + '</td><td dir="ltr" style="font-weight:900; color:#047857;">+966-14-8669999</td></tr>' +
+            '<tr><td><strong style="color:#dc2626;">' + tx("الهلال الأحمر السعودي (للحالات الخطيرة)", "Saudi Red Crescent (Emergencies)") + '</strong></td><td>' + tx("جميع المناطق", "All KSA") + '</td><td dir="ltr" style="font-weight:900; color:#dc2626;">997</td></tr>' +
+          '</tbody>' +
+        '</table>' +
+      '</div>';
+
+      return '<div class="grid-2">' + qHtml + contactHtml + '</div>';
+    }
+
+    function answerFinalQuiz(qId, optIdx) { quizAnswers[qId] = optIdx; renderCurrentSlide(); }
+
+    function updateUiChromeLanguage() {
+      var htmlEl = document.getElementById('htmlRoot');
+      if (deckLang === 'en') {
+        htmlEl.setAttribute('lang', 'en');
+        htmlEl.setAttribute('dir', 'ltr');
+        document.getElementById('uiBrandSub').textContent = 'Ministry of National Guard Health Affairs — King Abdulaziz Medical City, Jeddah';
+        document.getElementById('uiBrandTitle').textContent = 'Visual Tele-Emergency Medicine Service (25 Slides)';
+        document.getElementById('uiLangLabel').textContent = '🌐 Language:';
+        document.getElementById('uiBtnAudio').textContent = 'Audio';
+        document.getElementById('uiBtnNotes').textContent = 'Speaker Notes';
+        document.getElementById('uiBtnLaser').textContent = 'Laser';
+        document.getElementById('uiBtnSlides').textContent = 'Slides (' + slidesData.length + ')';
+        document.getElementById('uiBtnPrint').textContent = 'Print / PDF';
+        document.getElementById('uiNotesHeader').textContent = '🎙️ Speaker Notes for Current Slide:';
+        document.getElementById('uiSorterTitle').textContent = '⊞ Presentation Slides (' + slidesData.length + ' Slides — Click to Jump)';
+        document.getElementById('masterHeaderOrg').textContent = 'Ministry of National Guard Health Affairs • King Abdulaziz Medical City - Jeddah';
+        document.getElementById('masterSourceLink').textContent = '🔗 Official MNGHA Source ↗';
+        document.getElementById('masterFooterBrand').textContent = '🟢 Ministry of National Guard Health Affairs — King Abdulaziz Medical City, Jeddah • Malffi App';
+        document.getElementById('uiBtnPrev').textContent = 'Previous';
+        document.getElementById('uiPrevArrow').textContent = '←';
+        document.getElementById('uiNextArrow').textContent = '→';
+        document.getElementById('uiKeyboardHint').textContent = '| Use Arrow Keys to navigate or switch language at the top';
+      } else {
+        htmlEl.setAttribute('lang', 'ar');
+        htmlEl.setAttribute('dir', 'rtl');
+        document.getElementById('uiBrandSub').textContent = 'الشؤون الصحية بوزارة الحرس الوطني — مدينة الملك عبدالعزيز الطبية بجدة';
+        document.getElementById('uiBrandTitle').textContent = 'خدمة طب الطوارئ الاتصالي المرئي (25 شريحة)';
+        document.getElementById('uiLangLabel').textContent = '🌐 لغة العرض:';
+        document.getElementById('uiBtnAudio').textContent = 'صوت';
+        document.getElementById('uiBtnNotes').textContent = 'ملاحظات الإلقاء';
+        document.getElementById('uiBtnLaser').textContent = 'ليزر';
+        document.getElementById('uiBtnSlides').textContent = 'الشرائح (' + slidesData.length + ')';
+        document.getElementById('uiBtnPrint').textContent = 'طباعة PDF';
+        document.getElementById('uiNotesHeader').textContent = '🎙️ ملاحظات المتحدث للشريحة الحالية:';
+        document.getElementById('uiSorterTitle').textContent = '⊞ فهرس شرائح العرض التقديمي (' + slidesData.length + ' شريحة — اضغط للانتقال)';
+        document.getElementById('masterHeaderOrg').textContent = 'وزارة الحرس الوطني - الشؤون الصحية • مدينة الملك عبدالعزيز الطبية بجدة';
+        document.getElementById('masterSourceLink').textContent = '🔗 المصدر الرسمي (MNGHA) ↗';
+        document.getElementById('masterFooterBrand').textContent = '🟢 وزارة الحرس الوطني - الشؤون الصحية — مدينة الملك عبدالعزيز الطبية بجدة • تطبيق «ملفي»';
+        document.getElementById('uiBtnPrev').textContent = 'الشريحة السابقة';
+        document.getElementById('uiPrevArrow').textContent = '→';
+        document.getElementById('uiNextArrow').textContent = '←';
+        document.getElementById('uiKeyboardHint').textContent = '| استخدم الأسهم للتنقل أو زر اللغة بالأعلى للتبديل بين العربية و English';
+      }
+    }
+
+    function renderCurrentSlide() {
+      updateUiChromeLanguage();
+      var s = slidesData[currentSlide];
+      var numStr = (currentSlide + 1 < 10) ? ('0' + (currentSlide + 1)) : ('' + (currentSlide + 1));
+
+      if (deckLang === 'en') {
+        document.getElementById('masterSlideTitle').textContent = s.titleEn;
+        document.getElementById('masterSlideSub').textContent = s.subEn;
+        document.getElementById('masterSectionPill').textContent = s.sectionEn;
+        document.getElementById('presenterNotesText').textContent = s.notesEn;
+        document.getElementById('masterHelperText').textContent = '💡 ' + s.helperEn;
+        document.getElementById('masterFooterCounter').textContent = 'Slide ' + (currentSlide + 1) + ' of ' + slidesData.length;
+        document.getElementById('bottomSlideCounter').textContent = 'Slide ' + (currentSlide + 1) + ' of ' + slidesData.length;
+        document.getElementById('uiBtnNext').textContent = (currentSlide === slidesData.length - 1) ? 'Back to Slide 1' : 'Next';
+        document.getElementById('masterSourceLink').href = s.sourceUrlEn || URL_REQ_ER_EN;
+      } else {
+        document.getElementById('masterSlideTitle').textContent = s.titleAr;
+        document.getElementById('masterSlideSub').textContent = s.subAr;
+        document.getElementById('masterSectionPill').textContent = s.sectionAr;
+        document.getElementById('presenterNotesText').textContent = s.notesAr;
+        document.getElementById('masterHelperText').textContent = '💡 ' + s.helperAr;
+        document.getElementById('masterFooterCounter').textContent = 'شريحة ' + (currentSlide + 1) + ' من ' + slidesData.length;
+        document.getElementById('bottomSlideCounter').textContent = 'شريحة ' + (currentSlide + 1) + ' من ' + slidesData.length;
+        document.getElementById('uiBtnNext').textContent = (currentSlide === slidesData.length - 1) ? 'العودة للشريحة الأولى' : 'الشريحة التالية';
+        document.getElementById('masterSourceLink').href = s.sourceUrlAr || URL_REQ_ER;
+      }
+
+      var pill = document.getElementById('masterSectionPill');
+      pill.className = s.sectionRed ? 'section-pill red' : 'section-pill';
+
+      document.getElementById('masterSlideBadge').textContent = numStr + ' / ' + slidesData.length;
+      document.getElementById('masterSlideBody').innerHTML = s.render();
+
+      var pct = ((currentSlide + 1) / slidesData.length) * 100;
+      document.getElementById('slideProgressBar').style.width = pct + '%';
+      document.getElementById('prevSlideBtn').disabled = (currentSlide === 0);
+
+      renderThumbnails();
+    }
+
+    function renderThumbnails() {
+      var grid = document.getElementById('pptThumbnailsGrid');
+      if (!grid) return;
+      var html = '';
+      for (var i = 0; i < slidesData.length; i++) {
+        var s = slidesData[i];
+        var numStr = (i + 1 < 10) ? ('0' + (i + 1)) : ('' + (i + 1));
+        var act = (i === currentSlide) ? ' active' : '';
+        var tTitle = (deckLang === 'en') ? s.titleEn : s.titleAr;
+        html += '<button type="button" class="thumb-card' + act + '" onclick="goToSlide(' + i + '); toggleSlideSorter();">' +
+          '<div style="display:flex; justify-content:space-between; width:100%; font-size:0.7rem; font-weight:900; color:#fbbf24;"><span>' + (deckLang === 'en' ? 'Slide ' : 'شريحة ') + numStr + '</span><span>MNGHA</span></div>' +
+          '<div style="font-size:0.76rem; font-weight:800; line-height:1.35;">' + tTitle + '</div>' +
+        '</button>';
+      }
+      grid.innerHTML = html;
+    }
+
+    function setPresentationLang(lang) {
+      deckLang = lang;
+      document.getElementById('deckLang-ar').className = (lang === 'ar') ? 'lang-btn active' : 'lang-btn';
+      document.getElementById('deckLang-en').className = (lang === 'en') ? 'lang-btn active' : 'lang-btn';
+      renderCurrentSlide();
+      showToast(lang === 'en' ? 'Switched to Full English Mode' : 'تم التبديل إلى اللغة العربية');
+    }
+
+    function goToSlide(idx) {
+      if (idx < 0 || idx >= slidesData.length) return;
+      currentSlide = idx;
+      renderCurrentSlide();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextSlide() {
+      if (currentSlide < slidesData.length - 1) goToSlide(currentSlide + 1);
+      else goToSlide(0);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) goToSlide(currentSlide - 1);
+    }
+
+    function togglePresenterNotes() { document.getElementById('presenterNotesPanel').classList.toggle('open'); }
+    function toggleSlideSorter() { document.getElementById('slideSorterDrawer').classList.toggle('open'); }
+
+    function toggleLaserPointer() {
+      laserActive = !laserActive;
+      document.getElementById('laserPointerDot').style.display = laserActive ? 'block' : 'none';
+      showToast(laserActive ? (deckLang === 'en' ? 'Laser Pointer On 🔴' : 'تم تفعيل مؤشر الليزر 🔴') : (deckLang === 'en' ? 'Laser Pointer Off' : 'تم إيقاف مؤشر الليزر'));
+    }
+
+    document.addEventListener('mousemove', function(e) {
+      if (!laserActive) return;
+      var dot = document.getElementById('laserPointerDot');
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
+
+    function togglePptFullscreen() {
+      try {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+        else document.exitFullscreen();
+      } catch (e) {}
+    }
+
+    function speakCurrentSlide() {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      var s = slidesData[currentSlide];
+      var txt = (deckLang === 'en') ? (s.titleEn + '. ' + s.helperEn) : (s.titleAr + ' . ' + s.helperAr);
+      var u = new SpeechSynthesisUtterance(txt);
+      u.lang = (deckLang === 'en') ? 'en-US' : 'ar-SA';
+      window.speechSynthesis.speak(u);
+      showToast(deckLang === 'en' ? '🔊 Reading slide...' : '🔊 جاري القراءة الصوتية...');
+    }
+
+    function showToast(msg) {
+      var t = document.getElementById('toastBanner');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(function() { t.style.display = 'none'; }, 2400);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (deckLang === 'en') {
+        if (e.key === 'ArrowRight') nextSlide();
+        else if (e.key === 'ArrowLeft') prevSlide();
+      } else {
+        if (e.key === 'ArrowLeft') nextSlide();
+        else if (e.key === 'ArrowRight') prevSlide();
+      }
+    });
+
+    window.onload = function() {
+      var slots = document.querySelectorAll('.mngha-logo-slot');
+      for (var i = 0; i < slots.length; i++) {
+        slots[i].innerHTML = mnghaLogoSvgMarkup;
+      }
+      renderCurrentSlide();
+    };
+  </script>
+</body>
+</html>
